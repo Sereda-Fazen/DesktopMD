@@ -35,6 +35,12 @@ class Login
 
     }
 
+    public function loginAccount()
+    {
+        $I = $this->tester;
+        $I->amOnPage(self::$URL2);
+
+    }
 
     public function loginInvalid($name, $password)
     {
