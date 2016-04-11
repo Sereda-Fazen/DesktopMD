@@ -1,9 +1,11 @@
 <?php
 use \Step\Acceptance;
 
-class TestCest
+/**
+ * @group test
+ */
+class SearchCest
 {
-
 
     function checkSearchInvalid(Page\Search $search, \AcceptanceTester $I) {
         $search->search();
@@ -27,6 +29,9 @@ class TestCest
         $I->seeElement('//div[@class="gsc-result-info"]');
         $I->see('Lawn Garden Tractors','//div[@class="std"]');
     }
+
+
+
 
 
 

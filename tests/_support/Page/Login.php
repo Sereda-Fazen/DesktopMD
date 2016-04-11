@@ -8,13 +8,13 @@ class Login
 
     public static $URL = '/';
     public static $URL2 = 'customer/account/login/';
-    public static $clickLogIn = 'a.login_click';
+    public static $clickLogIn = '//div[@class="fright"]/ul/li[3]/a[1]';
 
     public static $email = '#email';
     public static $pass = '#pass';
     public static $submit = '[name="send"] > span > span';
 
-    public static $logout = 'li.dropit-trigger > a';
+    public static $logout = '//div[@class="fright"]/ul/li[3]/a[2]';
 
     public static $msg = 'div.col-main > p';
 
@@ -31,9 +31,6 @@ class Login
     {
         $I = $this->tester;
         $I->amOnPage(self::$URL);
-        try {$I->waitForElementVisible('i.mc_embed_close.fa.fa-times.disabled-start');
-            $I->click('i.mc_embed_close.fa.fa-times.disabled-start'); } catch (Exception $e) {}
-        $I->wait(2);
         $I->click(self::$clickLogIn);
 
     }

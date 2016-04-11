@@ -52,21 +52,6 @@ class LoginSteps extends \AcceptanceTester
             }
         }
 
-        public function giftCardEmpty()
-        {
-            $I = $this;
-            $I->click('button.form-button.button.addredeem > span');
-            for ($c = 9; $c >= 0; $c--) {
-                $card = rand();
-                $I->fillField('#gift-voucher-code', $card);
-                $I->click('div.text-left > button:nth-of-type(1) > span > span');
-                $I->see('Gift card "' . $card . '" is invalid.You have ' . $c . ' time(s) remaining to re-enter Gift Card code.','li.error-msg');
-            }
-            $I->fillField('#gift-voucher-code', $card);
-            $I->click('div.text-left > button:nth-of-type(1) > span > span');
-        }
-
-
 
 
 
