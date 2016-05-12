@@ -2,7 +2,7 @@
 use \Step\Acceptance;
 
 /**
- * @group test
+ * @group search
  */
 class SearchCest
 {
