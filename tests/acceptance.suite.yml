@@ -7,39 +7,34 @@ modules:
 
     config:
         WebDriver:
-            url: 'https://www.mowdirect.co.uk/'
-            browser: chrome
-
-            window_size: 1980x1780
+            url: 'http://mowdirect.co.uk/'
             restart: false
+            browser: chrome
+            window_size: 1980x1780
+            clear_cookies: false
 
 
-            # --run in browserstack--
+# --run in browserstack--
 
             #host: 'hub.browserstack.com'
             #port: 80
 
-            browser: chrome
 
-
-            restart: false
-            #wait: 13
-            #clear_cookies: false
+# -- login in browserstack
 
             capabilities:
              browserstack.user: 'cadencewatch1'
              browserstack.key: 'RG12s8tJvQ9p3pZuxWzf'
-             #browserstack.user: 'vladshalda1'
-             #browserstack.key: 'vMqut6yLFsfbhDzhB643'
-             resolution:  1920x1080
 
 
              browserstack.debug: 'true'
-             #applicationCacheEnabled: false
              unexpectedAlertBehaviour: 'accept'
              pageLoadStrategy: 'eager'
-             os: 'WINDOWS'
-             os_version: 7
+
+
+
+
+
 
 
 env:
