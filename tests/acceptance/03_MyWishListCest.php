@@ -34,8 +34,13 @@ class MyWishListCest
     function checkWishlistOnEmail(\Step\Acceptance\EmailSteps $I){
         $I->loginEmail();
     }
+
     function returnWishListRemoveItem(Page\MyWishList $myWishList) {
         $myWishList->removeItem();
+    }
+
+    function addItemsInWishlist(Page\MyWishList $myWishList) {
+        $myWishList->addItemsInWishlist();
     }
     
 

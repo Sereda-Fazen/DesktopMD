@@ -21,6 +21,11 @@ class MyWishList
     public static $addNewItem = '//li[@class="item first"]';
     public static $seeLastEven = '//tr[@class="last even"]';
 
+    // add to basket
+
+    public static $addBasket = '//div[@class="buttons-set buttons-set2"]/button[2]';
+    public static $removeFromCart = '//td[@class="a-center product-cart-remove last"]/a';
+
     //remove
 
     public static $clickRemove = '//tr[@class="last even"]/td[6]/a';
@@ -74,7 +79,7 @@ class MyWishList
         $I->click(self::$seeAddToWishList);
         $I->waitForElement(self::$successMsg);
         $I->waitForElement(self::$seeLastEven);
-
+        
     }
 
 
@@ -121,6 +126,25 @@ class MyWishList
         $I->acceptPopup();
         $I->waitForElement(self::$seeEmptyList);
         $I->see('You have no items in your wishlist.',self::$seeEmptyList);
+    }
+
+    public function addItemsInWishlist(){
+        $I = $this->tester;
+        self::checkItems();
+        $I->waitForElement(self::$addBasket);
+        $I->click(self::$addBasket);
+        $I->waitForElement(self::$successMsg);
+        $I->see('2 product(s) have been added to shopping basket:',self::$successMsg);
+
+        $I->waitForElement(self::$removeFromCart);
+        $I->click(self::$removeFromCart);
+        $I->waitForElement(self::$removeFromCart);
+        $I->click(self::$removeFromCart);
+
+        $I->waitForText('Your Basket is empty...');
+
+
+        
     }
 
 
