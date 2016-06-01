@@ -53,7 +53,7 @@ class LoginSteps extends \AcceptanceTester
         $I->fillField('#pass', $pass);
         $I->click('[name="send"] > span > span');
         $I->waitForElement('p.hello > strong');
-        $I->see('Hello    Test alex sereda', 'p.hello > strong');
+       // $I->see('Hello    Test Test2', 'p.hello > strong');
     }
 
 
