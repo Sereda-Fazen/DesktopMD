@@ -111,17 +111,9 @@ class Checkout
         $I->click(self::$keepContinue);
         $I->waitForElement(self::$mainPage);
 */
-
-
-
-
-
-
-
-
+        
     }
-
-
+    
 
 
     
