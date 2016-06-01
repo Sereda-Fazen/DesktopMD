@@ -4,20 +4,23 @@ use \Step\Acceptance;
 /**
  * @group checkout
  */
-class CheckoutCest
+class TractorSaleCest
 {
 
     function loginSuccess(Step\Acceptance\LoginSteps $I) {
         $I->loginSuccess('mowdirect@gmail.com','123456');
     }
-
-    function selectItem(\Step\Acceptance\CheckoutSteps $I){
-        $I->addToBasketItem();
+    
+    function addToBasketTractor(\Step\Acceptance\CheckoutSteps $I){
+        $I->addToBasketTractor();
     }
 
-    function checkOrder(\Page\Checkout $checkoutPage){
+    function checkOrderTractor(\Page\Checkout $checkoutPage){
         $checkoutPage->checkOrder();
     }
+
+    
+
 
 }
 
