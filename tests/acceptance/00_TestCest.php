@@ -11,11 +11,11 @@ class TestCest
         $I->loginSuccess('mowdirect@gmail.com','123456');
     }
 
-    function selectBrandTwoBrands(\Step\Acceptance\CheckoutSteps $I){
-        $I->selectBrandTwoBrands();
+    function multipleNumberProducts(\Step\Acceptance\CheckoutSteps $I){
+        $I->multipleNumberProducts();
     }
-    
-    function checkOrderTractor(\Page\Checkout $checkoutPage)
+
+    function checkOrderMultipleProducts(\Page\Checkout $checkoutPage)
     {
         $checkoutPage->checkOrder();
     }

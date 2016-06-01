@@ -61,14 +61,33 @@ class CheckoutCest
      */
 
 
-    function selectBrandTwoBrands(\Step\Acceptance\CheckoutSteps $I){
-        $I->selectBrandTwoBrands();
+    function selectTwoBrands(\Step\Acceptance\CheckoutSteps $I){
+        $I->selectTwoBrands();
     }
 
     function checkOrderMultipleTractor(\Page\Checkout $checkoutPage)
     {
         $checkoutPage->checkOrder();
     }
+
+    /**
+     * @param Acceptance\CheckoutSteps $I
+     * T923_Purchase Multiple Number of Products
+     */
+
+    function multipleNumberProducts(\Step\Acceptance\CheckoutSteps $I){
+        $I->multipleNumberProducts();
+    }
+
+    function checkOrderMultipleProducts(\Page\Checkout $checkoutPage)
+    {
+        $checkoutPage->checkOrder();
+    }
+    
+
+    
+    
+    
 
 
 
