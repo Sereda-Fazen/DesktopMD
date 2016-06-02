@@ -11,14 +11,15 @@ class TestCest
         $I->loginSuccess('mowdirect@gmail.com','123456');
     }
 
-    function multipleNumberProducts(\Step\Acceptance\CheckoutSteps $I){
-        $I->multipleNumberProducts();
+    function addToBasketTractor(\Step\Acceptance\CheckoutSteps $I){
+        $I->addToBasketTractor();
     }
 
-    function checkOrderMultipleProducts(\Page\Checkout $checkoutPage)
-    {
+    function checkOrderTractor(\Page\Checkout $checkoutPage){
         $checkoutPage->checkOrder();
     }
+
+
 
 
 }

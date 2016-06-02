@@ -5,7 +5,7 @@ use Step\Acceptance;
  */
 class LoginCest
 {
-    function loginSuccess(Step\Acceptance\Steps $I, \Page\Login $loginPage) {
+    function loginSuccess(AcceptanceTester $I, \Page\Login $loginPage) {
         $loginPage->login();
         $loginPage->loginInvalid('test_mowdirect@yahoo.co.uk', '123456');
         $I->see('From your My Account Dashboard you have the ability to view','div.welcome-msg');

@@ -2,6 +2,8 @@
 namespace Page;
 
 
+use Exception;
+
 class Checkout
 {
 
@@ -74,7 +76,9 @@ class Checkout
         $I->waitForText('Delivery Information');
         $I->waitForElement(self::$useAddress);
         $I->waitForElementVisible(self::$continue2);
-        $I->click(self::$continue2);
+        try { $I->waitForElement(self::$continue2);
+            $I->click(self::$continue2);
+        } catch (Exception $e) {}
 
         $I->waitForElement(self::$showMethod);
         $I->waitForText('Delivery Method');
