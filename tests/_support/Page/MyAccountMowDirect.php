@@ -37,20 +37,34 @@ class MyAccountMowDirect
     public static $regionHautes = './/*[@id="region_id"]/option[22]';
     public static $regionBayern = '//*[@id="region_id"]/option[4]';
     public static $postcodeField = '//*[@id="zip"]';
-    public static $saveDefaultAddressButton ='//*[@class="buttons-set"]/button';
+    public static $saveDefaultAddressButton =' //div[@class="buttons-set"]//button/span';
+
+
     public static $assertEditAddress = '//*[@class="page-title"]/h1';
     public static $defaultBillingAddressCheckbox = '//*[@id="primary_billing"]';
     public static $defaultShippingAddressCheckbox = '//*[@id="primary_shipping"]';
     public static $deleteAddress = '//*[@class="col-2 addresses-additional"]//li[1]/p/a[2]';
 
 
+    public static $URL3 = '/sales/order/history/';
     public static $myOrders = '//*[@class="main"]/div[2]/div/div[2]/ul/li[4]';
+    public static $viewOrderLink = '//*[@class="nobr"]/a[1]';
     public static $myWishList = '//*[@class="main"]/div[2]/div/div[2]/ul/li[5]';
+    public static $assertTitle = '//*[@class="page-title title-buttons"]/h1';
+    public static $reorderLink = '//*[@class="link-reorder"]';
 
     public static $newsletterSubscription = '//*[@class="main"]/div[2]/div/div[2]/ul/li[8]';
     public static $assertNewsletterPage = '//*[@class="col-main std"]/h2';
-    public static $newsletterCheckbox = './/*[@id="list-b33a1ab066"]';
-    public static $newsletterSaveButton = './/*[@id="mailchimp-additional"]/div[2]/button';
+    public static $newsletterCheckbox = '//*[@id="list-b33a1ab066"]';
+    public static $newsletterSaveButton = '//*[@id="mailchimp-additional"]/div[2]/button';
+
+    public static $URL4 = '/invitation/';
+    public static $myInvitations = '//*[@class="main"]/div[2]/div/div[2]/ul/li[11]';
+    public static $sendInvitationsButton = '//*[@class="button"]';
+    public static $assertInvitationPage = '//*[@class="my-account"]//h1';
+    public static $inputEmailField1 = '//*[@id="invitationForm"]/div[1]/ul/li[1]/div/input';
+    public static $sendInvitation = '//*[@class="buttons-set form-buttons"]/button';
+    public static $assertSuccessMessage = '//*[@class="success-msg"]//span';
 
 
     protected $tester;
@@ -153,10 +167,36 @@ class MyAccountMowDirect
         $I->waitForElement(self::$assertNewsletterPage);
         $I->click(self::$newsletterCheckbox);
         $I->click(self::$newsletterSaveButton);
+    }
 
+    public function orderReorderCheck (){
+        $I= $this ->tester;
+        $I->amOnPage(self::$URL3);
+        $I->waitForElement(self::$viewOrderLink);
+        $I->click(self::$viewOrderLink);
+        $I->waitForElement(self::$assertTitle);
+        $I->see('Order', self::$assertTitle);
+        $I->click(self::$reorderLink);
+        $I->waitForElement(self::$assertTitle);
+        $I->see('Your Basket', self::$assertTitle);
+    }
 
+    public function myInvitationsCheck ($testEmail){
+        $I= $this ->tester;
+        $I->amOnPage(self::$URL4);
+        $I->waitForElement(self::$assertInvitationPage);
+        $I->see('My Invitations', self::$assertInvitationPage);
+        $I->click(self::$sendInvitationsButton);
+        $I->waitForElement(self::$assertInvitationPage);
+        $I->see('Send Invitations', self::$assertInvitationPage);
+        $I->fillField(self::$inputEmailField1,$testEmail);
+        $I->click(self::$sendInvitation);
+        $I->waitForElement(self::$assertSuccessMessage);
+        $I->see('Invitation for',self::$assertSuccessMessage);
 
     }
+
+
 
 
 
