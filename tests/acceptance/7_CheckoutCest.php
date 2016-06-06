@@ -83,6 +83,21 @@ class CheckoutCest
     {
         $checkoutPage->checkOrder();
     }
+
+
+    function purchaseTractorOption(\Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage){
+        $checkoutPage->purchaseTractorOption('Lawnflite accessories optional');
+        
+    }
+
+    function checkOrderTractorOption(\Page\Checkout $checkoutPage)
+    {
+        $checkoutPage->checkOrder();
+    }
+
+
+
+
     
 
     

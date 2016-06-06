@@ -11,11 +11,13 @@ class TestCest
         $I->loginSuccess('mowdirect@gmail.com','123456');
     }
 
-    function addToBasketTractor(\Step\Acceptance\CheckoutSteps $I){
-        $I->addToBasketTractor();
+    function purchaseTractorOption(\Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage){
+        $checkoutPage->purchaseTractorOption('Lawnflite accessories optional');
+
     }
 
-    function checkOrderTractor(\Page\Checkout $checkoutPage){
+    function checkOrderTractorOption(\Page\Checkout $checkoutPage)
+    {
         $checkoutPage->checkOrder();
     }
 
