@@ -2,9 +2,9 @@
 use \Step\Acceptance;
 
 /**
- * @group test
+ * @group categoryNavigation
  */
-class TestCest
+class CategoryNavigationCest
 {
 
     function checkSearchInvalid(Page\CategoryNavigation $category, \Step\Acceptance\ProductsSteps $I) {
@@ -12,6 +12,9 @@ class TestCest
         $category->checkTop10();
         $I->amountTopCategories();
     }
+
+
+
 
 
 
