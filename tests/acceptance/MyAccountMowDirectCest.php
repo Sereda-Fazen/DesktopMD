@@ -17,36 +17,35 @@ class MyAccountMowDirectCest
     }
 
 
-        function AccountInformationChange(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
+        function T939EditContactInformation(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
             $I->loginSuccess('mowdirect@gmail.com', '123456');
             $accountMowDirect->accountInformationMowDirect('Test','Test1','Test2');
         }
 
-        function addDefaultBillingAddress(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
+        function T942EditBillingAddress(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
         //   $I->loginSuccess('mowdirect@gmail.com', '123456');
             $accountMowDirect->addDefaultBillingAddress('Test2','Test2','333333333','Test Address1','Test City1','321321');
-        //    $accountMowDirect->changeShippingAddress('Test3','Test3','4444444','Test Address2','Test City2','231231');
-        //    $accountMowDirect->addNewAddress('Test4','Test4','555555555','Test Address3','Test City3','312312');
+
         }
 
-    function changeShippingAddress(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
+    function T941EditShippingAddress(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
      //   $I->loginSuccess('mowdirect@gmail.com', '123456');
         $accountMowDirect->changeShippingAddress('Test3','Test3','4444444','Test Address2','Test City2','231231');
 
     }
 
-    function addNewAddress(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
+    function T943AddNewAddressIntoTheAddressBook(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
                 $accountMowDirect->addNewAddress('Test4','Test4','555555555','Test Address3','Test City3','312312');
     }
 
-    function orderReorderCheck(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
+    function T937ViewOrderT938ReorderOrder(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
      //   $I->loginSuccess('mowdirect@gmail.com', '123456');
         $accountMowDirect->orderReorderCheck();
     }
 
-    function myInvitationCheck(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
+    function T947SendInvitationToFriend(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
    //     $I->loginSuccess('mowdirect@gmail.com', '123456');
-        $accountMowDirect->myInvitationsCheck('denimio3@gmail.com');
+        $accountMowDirect->myInvitationsCheck('denimio4@gmail.com');
     }
 
 
