@@ -83,6 +83,27 @@ class CheckoutCest
     {
         $checkoutPage->checkOrder();
     }
+
+
+    /**
+     * @param Acceptance\CheckoutSteps $I
+     * @param \Page\Checkout $checkoutPage
+     * T921 Purchase Tractor with custom option
+     */
+
+    function purchaseTractorOption(\Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage){
+        $checkoutPage->purchaseTractorOption('Lawnflite accessories optional');
+
+    }
+
+    function checkOrderTractorOption(\Page\Checkout $checkoutPage)
+    {
+        $checkoutPage->checkOrder();
+    }
+
+
+
+
     
 
     

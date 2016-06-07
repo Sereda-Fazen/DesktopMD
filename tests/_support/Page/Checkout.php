@@ -7,7 +7,6 @@ use Exception;
 class Checkout
 {
 
-
     public static $processCheckout = '//ul[@class="checkout-types top"]//button';
     public static $continue = '//div[@id="billing-buttons-container"]//button';
     public static $formList = '//ul[@class="form-list"]';
@@ -48,6 +47,29 @@ class Checkout
     public static $mainPage = '//div[@class="page-header-container"]';
 
 
+    // purchase optional
+
+    public static $url = '/';
+    public static $search = '#search';
+    public static $clickSearch = '//button[@class="button search-button"]';
+    public static $wait = '//div[@class="gsc-wrapper"]';
+    public static $firstItem = '//div[@class="gsc-webResult gsc-result"]//a';
+    public static $seeLink = '/lawnflite-703-rt-lawn-garden-tractor-ride-on-mower.html';
+    public static $optional = '//div[@class="product-options"]';
+    public static $input1 = '//dd[@class="last"]//li[1]/input';
+    public static $input2 = '//dd[@class="last"]//li[2]/input';
+    public static $input3 = '//dd[@class="last"]//li[3]/input';
+    public static $input1Show = 'input.checkbox.change-container-classname.validation-passed';
+    public static $input2Show = 'ul.options-list > li:nth-of-type(2) > input.checkbox.change-container-classname.validation-passed';
+    public static $input3Show = 'ul.options-list > li:nth-of-type(3) > input.checkbox.change-container-classname.validation-passed';
+    public static $addToCart = '//div[@class="add-to-cart-buttons"]/button';
+    public static $specialProd = '//dl[@class="item-options"]/dt[text()="Exclusive Special Offer"]';
+    public static $accessories = '//dl[@class="item-options"]//dd[text()="Free Lawnflite Trailer worth £199!                            "]';
+    public static $move = '//*[@class="truncated"]';
+    public static $waitAccessories = '//*[@class="truncated_full_value show"]';
+
+
+
     protected $tester;
 
     public function __construct(\AcceptanceTester $I)
@@ -75,8 +97,9 @@ class Checkout
         $I->waitForElement(self::$showDelivery);
         $I->waitForText('Delivery Information');
         $I->waitForElement(self::$useAddress);
-        $I->waitForElementVisible(self::$continue2);
-        try { $I->waitForElement(self::$continue2);
+
+        try {
+            $I->waitForElement(self::$continue2);
             $I->click(self::$continue2);
         } catch (Exception $e) {}
 
@@ -116,6 +139,38 @@ class Checkout
         $I->waitForElement(self::$mainPage);
 */
         
+    }
+
+    public function purchaseTractorOption($optional){
+        $I = $this->tester;
+        $I->amOnPage(self::$url);
+        $I->fillField(self::$search, $optional);
+        $I->click(self::$clickSearch);
+        $I->waitForElement(self::$wait);
+        $I->getVisibleText('Lawnflite');
+        $I->waitForElement(self::$firstItem);
+        $I->click(self::$firstItem);
+       // $I->seeLink('Lawnflite 703 RT Lawn Tractor',self::$seeLink);
+        $I->waitForElement(self::$optional);
+
+        $I->click(self::$input1);
+        $I->waitForElement(self::$input1Show);
+
+        $I->click(self::$input2);
+        $I->waitForElement(self::$input2Show);
+
+        $I->click(self::$input3);
+        $I->waitForElement(self::$input3Show);
+
+        $I->click(self::$addToCart);
+        $I->waitForElement(self::$specialProd);
+        $I->waitForElement(self::$accessories);
+        $I->moveMouseOver(self::$move);
+        $I->waitForElementVisible(self::$waitAccessories);
+
+
+
+
     }
     
 

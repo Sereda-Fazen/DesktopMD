@@ -2,17 +2,30 @@
 use \Step\Acceptance;
 
 /**
- * @group test
+ * @group checkout
  */
-class TestCest
+class ProductsCest
 {
 
+   
     function productsLayout(\Step\Acceptance\ProductsSteps $I, \Page\Checkout $checkoutPage){
         $I->productsLayout();
 
     }
 
 
+
+
+
+    
+
+    
+    
+    
+
+
+
+    
 
 }
 
