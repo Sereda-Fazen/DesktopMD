@@ -50,20 +50,60 @@ class ProductsSteps extends \AcceptanceTester
     }
 
 
+    public function productsLayoutCustomOptions(){
+        $I = $this;
+        $I->waitForElement('//div[@class="gsc-results gsc-webResult"]//a');
+        $I->click('//div[@class="gsc-results gsc-webResult"]//a');
+        $I->waitForElement('//div[@class="category-products"]');
+        $I->click('//*[@class="products-list"]/li//a');
+        $I->waitForElement('//*[@id="product-collateral-id"]');
+        $I->waitForElement('//*[@class="toggle-tabs"]');
+        $count = count($I->grabMultiple('//*[@class="toggle-tabs"]/li'));
+        for ($l = 1; $l <=$count; $l++){
+            $I->click('//*[@class="toggle-tabs"]/li['.$l.']');
+
+            switch ($l){
+                case 1:
+                    $I->waitForElement('//*[@class="product-attributes-container"]');
+                    break;
+                case 2:
+                    $I->waitForElement('//*[@class="tab-container current"]');
+                    break;
+                case 3:
+                    $I->waitForElement('//*[@class="tab-container current"]');
+                    break;
+                case 4:
+                    $I->waitForElement('//*[@class="tab-container last current"]');
+                    break;
+            }
+        }
+
+
+
+    }
+
+
     /**
      * Category Navigation
      */
 
-    public function amountTopCategories(){
+    public function amountTopCategories10()
+    {
         $I = $this;
-        $amount = count($I->grabMultiple('//*[@class="products-list"]/li'));
-        for($a =1; $a <= $amount; $a++){
-            $I->waitForElement('//*[@class="products-list"]/li['.$a.']');
+        for ($a = 1; $a <= 10; $a++) {
+            $I->waitForElement('//*[@class="products-list"]/li[' . $a . ']');
         }
+    }
 
-
-
+    public function amountTopCategories25()
+    {
+        $I = $this;
+        for ($a = 1; $a <= 25; $a++) {
+            $I->waitForElement('//*[@class="products-list"]/li[' . $a . ']');
         }
+    }
+
+        
 
 
 
