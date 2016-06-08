@@ -7,16 +7,9 @@ use \Step\Acceptance;
 class TestCest
 {
 
-    function categoryNavigationTop10(Page\CategoryNavigation $category, \Step\Acceptance\ProductsSteps $I) {
-        $category->home();
-        $category->checkTop10();
-        $I->amountTopCategories10();
-    }
-
-    function categoryNavigationSaleDepartment(Page\CategoryNavigation $category, \Step\Acceptance\ProductsSteps $I) {
-        $category->home();
-        $category->checkTop25();
-        $I->amountTopCategories25();
+    function T960MakeAPayPalPurcase(Step\Acceptance\LoginStepsMowDirect $I, \Page\ShoppingCartMowDirect $shoppingCartMowDirect) {
+        $shoppingCartMowDirect->addItemToCart();
+        $shoppingCartMowDirect->payPalCheck('yf@itsvit.org','1qazxsw2');
     }
 
 

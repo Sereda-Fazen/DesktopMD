@@ -25,7 +25,7 @@ class ShoppingCartMowDirect
     // Shopping Cart
 
   //  public static $assertYourBasket = '//*[@id="cart_desktop\"]/div[1]/div[1]/h1';
-    public static $payPalCheckoutLink = '//*[@class="paypal-logo"]/a//img';
+    public static $payPalCheckoutLink = '//ul[@class="checkout-types bottom"]/li/p//img';
 
 
     //PayPal Page
@@ -56,7 +56,7 @@ class ShoppingCartMowDirect
 
     public function payPalCheck($email, $pass){
         $I = $this->tester;
-        $I->amOnPage(self::$URL1);
+       // $I->amOnPage(self::$URL1);
         $I->waitForElementVisible(self::$payPalCheckoutLink);
         $I->click(self::$payPalCheckoutLink);
         $I->waitForElement(self::$emailField);
