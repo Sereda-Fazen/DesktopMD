@@ -67,6 +67,7 @@ class MyWishList
         $I->amOnPage(self::$url);
         $I->scrollDown(300);
         $I->waitForElement(self::$ourTops);
+        $I->wait(2);
         $I->click(self::$ourTops);
         $I->waitForElement(self::$seeAddToWishList);
         $I->click(self::$seeAddToWishList);

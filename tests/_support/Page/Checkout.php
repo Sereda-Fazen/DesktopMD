@@ -163,7 +163,7 @@ class Checkout
         $I->waitForElementVisible(self::$continue5);
 
         $I->click(self::$continue5);
-        $I->waitForText('Your order has been received.');
+        $I->waitForText('Your order has been received.',30);
         $I->see('Your order has been received.',self::$seeOrder);
         $I->getVisibleText('Thank you for your purchase!');
         $I->click(self::$keepContinue);

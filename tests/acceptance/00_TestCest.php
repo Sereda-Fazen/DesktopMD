@@ -7,12 +7,22 @@ use \Step\Acceptance;
 class TestCest
 {
 
-    function addToBasketTractor(\Step\Acceptance\CheckoutSteps $I){
-        $I->addToBasketTractor();
-    }
 
-    function checkOrderTractor(\Page\Checkout $checkoutPage){
-        $checkoutPage->checkOrder('mowdirect@gmail.com', '123456');
+    function addToBasketFromWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
+    {
+        $I->loginSuccess('test_mowdirect@yahoo.co.uk', '123456');
+        $myWishList->addItemsInWishlist();
+    }
+    function checkMyWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
+    {
+        $I->loginSuccess('test_mowdirect@yahoo.co.uk', '123456');
+        $myWishList->wishList();
+        $myWishList->checkItems();
+        $myWishList->removeItemFromWishList();
+        $myWishList->addComment();
+        $myWishList->addShare();
+        $I->loginEmail();
+        $myWishList->removeItem();
     }
 
 

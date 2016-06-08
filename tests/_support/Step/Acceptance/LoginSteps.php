@@ -17,17 +17,7 @@ class LoginSteps extends \AcceptanceTester
         }
     }
 
-    public function login()
-        {
-            $I = $this;
-            $I->amOnPage('/');
-            $I->click('//a[@class="login_click"]');
-            $I->waitForElement('#email');
-            $I->fillField('#email', 'denimio_test@yahoo.com');
-            $I->fillField('#pass', '123456');
-            $I->click('Login');
-            $I->see('From your My Account Dashboard','div.welcome-msg > p:nth-of-type(2)');
-        }
+   
 
 
 
