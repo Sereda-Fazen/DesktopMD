@@ -28,10 +28,12 @@ class ShoppingCartMowDirect
     public static $payPalCheckoutLink = '//ul[@class="checkout-types bottom"]/li/p//img';
 
 
+
     //PayPal Page
-    public static $emailField = '//*[@id="email"]';
-    public static $passwordField = '//*[@id="password"]';
-    public static $loginButton = './/*[@id="btnLogin"]';
+    public static $payPalLogo = '//*[@id="paypalLogo"]';
+    public static $emailField = '//*[@id="login_emaildiv"]/div[1]';
+    public static $passwordField = '#password';
+    public static $loginButton = '#btnLogin';
 
 
 
@@ -54,14 +56,12 @@ class ShoppingCartMowDirect
     //     $I->see('Your Basket',self::$assertYourBasket);
     }
 
-    public function payPalCheck($email, $pass){
+    public function payPalCheck(){
         $I = $this->tester;
        // $I->amOnPage(self::$URL1);
         $I->waitForElementVisible(self::$payPalCheckoutLink);
         $I->click(self::$payPalCheckoutLink);
-        $I->waitForElement(self::$emailField);
-        $I->fillField(self::$emailField, $email);
-        $I->fillField(self::$passwordField, $pass);
-        $I->click(self::$loginButton);
+        $I->waitForElementVisible(self::$payPalLogo);
+
     }
 }
