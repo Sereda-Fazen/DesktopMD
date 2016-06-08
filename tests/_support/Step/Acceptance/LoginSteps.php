@@ -46,7 +46,7 @@ class LoginSteps extends \AcceptanceTester
     public function loginSuccess ($login,$pass)
     {
         $I = $this;
-        $I->amOnPage('/');
+        $I->amOnUrl('http://www.mowdirect.co.uk/');
         $I->waitForElement('//div[@class="fright"]/ul/li[3]/a[1]');
         $I->click('//div[@class="fright"]/ul/li[3]/a[1]');
         $I->fillField('#email',$login);
