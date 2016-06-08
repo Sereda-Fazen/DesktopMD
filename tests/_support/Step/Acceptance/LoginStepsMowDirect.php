@@ -26,4 +26,39 @@ class LoginStepsMowDirect extends \AcceptanceTester
         $I->see('Hello    Test Test1 Test2', 'p.hello > strong');
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////
+
+    public static $LawnTractorsLocator = '//*[@id="wp-nav-container"]/nav/ul/li[2]';
+    public static $HeavyDutyTractors = '//*[@class="item2 active"]/nav/div[4]/h3/a';
+    public static $assertHeavyDutyTractors = '//*[@class="mb-content"]//div/h1';
+    public static $addToBasket1Button = '//*[@class="category-products"]//li[1]/div[2]/div/div[3]/p[1]';
+    public static $headerBasket = '//*[@class="header-minicart"]/a';
+    public static $headerPayPal = '//*[@id="ec_shortcut_cf93769374aae8421f6c6663213e364d"]/img';
+    public static $buttonProceedToCheckout = './/*[@id="cart_desktop"]/div[1]/div[3]//button';
+    public static $assertCheckout = '//*[@id="page-title-scroll"]/h1';
+    public static $emailField = '//*[@class="col-2"]//li[1]/div/input';
+    public static $passwordField = './/*[@class="col-2"]//li[2]/div/input';
+    public static $LoginButton = '//*[@class="col-2"]//button';
+    public static $myAccount = '//*[@class="fright"]/ul/li[3]/a[1]';
+
+    public function loginSuccessCheckoutPage ($login,$pass)
+    {
+        $I = $this;
+        $I->amOnPage('/');
+        $I->moveMouseOver(self::$LawnTractorsLocator);
+        $I->waitForElement(self::$HeavyDutyTractors);
+        $I->click(self::$HeavyDutyTractors);
+        $I->waitForElement(self::$assertHeavyDutyTractors);
+        $I->click(self::$addToBasket1Button);
+        $I->waitForElement(self::$buttonProceedToCheckout);
+        $I->click(self::$buttonProceedToCheckout);
+        $I->waitForElement(self::$assertCheckout);
+        $I->see('Checkout',self::$assertCheckout);
+        $I->fillField(self::$emailField,$login);
+        $I->fillField(self::$passwordField, $pass);
+        $I->click(self::$LoginButton);
+        $I->see('My Account', self::$myAccount);
+
+    }
+
 }

@@ -53,15 +53,17 @@ class ShoppingCartMowDirect
         $I->waitForElement(self::$assertHeavyDutyTractors);
         $I->click(self::$addToBasket1Button);
         $I->waitForElement(self::$payPalCheckoutLink);
-    //     $I->see('Your Basket',self::$assertYourBasket);
-    }
+        }
 
     public function payPalCheck(){
         $I = $this->tester;
-       // $I->amOnPage(self::$URL1);
         $I->waitForElementVisible(self::$payPalCheckoutLink);
         $I->click(self::$payPalCheckoutLink);
         $I->waitForElementVisible(self::$payPalLogo);
 
     }
+
+
+
+
 }
