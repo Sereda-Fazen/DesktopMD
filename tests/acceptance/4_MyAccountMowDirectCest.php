@@ -12,23 +12,23 @@ class MyAccountMowDirectCest
 
 {
 
-    function Search(Step\Acceptance\LoginStepsMowDirect $I, \Page\SearchMowDirect $searchMowDirect) {
-        $searchMowDirect->searchMowDirect('Husvarna 321', 'bds');
-    }
+//    function Search(Step\Acceptance\LoginStepsMowDirect $I, \Page\SearchMowDirect $searchMowDirect) {
+ //       $searchMowDirect->searchMowDirect('Husvarna 321', 'bds');
+  //  }
 
 
-        function T939EditContactInformation(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
+        function T939EditAContactInformation(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
             $I->loginSuccess('mowdirect@gmail.com', '123456');
             $accountMowDirect->accountInformationMowDirect('Test','Test1','Test2');
         }
 
-        function T942EditBillingAddress(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
+        function T942EditABillingAddress(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
         //   $I->loginSuccess('mowdirect@gmail.com', '123456');
             $accountMowDirect->addDefaultBillingAddress('Test2','Test2','333333333','Test Address1','Test City1','321321');
 
         }
 
-    function T941EditShippingAddress(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
+    function T941EditAShippingAddress(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
      //   $I->loginSuccess('mowdirect@gmail.com', '123456');
         $accountMowDirect->changeShippingAddress('Test3','Test3','4444444','Test Address2','Test City2','231231');
 
