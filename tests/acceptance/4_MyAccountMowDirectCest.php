@@ -1,10 +1,7 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: obana
- * Date: 31.05.16
- * Time: 10:46
+ * @group myAccount
  */
 class MyAccountMowDirectCest
 

@@ -7,9 +7,12 @@ use \Step\Acceptance;
 class TestCest
 {
 
-    function T960MakeAPayPalPurcase(Step\Acceptance\LoginStepsMowDirect $I, \Page\ShoppingCartMowDirect $shoppingCartMowDirect) {
-        $shoppingCartMowDirect->addItemToCart();
-        $shoppingCartMowDirect->payPalCheck('yf@itsvit.org','1qazxsw2');
+    function addToBasketTractor(\Step\Acceptance\CheckoutSteps $I){
+        $I->addToBasketTractor();
+    }
+
+    function checkOrderTractor(\Page\Checkout $checkoutPage){
+        $checkoutPage->checkOrder('mowdirect@gmail.com', '123456');
     }
 
 

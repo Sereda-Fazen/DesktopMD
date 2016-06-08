@@ -2,7 +2,7 @@
 use \Step\Acceptance;
 
 /**
- * @group checkout
+ * @group products
  */
 class ProductsCest
 {
@@ -31,7 +31,18 @@ class ProductsCest
         $I->productsLayoutCustomOptions();
     }
 
+    /**
 
+     * @param Acceptance\ProductsSteps $I
+     * @param \Page\Search $search
+     * T935_View a Product Layout with a Banner advert
+     */
+
+    function productsLayoutBannerAdvert(\Step\Acceptance\ProductsSteps $I, \Page\Search $search){
+        $search->search();
+        $search->searchInvalid('Exclusive rear-roller');
+        $I->productsLayoutBannerAdvert();
+    }
 
 
     

@@ -12,6 +12,7 @@ class CheckoutSteps extends \AcceptanceTester
 
     public function addToBasketTractor(){
         $I = $this;
+        $I->amOnPage('/');
         $I->waitForElement('//nav[@class="product-navigation"]/ul/li[2]');
         $I->moveMouseOver('//nav[@class="product-navigation"]/ul/li[2]');
         $I->waitForElementVisible('//div[@class="category"]//ul//a');

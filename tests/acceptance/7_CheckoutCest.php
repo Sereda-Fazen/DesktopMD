@@ -8,20 +8,16 @@ class CheckoutCest
 {
 
     /**
-     * @param Acceptance\LoginSteps $I
+     * @param Acceptance\CheckoutSteps|Acceptance\LoginSteps $I
      * T918_Tractor Sale
      */
 
-    function loginSuccess(Step\Acceptance\LoginSteps $I) {
-        $I->loginSuccess('mowdirect@gmail.com','123456');
-    }
-    
     function addToBasketTractor(\Step\Acceptance\CheckoutSteps $I){
         $I->addToBasketTractor();
     }
 
     function checkOrderTractor(\Page\Checkout $checkoutPage){
-        $checkoutPage->checkOrder();
+        $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
     }
 
     /**
@@ -34,7 +30,7 @@ class CheckoutCest
     }
 
     function checkOrderMower(\Page\Checkout $checkoutPage){
-        $checkoutPage->checkOrder();
+        $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
     }
 
 
@@ -52,7 +48,7 @@ class CheckoutCest
     }
 
     function checkOrderTractorOther(\Page\Checkout $checkoutPage){
-        $checkoutPage->checkOrder();
+        $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
     }
 
     /**
@@ -67,7 +63,7 @@ class CheckoutCest
 
     function checkOrderMultipleTractor(\Page\Checkout $checkoutPage)
     {
-        $checkoutPage->checkOrder();
+        $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
     }
 
     /**
@@ -81,7 +77,7 @@ class CheckoutCest
 
     function checkOrderMultipleProducts(\Page\Checkout $checkoutPage)
     {
-        $checkoutPage->checkOrder();
+        $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
     }
 
 
@@ -98,7 +94,7 @@ class CheckoutCest
 
     function checkOrderTractorOption(\Page\Checkout $checkoutPage)
     {
-        $checkoutPage->checkOrder();
+        $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
     }
 
 

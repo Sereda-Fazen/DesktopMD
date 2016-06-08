@@ -7,6 +7,15 @@ use Exception;
 class Checkout
 {
 
+    //login
+
+    public static $loginForm = '//div[@class="col-2"]';
+    public static $email = '#login-email';
+    public static $pass = '#login-password';
+    public static $submit = '//div[@class="col-2"]//button/span';
+    
+    
+    
     public static $processCheckout = '//ul[@class="checkout-types top"]//button';
     public static $continue = '//div[@id="billing-buttons-container"]//button';
     public static $formList = '//ul[@class="form-list"]';
@@ -77,14 +86,32 @@ class Checkout
         $this->tester = $I;
     }
 
+
+    public function loginInvalid($name, $password)
+    {
+        $I = $this->tester;
+        $I->waitForElement(self::$loginForm);
+        $I->fillField(self::$email, $name);
+        $I->fillField(self::$pass, $password);
+        $I->click(self::$submit);
+
+        return $this;
+    }
+
+
     /**
-     *
+     * @param $name
+     * @param $password
      */
-    public function checkOrder()
+    public function checkOrder($name, $password)
     {
         $I = $this->tester;
         $I->waitForElement(self::$processCheckout);
         $I->click(self::$processCheckout);
+        try {
+            self::loginInvalid($name, $password);
+        } catch (Exception $e) {}
+        
         $I->waitForText('Checkout');
         $I->getVisibleText('Billing Information');
         $I->seeElement(self::$formList);
@@ -112,7 +139,11 @@ class Checkout
         $I->waitForText('Payment Information');
         $I->waitForElementVisible(self::$continue4);
         $I->click(self::$continue4);
-        $I->acceptPopup();
+        try{
+            $I->acceptPopup();
+        } catch (Exception $e) {}
+
+
         $I->click(self::$bankTransfer);
         $I->click(self::$continue4);
 
@@ -130,14 +161,14 @@ class Checkout
         $I->click(self::$agree);
 
         $I->waitForElementVisible(self::$continue5);
-        /*
+
         $I->click(self::$continue5);
         $I->waitForText('Your order has been received.');
         $I->see('Your order has been received.',self::$seeOrder);
         $I->getVisibleText('Thank you for your purchase!');
         $I->click(self::$keepContinue);
         $I->waitForElement(self::$mainPage);
-*/
+
         
     }
 

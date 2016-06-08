@@ -73,13 +73,48 @@ class ProductsSteps extends \AcceptanceTester
                     $I->waitForElement('//*[@class="tab-container current"]');
                     break;
                 case 4:
-                    $I->waitForElement('//*[@class="tab-container last current"]');
+                    $I->waitForElement('//*[@class="tab-container current"]');
                     break;
+                case 5:
+                    $I->waitForElement('//*[@class="box-collateral box-reviews"]');
+                    break;
+                case 6:
+                    $I->waitForElement('//*[@class="tab-content"]');
+                    $I->waitForElement('//div[@id="params"]');
+                    $I->selectOption('//div[@id="params"]//select', '12 Months Classic Credit (19.5% APR)');
+                    $I->fillField('//div[@id="params"]/div[3]/input', '20');
+                    $I->click('//div[@id="params"]/div[5]/input');
+
+                    $I->waitForElement('//span[@id="cost_of_goods"]');
+                    $I->waitForElement('//span[@id="deposit_percentage"]');
+                    $I->waitForElement('//span[@id="deposit_amount"]');
+                    $I->waitForElement('//span[@id="credit_amount"]');
+                    $I->waitForElement('//span[@id="finance_term"][text()="12 months"]');
+                    $I->waitForElement('//span[@id="apr"]');
+                    $I->waitForElement('//span[@id="cost_per_month"]');
+                    $I->waitForElement('//span[@id="monthly_repayment"]');
+                    $I->waitForElement('//span[@id="total"]');
+                    $I->waitForElement('//span[@id="loan_cost"]');
+                    $I->waitForElement('//span[@id="loan_true_cost"]');
+
+
+
             }
         }
 
 
 
+    }
+
+
+    public function productsLayoutBannerAdvert(){
+        $I = $this;
+        $I->waitForElement('//div[@class="gsc-results gsc-webResult"]//a');
+        $I->click('//div[@class="gsc-results gsc-webResult"]//a');
+        $I->waitForElement('//*[@class="lead-article pod"]//div[2]//figcaption/a');
+        $I->click('//*[@class="lead-article pod"]//div[2]//figcaption/a');
+        $I->waitForElement('//div[@class="widget widget-banner"]/ul/li/img');
+        $I->getVisibleText('New and Exclusive');
     }
 
 
