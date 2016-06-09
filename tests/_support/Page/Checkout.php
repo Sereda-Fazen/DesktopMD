@@ -144,6 +144,7 @@ class Checkout
         } catch (Exception $e) {}
 
 
+        $I->waitForElement(self::$bankTransfer);
         $I->click(self::$bankTransfer);
         $I->click(self::$continue4);
 
