@@ -26,8 +26,6 @@ modules:
             capabilities:
              browserstack.user: 'cadencewatch1'
              browserstack.key: 'RG12s8tJvQ9p3pZuxWzf'
-
-
              browserstack.debug: 'true'
              unexpectedAlertBehaviour: 'accept'
              pageLoadStrategy: 'eager'
