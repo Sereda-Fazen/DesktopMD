@@ -8,9 +8,12 @@ class TestCest
 {
 
 
-    function purchaseTractorWithCustomOption(\Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage){
-        $checkoutPage->purchaseTractorOption('Lawnflite accessories optional');
-       // $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
+    function purchaseTractorWithCustomOption(\Step\Acceptance\AccountSteps $I, \Page\MyAccountMowDirect $accountMowDirectPage){
+
+        $I->loginSuccess('mowdirect@gmail.com','123456');
+        $accountMowDirectPage->myAddReview();
+        $I->cycleRate();
+
     }
 
 
