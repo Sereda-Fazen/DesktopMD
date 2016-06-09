@@ -199,10 +199,74 @@ class Checkout
         $I->moveMouseOver(self::$move);
         $I->waitForElementVisible(self::$waitAccessories);
 
+    }
+
+////////////////////////////////////////////////////////////////////////////////////
 
 
+    public static $registerAndCheckoutCheckbox = '//*[@class="col-1"]/ul/li[2]/input';
+    public static $continueRegisterButton = '//*[@id="onepage-guest-register-button"]';
+
+ // Billing Information
+    public static $titleField = '//*[@class="fieldset"]/ul/li[1]/div/div[1]//input';
+    public static $firstNameField = '//*[@class="fieldset"]/ul/li[1]/div/div[2]//input';
+    public static $lastNameField = '//*[@class="fieldset"]/ul/li[1]/div/div[3]//input';
+    public static $emailField = '//*[@class="fieldset"]/ul/li[2]/div/div[1]//input';
+    public static $postCodeField = '//*[@id="billing:postcode"]';
+    public static $addressField = '//*[@id="billing:street1"]';
+    public static $townField = '//*[@id="billing:city"]';
+    public static $mobileField = '//*[@id="billing:telephone"]';
+    public static $password1 = '//*[@id="billing:customer_password"]';
+    public static $password2 = '//*[@id="billing:confirm_password"]';
+    public static $continueBillingButton = '//*[@id="submit_order_billing_button"]';
+
+ // Delivery Method
+
+    public static $assertDeliveryMethod = '//*[@class="sp-methods"]/dt';
+    public static $continueDeliveryButton = '//*[@id="shipping-method-buttons-container"]/button';
+
+ // Payment Information
+
+    public static $chequeBankTransfer = '//*[@id="checkout-payment-method-load"]/dt[2]/label';
+    public static $continuePaymentButton = '//*[@id="payment-save"]';
+
+ // Order Review
+
+    public static $acceptTerms = '//*[@id="agreement-1"]';
+    public static $placeOrderButton = './/*[@id="review-buttons-container"]/button';
+
+
+    public function registerAndBuyOnCheckout($title,$firstName,$lastName,$email,$postCode,$address,$town,$mobile,$password )
+    {
+        $I = $this->tester;
+        // $I->amOnPage(self::$url);
+        $I->click(self::$registerAndCheckoutCheckbox);
+        $I->click(self::$continueRegisterButton);
+        $I->fillField(self::$titleField, $title);
+        $I->fillField(self::$firstNameField, $firstName);
+        $I->fillField(self::$lastNameField, $lastName);
+        $I->fillField(self::$emailField, $email);
+        $I->fillField(self::$postCodeField, $postCode);
+        $I->fillField(self::$addressField, $address);
+        $I->fillField(self::$townField, $town);
+        $I->fillField(self::$mobileField, $mobile);
+        $I->fillField(self::$password1, $password);
+        $I->fillField(self::$password2, $password);
+        $I->click(self::$continueBillingButton);
+        $I->waitForElement(self::$assertDeliveryMethod);
+        $I->see('Free Shipping to UK Mainland', self::$assertDeliveryMethod);
+        $I->click(self::$continueDeliveryButton);
+        $I->waitForElementVisible(self::$chequeBankTransfer);
+        $I->click(self::$chequeBankTransfer);
+        $I->click(self::$continuePaymentButton);
+        $I->waitForElementVisible(self::$acceptTerms);
+        $I->click(self::$acceptTerms);
+        $I->click(self::$placeOrderButton);
 
     }
+
+
+
 
 
 

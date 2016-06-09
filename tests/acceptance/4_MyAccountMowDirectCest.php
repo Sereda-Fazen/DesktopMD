@@ -15,7 +15,7 @@ class MyAccountMowDirectCest
 
 
         function T939EditAContactInformation(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect) {
-            $I->loginSuccess('mowdirect@gmail.com', '123456');
+            $I->loginSuccessCheckoutPage('mowdirect@gmail.com', '123456');
             $accountMowDirect->accountInformationMowDirect('Test','Test1','Test2');
         }
 
