@@ -7,15 +7,21 @@ use \Step\Acceptance;
 class SearchCest
 {
 
-    function checkSearchInvalid(Page\Search $search, \AcceptanceTester $I) {
+    function T926TestSearchWithATermYouExpectToProduceNoResults(Page\Search $search, \AcceptanceTester $I) {
         $search->search();
         $search->searchInvalid('invalid');
         $I->see('No Results', '//div[@class="gs-snippet"]');
     }
 
-    function checkSearchWrong(Page\Search $search, \AcceptanceTester $I) {
-        $search->searchInvalid('инвалид');
-        $I->see('No Results', '//div[@class="gs-snippet"]');
+    function T927TestSearchWithAPlural(Page\Search $search, \AcceptanceTester $I) {
+        $search->searchInvalid('Lawn Garden Tractors');
+        $I->seeElement('//div[@class="gsc-result-info"]');
+        $I->see('Lawn Garden Tractors','//div[@class="std"]');
+    }
+
+    function T928TestSearchWithAMisspelling(Page\Search $search, \AcceptanceTester $I) {
+        $search->search();
+        $search->searchMisspelling('Husqarna 321');
     }
 
     function checkSearchNumber(Page\Search $search, \AcceptanceTester $I) {
@@ -24,11 +30,13 @@ class SearchCest
         $I->see('Search instead for Lawn7Garden', '//div[@class="gsc-webResult gsc-result"]');
     }
 
-    function checkSearchSuccess(Page\Search $search, \AcceptanceTester $I) {
-        $search->searchInvalid('Lawn Garden Tractors');
-        $I->seeElement('//div[@class="gsc-result-info"]');
-        $I->see('Lawn Garden Tractors','//div[@class="std"]');
-    }
+
+    // function checkSearchWrong(Page\Search $search, \AcceptanceTester $I) {
+    //     $search->searchInvalid('инвалид');
+    //     $I->see('No Results', '//div[@class="gs-snippet"]');
+    // }
+
+
 
 
 

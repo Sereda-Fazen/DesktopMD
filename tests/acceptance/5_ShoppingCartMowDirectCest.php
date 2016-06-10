@@ -9,10 +9,10 @@
 class ShoppingCartMowDirectCest
 {
 
- //   function T960MakeAPayPalPurchase(Step\Acceptance\LoginStepsMowDirect $I, \Page\ShoppingCartMowDirect $shoppingCartMowDirect) {
- //       $shoppingCartMowDirect->addItemToCart();
- //       $shoppingCartMowDirect->payPalCheck();
- //   }
+    function T960MakeAPayPalPurchase(Step\Acceptance\LoginStepsMowDirect $I, \Page\ShoppingCartMowDirect $shoppingCartMowDirect) {
+        $shoppingCartMowDirect->addItemToCart();
+        $shoppingCartMowDirect->payPalCheck();
+    }
 
     function makeAChequeBankTransferPayPurchaseWithRegistration(Step\Acceptance\LoginStepsMowDirect $I, \Page\Checkout $checkout) {
         $I->addItemCheckout();

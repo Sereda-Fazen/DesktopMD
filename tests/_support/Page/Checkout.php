@@ -235,6 +235,7 @@ class Checkout
 
     public static $acceptTerms = '//*[@id="agreement-1"]';
     public static $placeOrderButton = './/*[@id="review-buttons-container"]/button';
+    public static $assertOrder = './/*[@class="page-title"]/h1';
 
 
     public function registerAndBuyOnCheckout($title,$firstName,$lastName,$email,$postCode,$address,$town,$mobile,$password )
@@ -263,6 +264,9 @@ class Checkout
         $I->waitForElementVisible(self::$acceptTerms);
         $I->click(self::$acceptTerms);
         $I->click(self::$placeOrderButton);
+
+        $I->waitForElement(self::$assertOrder);
+      //  $I->see('Your order has been received.',self::$assertOrder);
 
     }
 
