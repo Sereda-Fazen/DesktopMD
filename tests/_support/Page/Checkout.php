@@ -182,7 +182,7 @@ class Checkout
         $I->getVisibleText('Lawnflite');
         $I->waitForElement(self::$firstItem);
         $I->click(self::$firstItem);
-       // $I->seeLink('Lawnflite 703 RT Lawn Tractor',self::$seeLink);
+
         $I->waitForElement(self::$optional);
 
         $I->click(self::$input1);

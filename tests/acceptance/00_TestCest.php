@@ -8,9 +8,9 @@ class TestCest
 {
 
 
-    function T965TestACheckboxFilter(Step\Acceptance\FiltersSteps $I, \Page\FiltersMowDirect $filtersMowDirect) {
-        $filtersMowDirect->filtersCheckbox();
-        $I->checkFilters();
+    function T922PurchaseMultipleDifferentProductsSameSupplie(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
+        $I->selectTwoBrands();
+        $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
     }
 
 

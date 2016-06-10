@@ -67,6 +67,7 @@ class CheckoutSteps extends \AcceptanceTester
     public function selectBrand()
     {
         $I = $this;
+        $I->amOnPage('/');
         $I->waitForElement('//nav[@class="product-navigation"]/ul/li[11]');
         $I->moveMouseOver('//nav[@class="product-navigation"]/ul/li[11]');
         $I->waitForElement('//nav[@class="brand-lists"]//div//div');
@@ -78,7 +79,7 @@ class CheckoutSteps extends \AcceptanceTester
     public function selectTwoBrands()
     {
         $I = $this;
-        $this->selectBrand();
+        $I->selectBrand();
         $I->waitForElement('//div[@class="subcat_container"]/h3[text()="Flymo Grass Trimmers"]');
         $I->click('//*[@class="category-collateral"]/div[5]/div');
         $I->waitForElement('//p[@class="action"]/button');
@@ -107,6 +108,7 @@ class CheckoutSteps extends \AcceptanceTester
     public function multipleNumberProducts ()
     {
         $I = $this;
+        $I->amOnPage('/');
         $I->waitForElement('//nav[@class="product-navigation"]/ul/li[11]');
         $I->moveMouseOver('//nav[@class="product-navigation"]/ul/li[11]');
         $I->waitForElement('//nav[@class="brand-lists"]//div//div');
