@@ -9,14 +9,14 @@
 class ShoppingCartMowDirectCest
 {
 
- //   function T960MakeAPayPalPurchase(Step\Acceptance\LoginStepsMowDirect $I, \Page\ShoppingCartMowDirect $shoppingCartMowDirect) {
- //       $shoppingCartMowDirect->addItemToCart();
- //       $shoppingCartMowDirect->payPalCheck();
- //   }
-
-    function T959MakeASagePayPurchase(Step\Acceptance\LoginStepsMowDirect $I, \Page\ShoppingCartMowDirect $shoppingCartMowDirect) {
-        $I->loginSuccessCheckoutPage('mowdirect@gmail.com', '123456');
+    function T960MakeAPayPalPurchase(Step\Acceptance\LoginStepsMowDirect $I, \Page\ShoppingCartMowDirect $shoppingCartMowDirect) {
         $shoppingCartMowDirect->addItemToCart();
+        $shoppingCartMowDirect->payPalCheck();
+    }
+
+    function makeAChequeBankTransferPayPurchaseWithRegistration(Step\Acceptance\LoginStepsMowDirect $I, \Page\Checkout $checkout) {
+        $I->addItemCheckout();
+        $checkout->registerAndBuyOnCheckout('TestTitle','Test','Test2','mowdirect1@gmail.com','123123','Testaddress','Town','222333222','123456');
 
     }
 

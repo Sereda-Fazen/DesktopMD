@@ -61,4 +61,22 @@ class LoginStepsMowDirect extends \AcceptanceTester
 
     }
 
+
+    public function addItemCheckout ()
+    {
+        $I = $this;
+        $I->amOnPage('/');
+        $I->moveMouseOver(self::$LawnTractorsLocator);
+        $I->waitForElement(self::$HeavyDutyTractors);
+        $I->click(self::$HeavyDutyTractors);
+        $I->waitForElement(self::$assertHeavyDutyTractors);
+        $I->click(self::$addToBasket1Button);
+        $I->waitForElement(self::$buttonProceedToCheckout);
+        $I->click(self::$buttonProceedToCheckout);
+        $I->waitForElement(self::$assertCheckout);
+        $I->see('Checkout',self::$assertCheckout);
+
+
+    }
+
 }

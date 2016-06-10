@@ -7,7 +7,7 @@ use \Step\Acceptance;
 class MyWishListCest
 {
 
-    function addToBasketFromWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
+    function T950AddAWishListProductToYourCart(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
     {
         $I->loginSuccess('test_mowdirect@yahoo.co.uk', '123456');
         $myWishList->addItemsInWishlist();

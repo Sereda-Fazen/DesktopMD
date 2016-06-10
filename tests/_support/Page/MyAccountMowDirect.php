@@ -11,7 +11,7 @@ namespace Page;
 
 class MyAccountMowDirect
 {
-    public static $URL = '/customer/account/index/';
+    public static $URL = '/customer/account/';
     public static $accountInformation = '//*[@class="main"]/div[2]/div/div[2]/ul/li[2]';
     public static $assertAccountPage = '//*[@class="page-title"]/h1';
     public static $titleField = '//*[@id="prefix"]';
@@ -37,7 +37,7 @@ class MyAccountMowDirect
     public static $regionHautes = './/*[@id="region_id"]/option[22]';
     public static $regionBayern = '//*[@id="region_id"]/option[4]';
     public static $postcodeField = '//*[@id="zip"]';
-    public static $saveDefaultAddressButton =' //div[@class="buttons-set"]//button/span';
+    public static $saveDefaultAddressButton =' //div[@class="buttons-set"]/button';
 
 
     public static $assertEditAddress = '//*[@class="page-title"]/h1';
