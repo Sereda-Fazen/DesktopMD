@@ -1,17 +1,15 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: obana
- * Date: 07.06.16
- * Time: 15:47
+ * @group filter
  */
 class FiltersMowDirectCest
 {
 
 
-    function T965TestACheckboxFilter(Step\Acceptance\LoginStepsMowDirect $I, \Page\FiltersMowDirect $filtersMowDirect) {
-          $filtersMowDirect->filtersCheckbox();
+    function T965TestACheckboxFilter(Step\Acceptance\FiltersSteps $I, \Page\FiltersMowDirect $filtersMowDirect) {
+        $filtersMowDirect->filtersCheckbox();
+        $I->checkFilters();
     }
 
 }
