@@ -12,8 +12,7 @@ namespace Step\Acceptance;
 class AdminPanelLoginSteps extends \AcceptanceTester
 
 {
-
-
+    
     public static $URL = '/admin';
     public static $userNameField = '//*[@id="username"]';
     public static $passwordField = '//*[@id="login"]';
