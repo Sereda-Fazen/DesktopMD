@@ -8,12 +8,9 @@ class TestCest
 {
 
 
-    function purchaseTractorWithCustomOption(\Step\Acceptance\AccountSteps $I, \Page\MyAccountMowDirect $accountMowDirectPage){
-
-        $I->loginSuccess('mowdirect@gmail.com','123456');
-        $accountMowDirectPage->myAddReview();
-        $I->cycleRate();
-
+    function T965TestACheckboxFilter(Step\Acceptance\FiltersSteps $I, \Page\FiltersMowDirect $filtersMowDirect) {
+        $filtersMowDirect->filtersCheckbox();
+        $I->checkFilters();
     }
 
 
