@@ -66,6 +66,13 @@ class MyAccountMowDirect
     public static $sendInvitation = '//*[@class="buttons-set form-buttons"]/button';
     public static $assertSuccessMessage = '//*[@class="success-msg"]//span';
 
+    // Add review
+
+    public static $urlHome = '/';
+    public static $addReview = '//*[@id="md-recommendations"]//div[6]//div[2]//div[2]//p/a[2]';
+    public static $writeReview = '//*[@class="main-container col1-layout"]';
+
+
 
     protected $tester;
 
@@ -195,6 +202,18 @@ class MyAccountMowDirect
         $I->see('Invitation for',self::$assertSuccessMessage);
 
     }
+
+    public function myAddReview ()
+    {
+        $I = $this->tester;
+        $I->amOnPage(self::$urlHome);
+        $I->scrollDown(400);
+        $I->waitForElement(self::$addReview);
+        $I->click(self::$addReview);
+        $I->waitForElement(self::$writeReview);
+
+    }
+
 
 
 

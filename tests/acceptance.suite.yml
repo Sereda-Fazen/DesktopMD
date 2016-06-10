@@ -17,8 +17,8 @@ modules:
 
 # --run in browserstack--
 
-            #host: 'hub.browserstack.com'
-            #port: 80
+            host: 'hub.browserstack.com'
+            port: 80
 
 
 # -- login in browserstack
@@ -26,11 +26,12 @@ modules:
             capabilities:
              browserstack.user: 'cadencewatch1'
              browserstack.key: 'RG12s8tJvQ9p3pZuxWzf'
-
-
              browserstack.debug: 'true'
              unexpectedAlertBehaviour: 'accept'
              pageLoadStrategy: 'eager'
+             resolution: 1920x1080
+             os: 'WINDOWS'
+             os_version: 7
 
 
 
