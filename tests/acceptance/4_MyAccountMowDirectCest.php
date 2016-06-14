@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @group 
+ * @group
  */
 class MyAccountMowDirectCest
 
@@ -20,7 +20,7 @@ class MyAccountMowDirectCest
         //$accountMowDirect->myInvitationsCheck('denimio.test@gmail.com');
         //$gmailPage->checkMessageOnMailBox('denimio.test@gmail.com', '!1qwerty');
     }
-}
+
 
 
 
@@ -62,7 +62,7 @@ class MyAccountMowDirectCest
         $accountMowDirect->myInvitationsCheck('denimio.test@gmail.com');
         $gmailPage->checkMessageOnMailBox('denimio.test@gmail.com','!1qwerty');
         }
-/*
+*/
 
 
 

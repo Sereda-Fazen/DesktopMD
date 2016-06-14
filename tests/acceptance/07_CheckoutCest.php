@@ -72,7 +72,7 @@ class CheckoutCest
      * @param \Page\Checkout $checkoutPage
      */
 
-    function T923NumberProductsT924PurchaseSuppliers(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
+    function T923T924PurchaseSuppliers(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->multipleNumberProducts();
         $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
     }
