@@ -2,6 +2,8 @@
 namespace Step\Acceptance;
 
 
+use Exception;
+
 class EmailSteps extends \AcceptanceTester
 {
 
@@ -27,18 +29,30 @@ class EmailSteps extends \AcceptanceTester
         $I->waitForElementVisible('//*[@id="login-passwd"]');
         $I->fillField('//*[@id="login-passwd"]', 'fJ4qEn5Y');
         $I->click('//*[@id="login-signin"]');
-        $I->waitForElement('//*[@data-action="select-message"]/div[2]/div[2]/span[text()=" Take a look at Test alex sereda\'s wishlist "]',40);
+        try {
+            $I->waitForElement('//*[@data-action="select-message"]/div[2]/div[2]/span[text()=" Take a look at Test alex sereda\'s wishlist "]');
+            $I->click('//*[@data-action="select-message"]/div[2]/div[2]/span[text()=" Take a look at Test alex sereda\'s wishlist "]');
+        } catch (Exception $e) {}
 
-        $I->click('//*[@data-action="select-message"]/div[2]/div[2]/span[text()=" Take a look at Test alex sereda\'s wishlist "]');
-
+        try {
+            $I->waitForElement('//*[@data-action="select-message"]/div[2]/div[2]/span[text()=" Take a look at Test Test1 Test2\'s wishlist "]');
+            $I->click('//*[@data-action="select-message"]/div[2]/div[2]/span[text()=" Take a look at Test Test1 Test2\'s wishlist "]');
+        } catch (Exception $e) {}
 
         $I->waitForText('Take a look at my wishlist from MowDirect.');
         $I->waitForText('Test');
 
         $I->waitForElement('//*[@class="icon-delete"]');
         $I->click('//*[@class="icon-delete"]');
+        try {
+            $I->waitForText('Your Inbox folder is empty');
+        } catch (Exception $e){}
+
+        $I->click('//*[@id="match-messagelist-sizing"]//label');
+        $I->wait(1);
+        $I->waitForElement('//*[@class="icon-delete"]');
+        $I->click('//*[@class="icon-delete"]');
         $I->waitForText('Your Inbox folder is empty');
-        
         
     }
 

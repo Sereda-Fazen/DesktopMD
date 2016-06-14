@@ -132,7 +132,7 @@ class Checkout
 
         $I->waitForElement(self::$showMethod);
         $I->waitForText('Delivery Method');
-        $I->waitForElementVisible(self::$continue3);
+        $I->waitForElement(self::$continue3);
         $I->click(self::$continue3);
 
         $I->waitForElement(self::$showPayment);

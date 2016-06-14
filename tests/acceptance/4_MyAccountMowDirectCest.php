@@ -6,27 +6,25 @@
 class MyAccountMowDirectCest
 
 
-
 {
 
 
-
-    /*
-
-                   function myAccountTests(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect, \Page\Checkout $checkout, \Page\GmailPage $gmailPage) {
-                       $I->loginSuccessCheckoutPage('mowdirect@gmail.com','123456');
-                       $accountMowDirect->accountInformationMowDirect('Test','Test1','Test2');
-                       $accountMowDirect->addDefaultBillingAddress('Test2','Test2','333333333','Test Address1','Test City1','321321');
-                       $accountMowDirect->changeShippingAddress('Test3','Test3','4444444','Test Address2','Test City2','231231');
-                       $accountMowDirect->addNewAddress('Test4','Test4','555555555','Test Address3','Test City3','312312');
-                       $accountMowDirect->orderReorderCheck();
-                       $accountMowDirect->myInvitationsCheck('denimio.test@gmail.com');
-                       $gmailPage->checkMessageOnMailBox('denimio.test@gmail.com','!1qwerty');
-                 }
-
-*/
+    function myAccountTests(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect, \Page\Checkout $checkout, \Page\GmailPage $gmailPage)
+    {
+        $I->loginSuccessCheckoutPage('mowdirect@gmail.com', '123456');
+        $accountMowDirect->accountInformationMowDirect('Test', 'Test1', 'Test2');
+        $accountMowDirect->addDefaultBillingAddress('Test2', 'Test2', '333333333', 'Test Address1', 'Test City1', '321321');
+        $accountMowDirect->changeShippingAddress('Test3', 'Test3', '4444444', 'Test Address2', 'Test City2', '231231');
+        $accountMowDirect->addNewAddress('Test4', 'Test4', '555555555', 'Test Address3', 'Test City3', '312312');
+        $accountMowDirect->orderReorderCheck();
+        //$accountMowDirect->myInvitationsCheck('denimio.test@gmail.com');
+        //$gmailPage->checkMessageOnMailBox('denimio.test@gmail.com', '!1qwerty');
+    }
+}
 
 
+
+/*
     function T955CreateACustomerAccount(Step\Acceptance\LoginStepsMowDirect $I, \Page\Checkout $checkout) {
         $I->addItemCheckout();
         $checkout->registerAndBuyOnCheckout('TestTitle','Test','Test2','mowdirect@gmail.com','123123','Testaddress','Town','222333222','123456');
@@ -64,7 +62,7 @@ class MyAccountMowDirectCest
         $accountMowDirect->myInvitationsCheck('denimio.test@gmail.com');
         $gmailPage->checkMessageOnMailBox('denimio.test@gmail.com','!1qwerty');
         }
-
+/*
 
 
 
