@@ -9,12 +9,12 @@
 class ShoppingCartMowDirectCest
 {
 
-    function T960MakeAPayPalPurchase(Step\Acceptance\LoginStepsMowDirect $I, \Page\ShoppingCartMowDirect $shoppingCartMowDirect) {
+    function T960PayPalPurchase(Step\Acceptance\LoginStepsMowDirect $I, \Page\ShoppingCartMowDirect $shoppingCartMowDirect) {
         $shoppingCartMowDirect->addItemToCart();
         $shoppingCartMowDirect->payPalCheck();
     }
 
-    function makeAChequeBankTransferPayPurchaseWithRegistration(Step\Acceptance\LoginStepsMowDirect $I, \Page\Checkout $checkout) {
+    function makePurchaseWithRegistration(Step\Acceptance\LoginStepsMowDirect $I, \Page\Checkout $checkout) {
         $I->addItemCheckout();
         $checkout->registerAndBuyOnCheckout('TestTitle','Test','Test2','mowdirect1@gmail.com','123123','Testaddress','Town','222333222','123456');
 

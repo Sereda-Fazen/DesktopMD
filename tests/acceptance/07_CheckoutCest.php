@@ -37,7 +37,7 @@ class CheckoutCest
      */
 
 
-    function T920PurchaseTractorWithOtherProduct(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
+    function T920TractorOtherProduct(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->addToBasketTractor();
         $I->purchaseOtherItem();
         $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
@@ -49,7 +49,7 @@ class CheckoutCest
      * T921 Purchase Tractor with custom option
      */
 
-    function T921PurchaseTractorWithCustomOption(\Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage){
+    function T921TractorCustomOption(\Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage){
         $checkoutPage->purchaseTractorOption('Lawnflite accessories optional');
         //$checkoutPage->checkOrder('mowdirect@gmail.com','123456');
     }
@@ -61,7 +61,7 @@ class CheckoutCest
      */
 
 
-    function T922PurchaseMultipleDifferentProductsSameSupplie(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
+    function T922ProductsSameSupplie(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->selectTwoBrands();
         $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
     }
@@ -72,7 +72,7 @@ class CheckoutCest
      * @param \Page\Checkout $checkoutPage
      */
 
-    function T923PurchaseMultipleNumberProductsT924PurchaseMultipleDifferentProductsDifferentSuppliers(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
+    function T923NumberProductsT924PurchaseSuppliers(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->multipleNumberProducts();
         $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
     }
