@@ -14,7 +14,7 @@ class ProductsCest
      */
 
 
-    function T917ViewAStandardProductLayout(\Step\Acceptance\ProductsSteps $I, \Page\Checkout $checkoutPage){
+    function T917StandardProductLayout(\Step\Acceptance\ProductsSteps $I, \Page\Checkout $checkoutPage){
         $I->productsLayout();
     }
 
@@ -24,7 +24,7 @@ class ProductsCest
         T_934_View a Product layout with custom options
      */
 
-    function T934ViewAProductLayoutWithCustomOptions(\Step\Acceptance\ProductsSteps $I, \Page\Search $search){
+    function T934ViewCustomOptions(\Step\Acceptance\ProductsSteps $I, \Page\Search $search){
         $search->search();
         $search->searchInvalid('optional accessories');
         $I->productsLayoutCustomOptions();
@@ -36,7 +36,7 @@ class ProductsCest
      * T935_View a Product Layout with a Banner advert
      */
 
-    function T935ViewAProductLayoutWithABannerAdvert(\Step\Acceptance\ProductsSteps $I, \Page\Search $search){
+    function T935ViewBannerAdvert(\Step\Acceptance\ProductsSteps $I, \Page\Search $search){
         $search->search();
         $search->searchInvalid('Exclusive rear-roller');
         $I->productsLayoutBannerAdvert();

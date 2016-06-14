@@ -132,6 +132,7 @@ class Checkout
 
         $I->waitForElement(self::$showMethod);
         $I->waitForText('Delivery Method');
+        $I->wait(2);
         $I->waitForElement(self::$continue3);
         $I->click(self::$continue3);
 
@@ -255,7 +256,7 @@ class Checkout
         $I->fillField(self::$password1, $password);
         $I->fillField(self::$password2, $password);
         $I->click(self::$continueBillingButton);
-        
+
         $I->waitForElement(self::$assertDeliveryMethod);
 
         $I->see('Free Shipping to UK Mainland', self::$assertDeliveryMethod);

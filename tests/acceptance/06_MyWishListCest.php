@@ -7,12 +7,12 @@ use \Step\Acceptance;
 class MyWishListCest
 {
 
-    function T950AddAWishListProductToYourCart(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
+    function T950AddAWishList(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
     {
         $I->loginSuccess('test_mowdirect@yahoo.co.uk', '123456');
         $myWishList->addItemsInWishlist();
     }
-    function checkMyWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
+    function T948T954checkMyWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
     {
         $I->loginSuccess('test_mowdirect@yahoo.co.uk', '123456');
         $myWishList->wishList();

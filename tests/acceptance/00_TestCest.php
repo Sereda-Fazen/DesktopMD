@@ -7,11 +7,9 @@ use \Step\Acceptance;
 class TestCest
 {
 
-    function checkMyWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
-    {
-
-        $I->loginEmail();
-       
+    function T922PurchaseMultipleDifferentProductsSameSupplie(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
+        $I->selectTwoBrands();
+        $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
     }
 
 
