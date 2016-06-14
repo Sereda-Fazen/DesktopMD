@@ -28,7 +28,7 @@ class ShoppingCartMowDirect
 
   //  public static $assertYourBasket = '//*[@id="cart_desktop\"]/div[1]/div[1]/h1';
     public static $payPalCheckoutLink = '//ul[@class="checkout-types bottom"]/li/p//img';
-
+    public static $payPalCredit = '//ul[@class="checkout-types bottom"]//li[3]//img';
 
 
     //PayPal Page
@@ -77,6 +77,11 @@ class ShoppingCartMowDirect
             $I->click(self::$payPalCart);
             $I->waitForElement(self::$showPay);
         }
+        
+        $I->click(self::$payPalCredit);
+        $I->waitForElement(self::$errorUnable);
+        $I->see('Unable to communicate with the PayPal gateway.',self::$errorUnable);
+
     }
 
 

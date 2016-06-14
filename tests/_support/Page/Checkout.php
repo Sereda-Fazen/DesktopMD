@@ -144,7 +144,7 @@ class Checkout
             $I->acceptPopup();
         } catch (Exception $e) {}
 
-
+        $I->wait(2);
         $I->waitForElement(self::$bankTransfer);
         $I->click(self::$bankTransfer);
         $I->click(self::$continue4);
