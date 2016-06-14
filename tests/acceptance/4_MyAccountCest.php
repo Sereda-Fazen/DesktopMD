@@ -1,26 +1,40 @@
 <?php
 
 /**
- * @group 
+ * @group myAccount
  */
-class MyAccountMowDirectCest
+class MyAccountCest
 
 
 {
 
-
-    function myAccountTests(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect, \Page\Checkout $checkout, \Page\GmailPage $gmailPage)
+    function myAccountInformation(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect, \Page\Checkout $checkout, \Page\GmailPage $gmailPage)
     {
-        $I->loginSuccessCheckoutPage('mowdirect@gmail.com', '123456');
+        $I->loginSuccess('mowdirect@gmail.com', '123456');
         $accountMowDirect->accountInformationMowDirect('Test', 'Test1', 'Test2');
+    }
+
+    function myAccountAddress(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect, \Page\Checkout $checkout, \Page\GmailPage $gmailPage)
+    {
+        $I->loginSuccess('mowdirect@gmail.com', '123456');
         $accountMowDirect->addDefaultBillingAddress('Test2', 'Test2', '333333333', 'Test Address1', 'Test City1', '321321');
         $accountMowDirect->changeShippingAddress('Test3', 'Test3', '4444444', 'Test Address2', 'Test City2', '231231');
         $accountMowDirect->addNewAddress('Test4', 'Test4', '555555555', 'Test Address3', 'Test City3', '312312');
-        $accountMowDirect->orderReorderCheck();
-        //$accountMowDirect->myInvitationsCheck('denimio.test@gmail.com');
-        //$gmailPage->checkMessageOnMailBox('denimio.test@gmail.com', '!1qwerty');
     }
-}
+
+    function myAccountOrder(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect, \Page\Checkout $checkout, \Page\GmailPage $gmailPage)
+    {
+        $I->loginSuccess('mowdirect@gmail.com', '123456');
+        $accountMowDirect->orderReorderCheck();
+    }
+    function myAccountInvitations(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect, \Page\Checkout $checkout, \Page\GmailPage $gmailPage)
+    {
+        $accountMowDirect->myInvitationsCheck('denimio.test@gmail.com');
+        //$gmailPage->checkMessageOnMailBox('denimio.test@gmail.com', '!1qwerty');
+
+    }}
+
+
 
 
 

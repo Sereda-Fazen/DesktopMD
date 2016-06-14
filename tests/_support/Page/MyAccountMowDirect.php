@@ -135,6 +135,7 @@ class MyAccountMowDirect
         $I->fillField(self::$townCity,$city);
         $I->click(self::$regionHautes);
         $I->fillField(self::$postcodeField,$postcode);
+        $I->waitForElement(self::$saveDefaultAddressButton);
         $I->click(self::$saveDefaultAddressButton);
         $I->waitForElement(self::$assertSaveOk);
         $I->see("The address has been saved.", self::$assertSaveOk);
