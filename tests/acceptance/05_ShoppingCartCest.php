@@ -1,12 +1,9 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: obana
- * Date: 07.06.16
- * Time: 17:46
+ * @group shoppingCart
  */
-class ShoppingCartMowDirectCest
+class ShoppingCartCest
 {
 
     function T960MakeAPayPalPurchase(Step\Acceptance\LoginStepsMowDirect $I, \Page\ShoppingCartMowDirect $shoppingCartMowDirect) {
@@ -16,7 +13,7 @@ class ShoppingCartMowDirectCest
 
     function makeAChequeBankTransferPayPurchaseWithRegistration(Step\Acceptance\LoginStepsMowDirect $I, \Page\Checkout $checkout) {
         $I->addItemCheckout();
-        $checkout->registerAndBuyOnCheckout('TestTitle','Test','Test2','mowdirect1@gmail.com','123123','Testaddress','Town','222333222','123456');
+        $checkout->registerAndBuyOnCheckout('TestTitle','Test','Test2','mowdirect'.rand(1,100).'@gmail.com','123123','Testaddress','Town','222333222','123456');
 
     }
 
