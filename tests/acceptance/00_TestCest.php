@@ -7,10 +7,11 @@ use \Step\Acceptance;
 class TestCest
 {
 
+    function checkMyWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
+    {
 
-    function T965TestACheckboxFilter(Step\Acceptance\FiltersSteps $I, \Page\FiltersMowDirect $filtersMowDirect) {
-        $filtersMowDirect->filtersCheckbox();
-        $I->checkFilters();
+        $I->loginEmail();
+       
     }
 
 
