@@ -255,7 +255,9 @@ class Checkout
         $I->fillField(self::$password1, $password);
         $I->fillField(self::$password2, $password);
         $I->click(self::$continueBillingButton);
+        
         $I->waitForElement(self::$assertDeliveryMethod);
+
         $I->see('Free Shipping to UK Mainland', self::$assertDeliveryMethod);
         $I->click(self::$continueDeliveryButton);
         $I->waitForElementVisible(self::$chequeBankTransfer);
@@ -263,10 +265,13 @@ class Checkout
         $I->click(self::$continuePaymentButton);
         $I->waitForElementVisible(self::$acceptTerms);
         $I->click(self::$acceptTerms);
-        $I->click(self::$placeOrderButton);
 
-        $I->waitForElement(self::$assertOrder);
-      //  $I->see('Your order has been received.',self::$assertOrder);
+        $I->click(self::$continue5);
+        $I->waitForText('Your order has been received.',30);
+        $I->see('Your order has been received.',self::$seeOrder);
+        $I->getVisibleText('Thank you for your purchase!');
+        $I->click(self::$keepContinue);
+        $I->waitForElement(self::$mainPage);
 
     }
 

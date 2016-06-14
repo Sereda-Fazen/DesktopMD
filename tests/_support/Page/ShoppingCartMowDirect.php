@@ -9,6 +9,8 @@
 namespace Page;
 
 
+use Exception;
+
 class ShoppingCartMowDirect
 {
 
@@ -31,10 +33,14 @@ class ShoppingCartMowDirect
 
     //PayPal Page
     public static $payPalLogo = '//*[@id="paypalLogo"]';
+    public static $errorUnable = '//li[@class="error-msg"]';
     public static $emailField = '//*[@id="login_emaildiv"]/div[1]';
     public static $passwordField = '#password';
     public static $loginButton = '#btnLogin';
 
+    public static $mowdirect = '//*[@id="header"]';
+    public static $payPalCart = '//span[@id="transactionCart"]';
+    public static $showPay = '//*[@class="transctionCartDetails ng-scope"]//h3/span[text()="MowDirect"]';
 
 
     protected $tester;
@@ -47,6 +53,7 @@ class ShoppingCartMowDirect
     public function addItemToCart() {
         $I = $this->tester;
         $I->amOnPage(self::$URL);
+        //$I->amOnUrl('http://www.mowdirect.co.uk/');
         $I->moveMouseOver(self::$LawnTractorsLocator);
         $I->waitForElement(self::$HeavyDutyTractors);
         $I->click(self::$HeavyDutyTractors);
@@ -61,8 +68,15 @@ class ShoppingCartMowDirect
         $I = $this->tester;
         $I->waitForElementVisible(self::$payPalCheckoutLink);
         $I->click(self::$payPalCheckoutLink);
-        $I->waitForElementVisible(self::$payPalLogo);
-
+        try {
+            $I->waitForElement(self::$errorUnable);
+            $I->see('Unable to communicate with the PayPal gateway.',self::$errorUnable);
+        } catch (Exception $e) {
+            $I->see('Mowdirect', self::$mowdirect);
+            $I->waitForElement(self::$payPalCart);
+            $I->click(self::$payPalCart);
+            $I->waitForElement(self::$showPay);
+        }
     }
 
 
