@@ -1,10 +1,7 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: obana
- * Date: 07.06.16
- * Time: 17:46
+ * @group shoppingCart
  */
 class ShoppingCartMowDirectCest
 {
