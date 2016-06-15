@@ -63,7 +63,7 @@ class MagentoAdminPanelMowDirectCest
             $manageContent->searchPage('test-non-url-1');
             $manageContent->deletePage();
         }
- */
+
 //// 2.CMS > Pages > Manage Hierarchy
 
     function T765CreateANewNode(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageHierarchy $magentoManageHierarchy) {
@@ -128,6 +128,42 @@ class MagentoAdminPanelMowDirectCest
         $magentoManageHierarchy->deletePageFromTree1();
        // $magentoManageHierarchy->deleteNodeFromTree1();
     }
+
+*/
+
+//// 3.CMS > Pronav
+
+    function T780CreateAPronavItem(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoProNav $magentoProNav) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $magentoProNav->goToProNavItemsManagerPage();
+        $magentoProNav->createProNavItem('testPronav','12');
+    }
+
+    function T782DeleteAPronavItem(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoProNav $magentoProNav) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $magentoProNav->goToProNavItemsManagerPage();
+        $magentoProNav->deleteProNavItem('testPronav');
+    }
+
+    function T779CreateAPronavItemAndThenUseTheActionsMenuToChangeItsStatus(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoProNav $magentoProNav) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $magentoProNav->goToProNavItemsManagerPage();
+        $magentoProNav->createProNavItem('testPronav','12');
+      //  $magentoProNav->createProNavItem1('testPronav','testUrl','12','12','12','12','12');
+        $magentoProNav->changeItemStatusOnActionMenu('testPronav');
+    }
+
+
+    function T778CreateAPronavItemAndThenUseTheActionsMenutoDeleteIt(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoProNav $magentoProNav) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $magentoProNav->goToProNavItemsManagerPage();
+        //  $magentoProNav->createProNavItem('testPronav','12');
+        $magentoProNav->deleteProNavItemActionMenu('testPronav');
+    }
+
+
+
+
 
 
 
