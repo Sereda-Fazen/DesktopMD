@@ -7,9 +7,11 @@ use \Step\Acceptance;
 class TestCest
 {
 
-    function T960T1262PayPalPurchase(Step\Acceptance\LoginStepsMowDirect $I, \Page\ShoppingCartMowDirect $shoppingCartMowDirect) {
-        $shoppingCartMowDirect->addItemToCart();
-        $shoppingCartMowDirect->payPalCheck();
+    function T948T954checkMyWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
+    {
+
+        $I->loginEmail();
+   
     }
 
 
