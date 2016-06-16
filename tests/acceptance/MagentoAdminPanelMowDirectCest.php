@@ -129,7 +129,7 @@ class MagentoAdminPanelMowDirectCest
        // $magentoManageHierarchy->deleteNodeFromTree1();
     }
 
-*/
+
 
 //// 3.CMS > Pronav
 
@@ -145,14 +145,19 @@ class MagentoAdminPanelMowDirectCest
         $magentoProNav->deleteProNavItem('testPronav');
     }
 
+    function T777TestTheVariousFilters(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoProNav $magentoProNav) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $magentoProNav->goToProNavItemsManagerPage();
+        $magentoProNav->variosFilter('Lawn');
+    }
+
     function T779CreateAPronavItemAndThenUseTheActionsMenuToChangeItsStatus(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoProNav $magentoProNav) {
         $I->loginAdminPanel('testing','Da1mat1an5');
         $magentoProNav->goToProNavItemsManagerPage();
-        $magentoProNav->createProNavItem('testPronav','12');
-      //  $magentoProNav->createProNavItem1('testPronav','testUrl','12','12','12','12','12');
+          $magentoProNav->createProNavItem('testPronav','12');
+        //  $magentoProNav->createProNavItem1('testPronav','testUrl','12','12','12','12','12');
         $magentoProNav->changeItemStatusOnActionMenu('testPronav');
     }
-
 
     function T778CreateAPronavItemAndThenUseTheActionsMenutoDeleteIt(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoProNav $magentoProNav) {
         $I->loginAdminPanel('testing','Da1mat1an5');
@@ -160,6 +165,31 @@ class MagentoAdminPanelMowDirectCest
         //  $magentoProNav->createProNavItem('testPronav','12');
         $magentoProNav->deleteProNavItemActionMenu('testPronav');
     }
+
+*/
+
+//// 4 CMS > Static Blocks
+
+
+    function T784AddANewBlock(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoStaticBlocks $magentoStaticBlocks) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $magentoStaticBlocks->goToStaticBlocksPage();
+        $magentoStaticBlocks->createNewStaticBlock('Test Block','test_block','Test Content');
+    }
+
+    function T786EditABlock(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoStaticBlocks $magentoStaticBlocks) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $magentoStaticBlocks->goToStaticBlocksPage();
+        $magentoStaticBlocks->editStaticBlock('Test Block','Test Block1');
+    }
+
+    function T787DeleteABlock(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoStaticBlocks $magentoStaticBlocks) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $magentoStaticBlocks->goToStaticBlocksPage();
+        $magentoStaticBlocks->deleteStaticBlock('Test Block1');
+    }
+
+
 
 
 

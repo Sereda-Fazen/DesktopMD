@@ -14,7 +14,7 @@ class MagentoProNav
 
     public static $cmsDropDown = '//*[@class="nav-bar"]/ul/li[8]';
     public static $proNavLink = '//*[@class="nav-bar"]/ul/li[8]/ul/li[2]/a/span';
-    public static $manageHierarchy = '//*[@class="nav-bar"]/ul/li[8]/ul/li[1]/ul/li[2]/a/span';
+
 
 // ProVan Manager Page
     public static $assertProNavManagerPage = '//*[@class="content-header"]//h3';
@@ -22,6 +22,8 @@ class MagentoProNav
     public static $assertSuccessMsg = '//*[@class="success-msg"]//span';
     public static $filterNameField = '//*[@class="filter"]/th[3]//input';
     public static $filterSearchButton = '//*[@class="actions"]//button[2]';
+    public static $filterResetButton = '//*[@class="actions"]//button[1]';
+
     public static $filterSearchResult = '//*[@class="data"]/tbody/tr[1]/td[3]';
     public static $filterStatus = '//*[@class="data"]/tbody/tr[1]/td[12]';
     public static $deleteActionDropDown = '//*[@method="post"]//option[2]';
@@ -30,6 +32,8 @@ class MagentoProNav
     public static $submitActionButton = '//*[@method="post"]//button';
     public static $checkboxSearchResult = '//*[@class="data"]/tbody/tr[1]/td[1]/input';
     public static $filterID ='//*[@class="headings"]/th[2]/span';
+    public static $filterName = '//*[@class="headings"]/th[3]/span';
+    public static $filterUrl = '//*[@class="headings"]/th[4]/span';
 
 
 
@@ -144,6 +148,23 @@ class MagentoProNav
         $I->click(self::$filterSearchButton);
         $I->waitForElement(self::$filterSearchResult);
         $I->see('Disable',self::$filterStatus);
+    }
+
+    public function variosFilter($nameProNav) {
+        $I = $this->tester;
+        $I->click(self::$filterID);
+        $I->fillField(self::$filterNameField,$nameProNav);
+        $I->click(self::$filterSearchButton);
+        $I->waitForElement(self::$filterSearchResult);
+        $I->see($nameProNav,self::$filterSearchResult);
+        $I->click(self::$checkboxSearchResult);
+        $I->click(self::$changeStatusActionDropDown);
+        $I->click(self::$disableStatusActionDropDown);
+        $I->click(self::$filterResetButton);
+        $I->wait(1);
+        $I->click(self::$filterName);
+        $I->click(self::$filterUrl);
+
     }
 
 
