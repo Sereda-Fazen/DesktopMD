@@ -24,8 +24,6 @@ class MagentoStaticBlocks
     public static $filterTitleField = '//*[@class="filter"]/th[1]//input';
     public static $filterTitleTable = './/*[@class="data"]/tbody//td[1]';
 
-
-
 // New Block Page
     public static $titleBlockField = '//*[@id="block_title"]';
     public static $identifierField = '//*[@id="block_identifier"]';
@@ -36,13 +34,11 @@ class MagentoStaticBlocks
 // Edit Block Page
     public static $saveEditBlockButton = '//*[@class="form-buttons"]/button[4]';
 
-
     protected $tester;
     public function __construct(\AcceptanceTester $I)
     {
         $this->tester = $I; // подкл. конструктора
     }
-
     public function goToStaticBlocksPage() {
         $I = $this->tester;
         $I ->moveMouseOver(self::$cmsDropDown);
@@ -95,6 +91,34 @@ class MagentoStaticBlocks
         $I->acceptPopup();
         $I->waitForElement(self::$assertSuccessMsg);
         $I->see('The block has been deleted.',self::$assertSuccessMsg);
+    }
+
+    public static $filterSearchResult = '//*[@class="data"]/tbody/tr[1]/td[2]';
+    public static $filterDataCreatedFrom = '//*[@class="filter"]/th[5]/div/div[1]//input';
+    public static $filterDataCreatedTo = '//*[@class="filter"]/th[5]/div/div[2]//input';
+    public static $filterLastModFrom = '//*[@class="filter"]/th[6]/div/div[1]//input';
+    public static $filterLastModTo = '//*[@class="filter"]/th[6]/div/div[2]//input';
+    public static $filterIdentifier ='//*[@class="headings"]/th[2]/span';
+    public static $filterIdentifierField = '//*[@class="filter"]/th[2]//input';
+    public static $filterStoreViewOpt5 = '//*[@class="filter"]/th[3]//optgroup[4]/option';
+
+    public function variosFilter($identifier,$dataCreatedFrom,$dataCreatedTo,$lastModFrom,$lastModTo) {
+        $I = $this->tester;
+        $I->fillField(self::$filterIdentifierField,$identifier);
+        $I->click(self::$filterSearchButton);
+        $I->waitForElement(self::$filterSearchResult);
+        $I->see($identifier,self::$filterSearchResult);
+        $I->click(self::$filterResetButton);
+        $I->fillField(self::$filterDataCreatedFrom,$dataCreatedFrom);
+        $I->fillField(self::$filterDataCreatedTo,$dataCreatedTo);
+        $I->fillField(self::$filterLastModFrom,$lastModFrom);
+        $I->fillField(self::$filterLastModTo,$lastModTo);
+        $I->click(self::$filterSearchButton);
+        $I->click(self::$filterIdentifier);
+        $I->click(self::$filterResetButton);
+        $I->click(self::$filterStoreViewOpt5);
+        $I->click(self::$filterSearchButton);
+        $I->wait(2);
     }
 
 }

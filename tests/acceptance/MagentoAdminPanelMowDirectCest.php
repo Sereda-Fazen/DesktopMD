@@ -166,10 +166,9 @@ class MagentoAdminPanelMowDirectCest
         $magentoProNav->deleteProNavItemActionMenu('testPronav');
     }
 
-*/
+
 
 //// 4 CMS > Static Blocks
-
 
     function T784AddANewBlock(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoStaticBlocks $magentoStaticBlocks) {
         $I->loginAdminPanel('testing','Da1mat1an5');
@@ -188,6 +187,60 @@ class MagentoAdminPanelMowDirectCest
         $magentoStaticBlocks->goToStaticBlocksPage();
         $magentoStaticBlocks->deleteStaticBlock('Test Block1');
     }
+
+    function T783TestTheVariousFilters(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoStaticBlocks $magentoStaticBlocks) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $magentoStaticBlocks->goToStaticBlocksPage();
+        $magentoStaticBlocks->variosFilter('link_giftcards','17/06/2010','17/06/2014','17/06/2011','17/06/2016');
+    }
+
+
+//// 5. CMS > Banner
+
+
+    function T790AddANewBanner(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoBanners $magentoBanners) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $magentoBanners->goToStaticBannersPage();
+        $magentoBanners->createNewBanner('Test Banner','Test Content');
+    }
+
+    function T791EditABanner(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoBanners $magentoBanners) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $magentoBanners->goToStaticBannersPage();
+        $magentoBanners->editStaticBlock('Test Banner','Test Banner1');
+    }
+
+    function T793DeleteABannerfromTheBannerEditPage(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoBanners $magentoBanners) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $magentoBanners->goToStaticBannersPage();
+        $magentoBanners->deleteStaticBlock('Test Banner1');
+    }
+
+    function T783TestTheVariousFilters(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoBanners $magentoBanners) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $magentoBanners->goToStaticBannersPage();
+        $magentoBanners->variousFilter('MowHow','10','400');
+    }
+
+    function T789AddANewBlockAndThenDeleteItFromTheActionsMenu(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoBanners $magentoBanners) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $magentoBanners->goToStaticBannersPage();
+        $magentoBanners->createNewBanner('DeleteTst','Test Delete Content');
+        $magentoBanners->deleteFromActionMenu('DeleteTst');
+    }
+
+*/
+
+////6. Catalog > Datafeed Manager
+////6.1. Grid View
+
+    function Test(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoDataFeedManager $magentoDataFeedManager) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $magentoDataFeedManager->goToDataFeedManagerPage();
+      //  $magentoDataFeedManager->createNewBanner('Test Banner','Test Content');
+    }
+
+
 
 
 
