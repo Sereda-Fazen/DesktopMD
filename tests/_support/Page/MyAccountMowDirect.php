@@ -158,6 +158,7 @@ class MyAccountMowDirect
         $I->fillField(self::$townCity,$city);
         $I->click(self::$regionBayern);
         $I->fillField(self::$postcodeField,$postcode);
+        $I->waitForElement(self::$defaultBillingAddressCheckbox);
         $I->click(self::$defaultBillingAddressCheckbox);
         $I->click(self::$defaultShippingAddressCheckbox);
         $I->click(self::$saveButton);
