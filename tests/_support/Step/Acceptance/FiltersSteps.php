@@ -38,7 +38,8 @@ class FiltersSteps extends \AcceptanceTester
             try {$I->click('//dl[@class="narrow-by-list"]//dd[10]/div/a[2]');}
               catch (Exception $e){}
 
-            $manufact = count($I->grabMultiple('//dl[@class="narrow-by-list"]//dd[' . $t . ']//li'));
+            $manufact = count($I->grabMultiple('//dl[@class="narrow-by-list"]//dd['.$t.']'));
+            $I->wait(2);
             $I->click('//dl[@class="narrow-by-list"]//dd[' . $t . ']//li[' . rand(1, $manufact) . ']');
             $I->waitForAjax(10);
             $I->exceptions();

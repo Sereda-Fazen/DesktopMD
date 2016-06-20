@@ -34,8 +34,7 @@ class CategoryNavigation
     public function home()
     {
         $I = $this->tester;
-        $I->amOnUrl(self::$URL);
-        //$I->amOnPage('/');
+        $I->amOnPage('/');
 
     }
 
@@ -44,6 +43,7 @@ class CategoryNavigation
         $I = $this->tester;
         $I->waitForElement(self::$waitDeals);
         $I->moveMouseOver(self::$moveDeals);
+        $I->wait(2);
         $I->waitForElementVisible(self::$top10);
         $I->click(self::$top10);
         $I->waitForElement(self::$category);
