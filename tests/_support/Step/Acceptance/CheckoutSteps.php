@@ -25,6 +25,41 @@ class CheckoutSteps extends \AcceptanceTester
 
     }
 
+    public function optional()
+    {
+        $I = $this;
+        $I->amOnPage('/');
+        $I->waitForElement('//nav[@class="product-navigation"]/ul/li[2]');
+        $I->moveMouseOver('//nav[@class="product-navigation"]/ul/li[2]');
+        $I->waitForElementVisible('//nav[@class="product-navigation"]/ul/li[2]/nav/div[6]/h3/a');
+        $I->click('//nav[@class="product-navigation"]/ul/li[2]/nav/div[6]/h3/a');
+
+        $I->waitForElement('//*[@class="products-list"]//img');
+        $I->click('//*[@class="products-list"]//img');
+        $I->waitForElement('//*[@class="product-options"]//ul');
+        $optional = count($I->grabMultiple('//*[@class="product-options"]//ul/li'));
+        for ($o = 1; $o <= $optional; $o++) {
+            $I->click('//*[@class="product-options"]//ul/li[' . $o . ']/input');
+            $I->waitForElement('//*[@class="checkbox  product-custom-option2523 change-container-classname validation-passed"]');
+        }
+
+
+        try {
+            $I->waitForElement('//div[@class="add-to-cart-buttons"]/button');
+            $I->click('//div[@class="add-to-cart-buttons"]/button');
+        } catch (Exception $e) {
+            $I->waitForElement('//p[@class="action"]/button');
+            $I->click('//p[@class="action"]/button');
+        }
+
+        $I->see('was added to your shopping cart.', '//li[@class="success-msg"]');
+        $I->waitForElement('//dl[@class="item-options"]/dt[text()="Optional Accessories:"]');
+        $I->moveMouseOver('//dl[@class="item-options"]/dd');
+        $I->waitForElementVisible('//dl[@class="item-options"]//dl/dd');
+
+    }
+
+
     public function purchaseOtherItem()
     {
         $I = $this;

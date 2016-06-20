@@ -155,6 +155,7 @@ class Checkout
         $I->getVisibleText('PAYMENT METHOD');
         $I->getVisibleText('Cheque or Bank Transfer');
         $I->waitForElement(self::$productTable);
+        try {$I->waitForElement('//dl[@class="item-options"]/dt[text()="Optional Accessories:"]');} catch (Exception $e) {}
         $I->waitForElement(self::$agree);
         $I->click(self::$agree);
 
@@ -170,34 +171,7 @@ class Checkout
         
     }
 
-    public function purchaseTractorOption($optional){
-        $I = $this->tester;
-        $I->amOnPage(self::$url);
-        $I->fillField(self::$search, $optional);
-        $I->click(self::$clickSearch);
-        $I->waitForElement(self::$wait);
-        $I->getVisibleText('Lawnflite');
-        $I->waitForElement(self::$firstItem);
-        $I->click(self::$firstItem);
-
-        $I->waitForElement(self::$optional);
-
-        $I->click(self::$input1);
-        $I->waitForElement(self::$input1Show);
-
-        $I->click(self::$input2);
-        $I->waitForElement(self::$input2Show);
-
-        $I->click(self::$input3);
-        $I->waitForElement(self::$input3Show);
-
-        $I->click(self::$addToCart);
-        $I->waitForElement(self::$specialProd);
-        $I->waitForElement(self::$accessories);
-        $I->moveMouseOver(self::$move);
-        $I->waitForElementVisible(self::$waitAccessories);
-
-    }
+   
 
 ////////////////////////////////////////////////////////////////////////////////////
 
