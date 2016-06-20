@@ -7,11 +7,12 @@ use \Step\Acceptance;
 class TestCest
 {
 
-    function T921TractorCustomOption(\Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage){
-        $I->optional();
-        $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
-    }
+    function T948T954checkMyWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
+    {
 
+        $I->loginEmail();
+     
+    }
 
 }
 

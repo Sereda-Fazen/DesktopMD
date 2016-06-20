@@ -51,6 +51,7 @@ class EmailSteps extends \AcceptanceTester
         $I->click('//*[@id="match-messagelist-sizing"]//label');
         $I->wait(1);
         $I->waitForElement('//*[@class="icon-delete"]');
+        $I->click('//*[@class="icon-delete"]');
         try {$I->waitForElement('//div[@id="modalOverlay"]//button');
             $I->click('//div[@id="modalOverlay"]//button');} catch (Exception $e){}
         $I->waitForText('Your Inbox folder is empty');
