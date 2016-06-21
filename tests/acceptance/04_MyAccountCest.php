@@ -28,6 +28,21 @@ class MyAccountCest
         $accountMowDirect->orderReorderCheck();
     }
 
+    function myProductReviews(Step\Acceptance\AccountSteps $I){
+        $I->loginSuccess('mowdirect@gmail.com', '123456');
+        $I->cycleRate();
+    }
+
+    function myNewsletter(Step\Acceptance\AccountSteps $I, \Page\MyAccountMowDirect $accountMowDirect){
+        $I->loginSuccess('mowdirect@gmail.com', '123456');
+        $accountMowDirect->newsletterCheck();
+    }
+
+    function myInvitations(Step\Acceptance\AccountSteps $I, \Page\MyAccountMowDirect $accountMowDirect){
+        $I->loginSuccess('mowdirect@gmail.com', '123456');
+        $accountMowDirect->myInvitationsCheck('test@'.rand(1, 30).'.com');
+    }
+
 
 
 

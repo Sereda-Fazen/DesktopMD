@@ -9,6 +9,8 @@
 namespace Page;
 
 
+use Exception;
+
 class MyAccountMowDirect
 {
     public static $URL = '/customer/account/';
@@ -65,6 +67,7 @@ class MyAccountMowDirect
     public static $inputEmailField1 = '//*[@id="invitationForm"]/div[1]/ul/li[1]/div/input';
     public static $sendInvitation = '//*[@class="buttons-set form-buttons"]/button';
     public static $assertSuccessMessage = '//*[@class="success-msg"]//span';
+    public static $assertFalse = 'li.error-msg > ul > li';
 
     // Add review
 
@@ -172,11 +175,24 @@ class MyAccountMowDirect
 
     public function newsletterCheck (){
         $I= $this ->tester;
-        $I->amOnPage(self::$URL2);
         $I->click(self::$newsletterSubscription);
         $I->waitForElement(self::$assertNewsletterPage);
         $I->click(self::$newsletterCheckbox);
         $I->click(self::$newsletterSaveButton);
+        try {
+
+            $I->waitForElement(self::$assertSuccessMessage);
+            $I->see('Newsletter subscription success', self::$assertSuccessMessage);
+        } catch (Exception $e){}
+
+        $I->click(self::$newsletterCheckbox);
+        $I->click(self::$newsletterSaveButton);
+        try {
+
+            $I->waitForElement(self::$assertSuccessMessage);
+            $I->see('Newsletter unsubscription success', self::$assertSuccessMessage);
+        } catch (Exception $e){}
+
     }
 
     public function orderReorderCheck (){
@@ -202,21 +218,15 @@ class MyAccountMowDirect
         $I->fillField(self::$inputEmailField1,$testEmail);
         $I->click(self::$sendInvitation);
         $I->waitForElement(self::$assertSuccessMessage);
-        $I->see('Invitation for',self::$assertSuccessMessage);
-
+        try {
+            $I->see('Invitation for', self::$assertSuccessMessage);
+        } catch (Exception $e) {
+            $I->see('Invitation for same email address already exists.', self::$assertFalse);
+        }
     }
+    
 
-    public function myAddReview ()
-    {
-        $I = $this->tester;
-        $I->amOnPage(self::$urlHome);
-        $I->scrollDown(400);
-        $I->waitForElement(self::$addReview);
-        $I->click(self::$addReview);
-        $I->waitForElement(self::$writeReview);
-
-    }
-
+    
 
 
 

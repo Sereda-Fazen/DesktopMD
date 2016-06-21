@@ -6,17 +6,28 @@
 class ShoppingCartMowDirectCest
 {
 
-    function T960T1262PayPalPurchase(Step\Acceptance\LoginStepsMowDirect $I, \Page\ShoppingCartMowDirect $shoppingCartMowDirect) {
-        $shoppingCartMowDirect->addItemToCart();
-        $shoppingCartMowDirect->payPalCheck();
+    function T1267MakeSugePurchase(Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage) {
+        $I->addToBasketTractor();
+        $checkoutPage->checkPayPalCredit('mowdirect@gmail.com','123456');
     }
-/*
-    function makePurchaseWithRegistration(Step\Acceptance\LoginStepsMowDirect $I, \Page\Checkout $checkout) {
-        $I->addItemCheckout();
-        $checkout->registerAndBuyOnCheckout('TestTitle','Test','Test2','mowdirect1@gmail.com','123123','Testaddress','Town','222333222','123456');
+    
+    function T960PayPalPurchase(Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage) {
+        $I->addToBasketTractor();
+        $checkoutPage->payPalCheckout();
+    }
 
+    function T1266PayPalCredit(Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage) {
+        $I->addToBasketTractor();
+        $checkoutPage->payPalCredit();
     }
-*/
+
+    function T1267PayPalCreditCheckout(Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage) {
+        $I->addToBasketTractor();
+        $checkoutPage->checkPayPalCredit('mowdirect@gmail.com','123456');
+    }
+    
+    
+    
 
 
 
