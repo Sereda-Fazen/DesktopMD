@@ -8,7 +8,7 @@ class ShoppingCartMowDirectCest
 
     function T1267MakeSugePurchase(Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage) {
         $I->addToBasketTractor();
-        $checkoutPage->checkPayPalCredit('mowdirect@gmail.com','123456');
+        $checkoutPage->checkSugePurchase('mowdirect@gmail.com','123456');
     }
     
     function T960PayPalPurchase(Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage) {

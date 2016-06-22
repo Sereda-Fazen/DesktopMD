@@ -7,9 +7,9 @@ use \Step\Acceptance;
 class TestCest
 {
 
-    function T1267MakeSugePurchase(Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage) {
+    function T918TractorSale(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->addToBasketTractor();
-        $checkoutPage->checkSugePurchase('mowdirect@gmail.com','123456');
+        $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
 
 }

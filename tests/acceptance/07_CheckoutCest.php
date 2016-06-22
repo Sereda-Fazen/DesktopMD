@@ -15,7 +15,7 @@ class CheckoutCest
 
     function T918TractorSale(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->addToBasketTractor();
-        $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
+        $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
 
     /**
@@ -26,7 +26,7 @@ class CheckoutCest
 
     function T919MowerSale(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->addToBasketMower();
-        $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
+        $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
 
 
@@ -40,7 +40,7 @@ class CheckoutCest
     function T920TractorOtherProduct(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->addToBasketTractor();
         $I->purchaseOtherItem();
-        $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
+        $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
 
     /**
@@ -51,7 +51,7 @@ class CheckoutCest
 
     function T921TractorCustomOption(\Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage){
         $I->optional();
-        $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
+        $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
 
     /**
@@ -63,7 +63,7 @@ class CheckoutCest
 
     function T922ProductsSameSupplie(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->selectTwoBrands();
-        $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
+        $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
 
     /**
@@ -74,7 +74,7 @@ class CheckoutCest
 
     function T923T924PurchaseSuppliers(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->multipleNumberProducts();
-        $checkoutPage->checkOrder('mowdirect@gmail.com','123456');
+        $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
 
 
