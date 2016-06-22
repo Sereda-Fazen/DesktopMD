@@ -7,9 +7,11 @@ use \Step\Acceptance;
 class TestCest
 {
 
-    function T918TractorSale(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
-        $I->addToBasketTractor();
-        $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
+    function T948T954checkMyWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
+    {
+       
+        $I->loginEmail();
+      
     }
 
 }

@@ -30,13 +30,13 @@ class EmailSteps extends \AcceptanceTester
         $I->fillField('//*[@id="login-passwd"]', 'fJ4qEn5Y');
         $I->click('//*[@id="login-signin"]');
         try {
-            $I->waitForElement('//*[@data-action="select-message"]/div[2]/div[2]/span[text()=" Take a look at Test alex sereda\'s wishlist "]');
-            $I->click('//*[@data-action="select-message"]/div[2]/div[2]/span[text()=" Take a look at Test alex sereda\'s wishlist "]');
+            $I->waitForElement('//*[@class="subject bold"][text()=" Take a look at Test Test1 Test2\'s wishlist "]]');
+            $I->click('//*[@class="subject bold"][text()=" Take a look at Test Test1 Test2\'s wishlist "]');
         } catch (Exception $e) {}
 
         try {
-            $I->waitForElement('//*[@data-action="select-message"]/div[2]/div[2]/span[text()=" Take a look at Test Test1 Test2\'s wishlist "]');
-            $I->click('//*[@data-action="select-message"]/div[2]/div[2]/span[text()=" Take a look at Test Test1 Test2\'s wishlist "]');
+            $I->waitForElement('//*[@class="subject bold"][text()=" Take a look at Test Test1 Test2\'s wishlist "]');
+            $I->click('//*[@class="subject bold"][text()=" Take a look at Test Test1 Test2\'s wishlist "]');
         } catch (Exception $e) {}
 
         $I->waitForText('Take a look at my wishlist from MowDirect.');
