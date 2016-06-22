@@ -30,8 +30,8 @@ class EmailSteps extends \AcceptanceTester
         $I->fillField('//*[@id="login-passwd"]', 'fJ4qEn5Y');
         $I->click('//*[@id="login-signin"]');
         try {
-            $I->waitForElement('//*[@class="subject bold"][text()=" Take a look at Test Test1 Test2\'s wishlist "]]');
-            $I->click('//*[@class="subject bold"][text()=" Take a look at Test Test1 Test2\'s wishlist "]');
+            $I->waitForElement('//*[@class="subj"]/span[text()=" Take a look at Test Test1 Test2\'s wishlist "]');
+            $I->click('//*[@class="subj"]/span[text()=" Take a look at Test Test1 Test2\'s wishlist "]');
         } catch (Exception $e) {}
 
         try {

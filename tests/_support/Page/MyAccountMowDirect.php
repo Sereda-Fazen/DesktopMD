@@ -54,6 +54,7 @@ class MyAccountMowDirect
     public static $myWishList = '//*[@class="main"]/div[2]/div/div[2]/ul/li[5]';
     public static $assertTitle = '//*[@class="page-title title-buttons"]/h1';
     public static $reorderLink = '//*[@class="link-reorder"]';
+    public static $removeItem = '//div[@id="cart_desktop"]//tbody//td[6]//a';
 
     public static $newsletterSubscription = '//*[@class="main"]/div[2]/div/div[2]/ul/li[8]';
     public static $assertNewsletterPage = '//*[@class="col-main std"]/h2';
@@ -205,6 +206,8 @@ class MyAccountMowDirect
         $I->click(self::$reorderLink);
         $I->waitForElement(self::$assertTitle);
         $I->see('Your Basket', self::$assertTitle);
+        $I->click(self::$removeItem);
+        $I->waitForText('Your Basket is empty...');
     }
 
     public function myInvitationsCheck ($testEmail){

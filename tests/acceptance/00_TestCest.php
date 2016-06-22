@@ -7,11 +7,10 @@ use \Step\Acceptance;
 class TestCest
 {
 
-    function T948T954checkMyWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
+    function myAccountOrder(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect, \Page\Checkout $checkout, \Page\GmailPage $gmailPage)
     {
-       
-        $I->loginEmail();
-      
+        $I->loginSuccess('mowdirect@gmail.com', '123456');
+        $accountMowDirect->orderReorderCheck();
     }
 
 }
