@@ -8,13 +8,13 @@ class MyAccountCest
 
 {
 
-    function myAccountInformation(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect, \Page\Checkout $checkout, \Page\GmailPage $gmailPage)
+    function myAccountInformation(Step\Acceptance\AccountSteps $I, \Page\MyAccountMowDirect $accountMowDirect)
     {
         $I->loginSuccess('mowdirect@gmail.com', '123456');
         $accountMowDirect->accountInformationMowDirect('Test', 'Test1', 'Test2');
     }
 
-    function myAccountAddress(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect, \Page\Checkout $checkout, \Page\GmailPage $gmailPage)
+    function myAccountAddress(Step\Acceptance\AccountSteps $I, \Page\MyAccountMowDirect $accountMowDirect)
     {
         $I->loginSuccess('mowdirect@gmail.com', '123456');
         $accountMowDirect->addDefaultBillingAddress('Test2', 'Test2', '333333333', 'Test Address1', 'Test City1', '321321');
@@ -22,7 +22,7 @@ class MyAccountCest
         $accountMowDirect->addNewAddress('Test4', 'Test4', '555555555', 'Test Address3', 'Test City3', '312312');
     }
 
-    function myAccountOrder(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect, \Page\Checkout $checkout, \Page\GmailPage $gmailPage)
+    function myAccountOrder(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect)
     {
         $I->loginSuccess('mowdirect@gmail.com', '123456');
         $accountMowDirect->orderReorderCheck();

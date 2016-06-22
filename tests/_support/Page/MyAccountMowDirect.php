@@ -120,6 +120,7 @@ class MyAccountMowDirect
         $I->fillField(self::$postcodeField,$postcode);
         $I->waitForElement(self::$saveDefaultAddressButton);
         $I->click(self::$saveDefaultAddressButton);
+        $I->wait(2);
         $I->waitForElement(self::$assertSaveOk);
         $I->see("The address has been saved.", self::$assertSaveOk);
         return $this;
@@ -142,9 +143,9 @@ class MyAccountMowDirect
         $I->fillField(self::$postcodeField,$postcode);
         $I->waitForElement(self::$saveDefaultAddressButton);
         $I->click(self::$saveDefaultAddressButton);
-        $I->waitForElement(self::$assertSaveOk);
+        $I->waitForElement(self::$assertSaveOk,20);
         $I->see("The address has been saved.", self::$assertSaveOk);
-        return $this;
+
     }
 
 
@@ -169,8 +170,6 @@ class MyAccountMowDirect
         $I->click(self::$saveButton);
         $I->waitForElement(self::$assertSaveOk);
         $I->see("The address has been saved.", self::$assertSaveOk);
-        $I->click(self::$deleteAddress);
-        $I->acceptPopup();
         return $this;
     }
 
@@ -220,10 +219,12 @@ class MyAccountMowDirect
         $I->see('Send Invitations', self::$assertInvitationPage);
         $I->fillField(self::$inputEmailField1,$testEmail);
         $I->click(self::$sendInvitation);
-        $I->waitForElement(self::$assertSuccessMessage);
+
         try {
+            $I->waitForElement(self::$assertSuccessMessage);
             $I->see('Invitation for', self::$assertSuccessMessage);
         } catch (Exception $e) {
+            $I->waitForElement(self::$assertFalse);
             $I->see('Invitation for same email address already exists.', self::$assertFalse);
         }
     }

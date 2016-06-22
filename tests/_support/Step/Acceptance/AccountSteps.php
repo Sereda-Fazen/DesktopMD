@@ -71,6 +71,18 @@ class AccountSteps extends \AcceptanceTester
 
     }
 
+    public function waitAlertWindow ()
+    {
+        $I = $this;
+        $count = count($I->grabMultiple('//*[@class="col-2 addresses-additional"]/ol/li'));
+        for ($d = $count; $d > 0; $d--) {
+            $I->scrollDown(1000);
+            $I->click('//*[@class="col-2 addresses-additional"]/ol/li['.$d.']/p/a[2]');
+            $I->acceptPopup();
+            $I->waitForElement('li.success-msg');
+        }
+    }
+
 
 
 
