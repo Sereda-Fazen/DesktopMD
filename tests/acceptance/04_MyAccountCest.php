@@ -8,13 +8,13 @@ class MyAccountCest
 
 {
 
-    function myAccountInformation(Step\Acceptance\AccountSteps $I, \Page\MyAccountMowDirect $accountMowDirect)
+    function T1008MyAccountInformation(Step\Acceptance\AccountSteps $I, \Page\MyAccountMowDirect $accountMowDirect)
     {
         $I->loginSuccess('mowdirect@gmail.com', '123456');
         $accountMowDirect->accountInformationMowDirect('Test', 'Test1', 'Test2');
     }
 
-    function myAccountAddress(Step\Acceptance\AccountSteps $I, \Page\MyAccountMowDirect $accountMowDirect)
+    function T1010T1013MyAccountAddress(Step\Acceptance\AccountSteps $I, \Page\MyAccountMowDirect $accountMowDirect)
     {
         $I->loginSuccess('mowdirect@gmail.com', '123456');
         $accountMowDirect->addDefaultBillingAddress('Test2', 'Test2', '333333333', 'Test Address1', 'Test City1', '321321');
@@ -22,23 +22,23 @@ class MyAccountCest
         $accountMowDirect->addNewAddress('Test4', 'Test4', '555555555', 'Test Address3', 'Test City3', '312312');
     }
 
-    function myAccountOrder(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect)
+    function T1007MyAccountOrder(Step\Acceptance\LoginStepsMowDirect $I, \Page\MyAccountMowDirect $accountMowDirect)
     {
         $I->loginSuccess('mowdirect@gmail.com', '123456');
         $accountMowDirect->orderReorderCheck();
     }
 
-    function myProductReviews(Step\Acceptance\AccountSteps $I){
+    function T1013MyProductReviews(Step\Acceptance\AccountSteps $I){
         $I->loginSuccess('mowdirect@gmail.com', '123456');
         $I->cycleRate();
     }
 
-    function myNewsletter(Step\Acceptance\AccountSteps $I, \Page\MyAccountMowDirect $accountMowDirect){
+    function T1014T1015MyNewsletter(Step\Acceptance\AccountSteps $I, \Page\MyAccountMowDirect $accountMowDirect){
         $I->loginSuccess('mowdirect@gmail.com', '123456');
         $accountMowDirect->newsletterCheck();
     }
 
-    function myInvitations(Step\Acceptance\AccountSteps $I, \Page\MyAccountMowDirect $accountMowDirect){
+    function T1016MyInvitations(Step\Acceptance\AccountSteps $I, \Page\MyAccountMowDirect $accountMowDirect){
         $I->loginSuccess('mowdirect@gmail.com', '123456');
         $accountMowDirect->myInvitationsCheck('test@'.rand(1, 30).'.com');
     }

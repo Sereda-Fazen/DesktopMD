@@ -13,7 +13,7 @@ class CheckoutCest
      * @param \Page\Checkout $checkoutPage
      */
 
-    function T918TractorSale(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
+    function T1017TractorSale(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->addToBasketTractor();
         $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
@@ -24,7 +24,7 @@ class CheckoutCest
      * @param \Page\Checkout $checkoutPage
      */
 
-    function T919MowerSale(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
+    function T1018MowerSale(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->addToBasketMower();
         $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
@@ -37,7 +37,7 @@ class CheckoutCest
      */
 
 
-    function T920TractorOtherProduct(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
+    function T1019TractorOtherProduct(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->addToBasketTractor();
         $I->purchaseOtherItem();
         $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
@@ -49,7 +49,7 @@ class CheckoutCest
      * T921 Purchase Tractor with custom option
      */
 
-    function T921TractorCustomOption(\Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage){
+    function T1020TractorCustomOption(\Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage){
         $I->optional();
         $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
@@ -61,7 +61,7 @@ class CheckoutCest
      */
 
 
-    function T922ProductsSameSupplie(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
+    function T1021ProductsSameSupplie(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->selectTwoBrands();
         $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
@@ -72,7 +72,7 @@ class CheckoutCest
      * @param \Page\Checkout $checkoutPage
      */
 
-    function T923T924PurchaseSuppliers(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
+    function T1022T1023PurchaseSuppliers(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->multipleNumberProducts();
         $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
