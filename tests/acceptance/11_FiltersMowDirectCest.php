@@ -7,7 +7,7 @@ class FiltersMowDirectCest
 {
 
 
-    function T992TestACheckboxFilter(Step\Acceptance\FiltersSteps $I, \Page\FiltersMowDirect $filtersMowDirect) {
+    function T992CheckboxFilter(Step\Acceptance\FiltersSteps $I, \Page\FiltersMowDirect $filtersMowDirect) {
         $filtersMowDirect->filtersCheckbox();
         $I->checkFilters();
     }
