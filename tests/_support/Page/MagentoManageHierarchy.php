@@ -20,7 +20,7 @@ class MagentoManageHierarchy
     public static $addToTreeButton = '//*[@id="save_node_button"]';
     public static $nodeTitleField = '//*[@id="node_label"]';
     public static $nodeUrlField = '//*[@id="node_identifier"]';
-    public static $saveButton = '//*[@class="middle"]//button[5]';
+    public static $saveButton = '//*[@class="middle"]/div/div[2]//button[5]';
     public static $deleteCurrentHierarchyButton = '//*[@class="middle"]//button[1]';
     public static $addedNodeToTree = '//*[@id="extdd-7"]//a/span';
     public static $assertSuccessMsg = '//*[@class="success-msg"]//span';
@@ -77,10 +77,10 @@ class MagentoManageHierarchy
         $I->see('The hierarchy has been saved.',self::$assertSuccessMsg);
     }
 
-    public function editNode() {
+    public function editNode11($node) {
         $I = $this->tester;
-        $I->see('test-title-node',self::$nodeTable);
-        $I->click('test-title-node');
+        $I->see($node,self::$nodeTable);
+        $I->click($node);
         $I->wait(2);
         $I->click(self::$firstYesRender);
         $I->click(self::$nextPrevYesRender);
@@ -93,9 +93,25 @@ class MagentoManageHierarchy
 
     }
 
-    public function deleteNodeFromTree (){
+    public function editNode($node) {
         $I = $this->tester;
-        $I->see('test-title-node',self::$nodeTable);
+        $I->see($node,self::$nodeTable);
+        $I->click($node);
+        $I->wait(2);
+        $I->click(self::$firstYesRender);
+        $I->click(self::$nextPrevYesRender);
+        $I->click(self::$showPageNavMenuYes);
+        $I->click(self::$showOptionNavMenuYes);
+        $I->wait(2);
+        $I->click(self::$saveButton);
+        $I->waitForElement(self::$assertSuccessMsg);
+        $I->see('The hierarchy has been saved.',self::$assertSuccessMsg);
+
+    }
+
+    public function deleteNodeFromTree ($node){
+        $I = $this->tester;
+        $I->see($node,self::$nodeTable);
         $I->click('test-title-node');
         $I->wait(2);
         $I->click(self::$removeFromTreeButton);
@@ -104,30 +120,16 @@ class MagentoManageHierarchy
         $I->see('The hierarchy has been saved.',self::$assertSuccessMsg);
     }
 
-    public function addPageToTree ($title){
+    public function addPageToTree1 ($title){
         $I = $this->tester;
         $I->fillField(self::$filterTitleField,$title);
         $I->click(self::$searchButton);
         $I->wait(2);
         $I->waitForElement(self::$filterTitleResult);
-        $I->see('test-title-1',self::$filterTitleResult);
+        $I->see($title,self::$filterTitleResult);
         $I->click(self::$filterCheckbox);
         $I->click(self::$addPageToTreeButton);
-        $I->see('test-title-1',self::$nodeTable);
-        $I->click(self::$saveButton);
-        $I->waitForElement(self::$assertSuccessMsg);
-        $I->see('The hierarchy has been saved.',self::$assertSuccessMsg);
-    }
-
-
-
-    public function deletePageFromTree (){
-        $I = $this->tester;
-        $I->see('test-title-1',self::$nodeTable);
-        $I->click('test-title-1');
-        $I->wait(3);
-        $I->see('test-title-1',self::$assertPagePropertiesTitle);
-        $I->click(self::$removeFromTreeButton);
+        $I->see($title,self::$nodeTable);
         $I->click(self::$saveButton);
         $I->waitForElement(self::$assertSuccessMsg);
         $I->see('The hierarchy has been saved.',self::$assertSuccessMsg);
@@ -142,58 +144,36 @@ class MagentoManageHierarchy
         $I->see('Pages hierarchy has been deleted from the selected scopes.',self::$assertSuccessMsg);
     }
 
-    public function addPageToTree1 ($title){
+    public function addPageToTree2 ($title){
         $I = $this->tester;
         $I->fillField(self::$filterTitleField,$title);
         $I->click(self::$searchButton);
-        $I->wait(3);
+        $I->wait(2);
         $I->waitForElement(self::$filterTitleResult);
-        $I->see('test-non-title-1',self::$filterTitleResult);
+        $I->see($title,self::$filterTitleResult);
         $I->click(self::$filterCheckbox);
         $I->click(self::$addPageToTreeButton);
-        $I->see('test-non-title-1',self::$nodeTable);
+        $I->see($title,self::$nodeTable);
         $I->click(self::$saveButton);
         $I->waitForElement(self::$assertSuccessMsg);
         $I->see('The hierarchy has been saved.',self::$assertSuccessMsg);
     }
 
-    public function editNode1() {
-        $I = $this->tester;
-        $I->see('test-title-node-1',self::$nodeTable);
-        $I->click('test-title-node-1');
-        $I->wait(2);
-        $I->click(self::$firstYesRender);
-        $I->click(self::$nextPrevYesRender);
-        $I->click(self::$showPageNavMenuYes);
-        $I->click(self::$showOptionNavMenuYes);
-        $I->click(self::$saveButton);
-        $I->waitForElement(self::$assertSuccessMsg);
-        $I->see('The hierarchy has been saved.',self::$assertSuccessMsg);
 
-    }
 
-    public function deletePageFromTree1 (){
+    public function deletePageFromTree ($node){
         $I = $this->tester;
-        $I->see('test-non-title-1',self::$nodeTable);
-        $I->click('test-non-title-1');
+        $I->see($node,self::$nodeTable);
+        $I->click($node);
         $I->wait(3);
-        $I->see('test-non-title-1',self::$assertPagePropertiesTitle);
+        $I->see($node,self::$assertPagePropertiesTitle);
         $I->click(self::$removeFromTreeButton);
         $I->click(self::$saveButton);
         $I->waitForElement(self::$assertSuccessMsg);
         $I->see('The hierarchy has been saved.',self::$assertSuccessMsg);
     }
 
-    public function deleteNodeFromTree1 (){
-        $I = $this->tester;
-        $I->see('test-title-node-1',self::$nodeTable);
-        $I->click('test-title-node-1');
-        $I->wait(2);
-        $I->click(self::$removeFromTreeButton);
-        $I->click(self::$saveButton);
-        $I->waitForElement(self::$assertSuccessMsg);
-        $I->see('The hierarchy has been saved.',self::$assertSuccessMsg);
-    }
+
 
 
 

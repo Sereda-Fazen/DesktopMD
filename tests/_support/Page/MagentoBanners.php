@@ -99,7 +99,7 @@ class MagentoBanners
 
     public static $filterIdFrom = '//*[@class="filter"]/th[2]//div[1]/input';
     public static $filterIdTo = '//*[@class="filter"]/th[2]//div[2]/input';
-    public static $filterSortBannerName = '//*[@class="headings"]//th[3]';
+    public static $filterSortBannerName = '//*[@class="headings"]//th[3]/span/a';
     public static $filterStoreViewOpt4 = '//*[@class="filter"]/th[5]//optgroup[2]/option';
 
     public function variousFilter($bannerName,$IdFrom,$IdTo) {
@@ -107,19 +107,16 @@ class MagentoBanners
         $I->fillField(self::$filterBannerNameField,$bannerName);
         $I->click(self::$filterSearchButton);
         $I->waitForElementVisible(self::$filterBannersResult);
+        $I->wait(2);
         $I->see($bannerName,self::$filterBannersResult);
-        $I->wait(1);
-        $I->click(self::$filterResetButton);
-        $I->wait(1);
         $I->fillField(self::$filterIdFrom,$IdFrom);
         $I->fillField(self::$filterIdTo,$IdTo);
         $I->click(self::$filterSearchButton);
-        $I->wait(1);
+        $I->wait(2);
         $I->click(self::$filterSortBannerName);
-        $I->wait(1);
+        $I->wait(2);
         $I->click(self::$filterStoreViewOpt4);
         $I->click(self::$filterSearchButton);
-        $I->wait(1);
     }
 
     public static $filterResultCheckbox = './/*[@class="grid"]//tbody/tr[1]/td[1]/input';
