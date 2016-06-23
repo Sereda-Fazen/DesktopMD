@@ -109,6 +109,15 @@ class Checkout
 
     public static $sugePurchase = '//*[@id="co-payment-form"]//dl/dt[1]/input';
 
+    //suge switch on admin panel
+
+    public static $inputNameCard = '//ul[@class="form-list paymentsage"]//li//input';
+    public static $typeCreditCard = '//ul[@class="form-list paymentsage"]//li[2]//select';
+    public static $cardNumber = '//ul[@class="form-list paymentsage"]//li[3]/div/input';
+    public static $verificationNum = '//ul[@class="form-list paymentsage"]//li[5]/div//input';
+
+
+
 
     protected $tester;
 
@@ -283,14 +292,27 @@ class Checkout
     /**
      * @param $name
      * @param $password
+     * @param $card
+     * @param $numCard
+     * @param $verNum
      */
-    public function checkSugePurchase($name, $password)
+    public function checkSugePurchase($name, $password, $card, $numCard, $verNum)
     {
         $I = $this->tester;
         self::checkOrder($name, $password);
         $I->waitForElement(self::$sugePurchase);
         $I->click(self::$sugePurchase);
         $I->wait(2);
+        try {
+            $I->scrollTo(self::$continue4,100);
+            $I->click(self::$continue4);
+            $I->getVisibleText('This is a required field.');
+            $I->getVisibleText('Card type doesn\'t match credit card number');
+            $I->fillField(self::$inputNameCard, 'Test');
+            $I->selectOption(self::$typeCreditCard, $card);
+            $I->fillField(self::$cardNumber, $numCard);
+            $I->fillField(self::$verificationNum, $verNum); } catch (Exception $e){}
+
         $I->click(self::$continue4);
 
         $I->waitForElement(self::$showOrder);
