@@ -105,11 +105,13 @@ class MagentoManageProducts
     //manufactures tab
     public static $manufacturesTab = '//*[@class="side-col"]//li[9]';
     public static $manufacturesDropDown = '//*[@id="manufacturer"]/option[2]';
-
     //Edit Page
     public static $editPageSaveButton = '//*[@id="content"]/div//button[5]';
     public static $editDuplicateButton = '//*[@id="content"]/div//button[4]';
     public static $editBackButton = '//*[@id="content"]/div//button[1]';
+    public static $resetButton = '//*[@id="content"]/div//button[2]';
+    public static $nameFieldValue = '//*[@value="simple test product"]';
+    public static $createAttributeButton = '//*[@class="main-col"]//form/div[3]/div/div[1]//button';
 
     public function addSimpleProduct($name,$description,$shortDescription,$sku,$weight,$price){
         $I = $this->tester;
@@ -178,6 +180,12 @@ class MagentoManageProducts
         $I->wait(2);
     }
 
+    public function editAProductLink(){
+        $I = $this->tester;
+        $I->click(self::$filterEditResult);
+        $I->waitForElementVisible(self::$assertDataPage);
+    }
+
     public function editAProduct($sku,$weight){
         $I = $this->tester;
         $I->click(self::$filterNameResult);
@@ -229,6 +237,34 @@ class MagentoManageProducts
         $I->waitForElementVisible(self::$assertDataPage);
     }
 
+    public function resetUpdates($name,$nameOld){
+        $I = $this->tester;
+        $I->click(self::$filterNameResult);
+        $I->waitForElementVisible(self::$assertDataPage);
+        $I->see($nameOld,self::$assertDataPage);
+        $I->fillField(self::$nameField,$name);
+        $I->click(self::$resetButton);
+        $I->waitForElementVisible(self::$nameFieldValue);
+        $I->click(self::$editBackButton);
+        $I->waitForElementVisible(self::$assertDataPage);
+    }
+
+    //Attribute page
+    public static $attributeName = './/*[@id="attribute_code"]';
+    public static $test11 = './/*[@xmlns=\'http://www.w3.org/1999/xhtml\']';
+
+    public function createAnAttribute(){
+        $I = $this->tester;
+        $I->click(self::$filterNameResult);
+        $I->waitForElementVisible(self::$assertDataPage);
+        $I->click(self::$createAttributeButton);
+        $I->wait(3);
+    //    $I->waitForElementVisible(self::$assertDataPage);
+    //    $I->see('New Product Attribute',self::$assertDataPage);
+
+
+    }
+
     public function deleteTestProducts(){
         $I = $this->tester;
         $I->click('Select All');
@@ -238,6 +274,8 @@ class MagentoManageProducts
         $I->waitForElementVisible(self::$assertSuccessMsg);
         $I->see('have been deleted.',self::$assertSuccessMsg);
 }
+
+
 
 
 }

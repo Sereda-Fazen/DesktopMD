@@ -14,7 +14,7 @@ class MagentoAdminPanelMowDirectCest
             $magentoAdminPanel->deleteCustomer('mowdirect@gmail.com');
         }
 
-    /**/
+    /*
 
             function T762CreateANewVersionControlledPageAndSaveIt(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageContent $manageContent) {
                 $I->loginAdminPanel('testing','Da1mat1an5');
@@ -326,7 +326,7 @@ class MagentoAdminPanelMowDirectCest
         $I->loginAdminPanel('testing','Da1mat1an5');
         $manageProducts->goToManageProductsPage();
         $manageProducts->searchName('simple test product');
-        $manageProducts->editAProduct('Test-SKU-33333 ','3');
+        $manageProducts->editAProductLink();
     }
 
     function T826ChangeTheProductsStatus(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageProducts $manageProducts) {
@@ -345,6 +345,29 @@ class MagentoAdminPanelMowDirectCest
         $manageProducts->searchName('simple test attribute product1');
     }
 
+    function T828EditAProduct(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageProducts $manageProducts) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageProducts->goToManageProductsPage();
+        $manageProducts->searchName('simple test product');
+        $manageProducts->editAProduct('Test-SKU-33333 ','3');
+    }
+
+    function T831ResetAfterAnEdit(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageProducts $manageProducts) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageProducts->goToManageProductsPage();
+        $manageProducts->searchName('simple test product');
+        $manageProducts->resetUpdates('TEST123123123','simple test product');
+
+    }
+
+    function T830CreateAnAttribute(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageProducts $manageProducts) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageProducts->goToManageProductsPage();
+        $manageProducts->searchName('simple test product');
+        $manageProducts->createAnAttribute();
+    }
+
+
     function T829DuplicateAProduct(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageProducts $manageProducts) {
         $I->loginAdminPanel('testing','Da1mat1an5');
         $manageProducts->goToManageProductsPage();
@@ -359,6 +382,34 @@ class MagentoAdminPanelMowDirectCest
         $manageProducts->searchName('simple test');
         $manageProducts->deleteTestProducts();
     }
+
+
+
+*/
+
+
+//// 2. Catalog > Manage Categories
+
+    function T832AddACategory(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageCategories $manageCategories) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageCategories->goToManageCategory();
+        $manageCategories->createCategory('Test category');
+    }
+
+    function T833EditACategory(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageCategories $manageCategories) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageCategories->goToManageCategory();
+        $manageCategories->editCategory('Test category');
+    }
+
+
+    function T839DeleteACategory(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageCategories $manageCategories) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageCategories->goToManageCategory();
+        $manageCategories->deleteCategory('Test category');
+    }
+
+
 
 
 }
