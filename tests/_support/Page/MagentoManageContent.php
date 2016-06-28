@@ -16,7 +16,7 @@ class MagentoManageContent
     public static $pagesDropDown = '//*[@class="nav-bar"]/ul/li[8]/ul/li[1]/a/span';
     public static $manageContent = '//*[@class="nav-bar"]/ul/li[8]/ul/li[1]/ul/li[1]/a/span';
 
-    // Manage Pages
+// Manage Pages
 
     public static $addNewPageButton = '//*[@class="content-header"]//button';
     public static $assertSuccessMsg = '//*[@class="success-msg"]//li/span';
@@ -27,7 +27,7 @@ class MagentoManageContent
     public static $urlColumnResult = '//*[@class="hor-scroll"]//td[2]';
     public static $titleColumnResult = '//*[@class="hor-scroll"]//td[1]';
 
-    // New Page
+// New Page
 
     public static $assertNewPage = '//*[@class="content-header"]/h3';
     public static $titleField = '//*[@class="hor-scroll"]/table//tr[1]/td[2]/input';
