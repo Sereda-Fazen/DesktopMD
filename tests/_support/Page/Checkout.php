@@ -273,6 +273,7 @@ class Checkout
         $I = $this->tester;
         self::checkOrder($name, $password);
         $I->waitForElement(self::$payPalCredit2);
+        $I->wait(2);
         $I->click(self::$payPalCredit2);
         $I->getVisibleText(self::$payPalCreditText, 10);
         $I->wait(2);
