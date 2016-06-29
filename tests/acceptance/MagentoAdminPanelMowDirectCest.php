@@ -14,6 +14,7 @@ class MagentoAdminPanelMowDirectCest
             $magentoAdminPanel->deleteCustomer('mowdirect@gmail.com');
         }
 
+    */
     /*
 
             function T762CreateANewVersionControlledPageAndSaveIt(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageContent $manageContent) {
@@ -336,7 +337,6 @@ class MagentoAdminPanelMowDirectCest
         $manageProducts->changeStatus();
     }
 
-
     function T827UpdateAttributes(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageProducts $manageProducts) {
         $I->loginAdminPanel('testing','Da1mat1an5');
         $manageProducts->goToManageProductsPage();
@@ -384,10 +384,6 @@ class MagentoAdminPanelMowDirectCest
     }
 
 
-
-*/
-
-
 //// 2. Catalog > Manage Categories
 
     function T832AddACategory(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageCategories $manageCategories) {
@@ -410,6 +406,150 @@ class MagentoAdminPanelMowDirectCest
     }
 
 
+////3. Catalog > Attributes
+//3.1. Manage Attributes
+
+    function T840TestTheVariousFilters(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributes();
+        $manageAttributes->variousFilter();
+    }
+
+    function T841AddAnAttribute(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributes();
+        $manageAttributes->addAttribute('test_attribute_code','1');
+    }
+
+    function T842EditAnAttribute(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributes();
+        $manageAttributes->searchAttributeCode('test_attribute_code');
+        $manageAttributes->editAttribute();
+    }
+
+    function T843DeleteAnAttribute(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributes();
+        $manageAttributes->searchAttributeCode('test_attribute_code');
+        $manageAttributes->deleteAttribute();
+    }
+
+//3.2. Manage Attribute Sets
+    function T845AddANewAttributeSet(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributesSet();
+        $manageAttributes->addNewSet('test_attribute_set');
+    }
+
+    function T844TestTheFilter(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributesSet();
+        $manageAttributes->filterTests('test_attribute_set');
+    }
+
+//3.2.1. Edit an Attribute Set
+
+    function T848DeleteAGroup(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributesSet();
+        $manageAttributes->search('test_attribute_set');
+        $manageAttributes->deleteSetGroup();
+    }
+
+    function T847EditAGroup(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributesSet();
+        $manageAttributes->search('test_attribute_set');
+        $manageAttributes->editSetGroup();
+    }
+
+    function deleteAttributeSet(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributesSet();
+        $manageAttributes->search('test_attribute_set');
+        $manageAttributes->deleteSetAttribute();
+    }
+//3.3. Manage AW Layered Navigation Configuration
+//3.4. Manage AW Layered Navigation Filters
+
+
+//4. Catalog > Search Terms
+
+    function T853AddASearchTerm(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchTerms $searchTerms) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchTerms->goToSearchTerms();
+        $searchTerms->addNewSearchTerm('test search term');
+        $searchTerms->searchTerms('test search term');
+    }
+
+    function T854EditASearchTerm(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchTerms $searchTerms) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchTerms->goToSearchTerms();
+        $searchTerms->searchTerms('test search term');
+        $searchTerms->editTerms('11','20');
+    }
+
+    function T851TestVariousFilters(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchTerms $searchTerms) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchTerms->goToSearchTerms();
+        $searchTerms->variousFilter('test search term');
+    }
+
+    function T852DeleteASearchTermFromTheActionsMenu(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchTerms $searchTerms) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchTerms->goToSearchTerms();
+        $searchTerms->searchTerms('test search term');
+        $searchTerms->deleteTestTerms();
+    }
+
+
+////5. Catalog > Reviews and Ratings
+//5.1. Customer Reviews
+//5.1.1. Pending Reviews
+//5.1.1.1. Grid View
+*/
+
+    function T855TestVariousFilters(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoReviewsAndRatings $reviewsAndRatings) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $reviewsAndRatings->goToPendingReviews();
+        $reviewsAndRatings->variousFilterPendingReviewsPage();
+    }
+
+    function T857ChangeAReviewStatusFromTheActionsMenu(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoReviewsAndRatings $reviewsAndRatings) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $reviewsAndRatings->goToPendingReviews();
+        $reviewsAndRatings->updateStatus();
+    }
+
+//5.1.1.2. Edit Review View
+    function T858EditAReview(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoReviewsAndRatings $reviewsAndRatings) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $reviewsAndRatings->goToPendingReviews();
+        $reviewsAndRatings->editReview('test review');
+    }
+
+
+
+////5.1.2. All Reviews
+//5.1.2.1. Grid View
+    function T859TestVariousFilters(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoReviewsAndRatings $reviewsAndRatings) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $reviewsAndRatings->goToAllReviews();
+        $reviewsAndRatings->variousFilterAllReviewsPage();
+    }
+
+function T861ChangeAReviewStatusFromTheActionsMenu(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoReviewsAndRatings $reviewsAndRatings) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $reviewsAndRatings->goToAllReviews();
+        $reviewsAndRatings->updateStatus();
+    }
+
+function T863EditAReview(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoReviewsAndRatings $reviewsAndRatings) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $reviewsAndRatings->goToAllReviews();
+        $reviewsAndRatings->editReview('test review');
+    }
 
 
 }
