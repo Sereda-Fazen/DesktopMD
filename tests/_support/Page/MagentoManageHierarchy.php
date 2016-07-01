@@ -97,11 +97,13 @@ class MagentoManageHierarchy
         $I = $this->tester;
         $I->see($node,self::$nodeTable);
         $I->click($node);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->wait(2);
         $I->click(self::$firstYesRender);
         $I->click(self::$nextPrevYesRender);
         $I->click(self::$showPageNavMenuYes);
         $I->click(self::$showOptionNavMenuYes);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->wait(2);
         $I->click(self::$saveButton);
         $I->waitForElement(self::$assertSuccessMsg);
@@ -109,11 +111,13 @@ class MagentoManageHierarchy
 
     }
 
+    public static $loadPageBlock = './/*[@id="loading_mask_loader"]';
+
     public function deleteNodeFromTree ($node){
         $I = $this->tester;
         $I->see($node,self::$nodeTable);
         $I->click('test-title-node');
-        $I->wait(2);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->click(self::$removeFromTreeButton);
         $I->click(self::$saveButton);
         $I->waitForElement(self::$assertSuccessMsg);
@@ -124,7 +128,7 @@ class MagentoManageHierarchy
         $I = $this->tester;
         $I->fillField(self::$filterTitleField,$title);
         $I->click(self::$searchButton);
-        $I->wait(2);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->waitForElement(self::$filterTitleResult);
         $I->see($title,self::$filterTitleResult);
         $I->click(self::$filterCheckbox);
@@ -148,7 +152,7 @@ class MagentoManageHierarchy
         $I = $this->tester;
         $I->fillField(self::$filterTitleField,$title);
         $I->click(self::$searchButton);
-        $I->wait(2);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->waitForElement(self::$filterTitleResult);
         $I->see($title,self::$filterTitleResult);
         $I->click(self::$filterCheckbox);
@@ -165,7 +169,7 @@ class MagentoManageHierarchy
         $I = $this->tester;
         $I->see($node,self::$nodeTable);
         $I->click($node);
-        $I->wait(3);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->see($node,self::$assertPagePropertiesTitle);
         $I->click(self::$removeFromTreeButton);
         $I->click(self::$saveButton);

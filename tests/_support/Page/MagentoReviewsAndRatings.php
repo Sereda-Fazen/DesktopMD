@@ -15,6 +15,7 @@ class MagentoReviewsAndRatings
 
     public static $reviewAndRatingsDown = '//*[@class="nav-bar"]/ul/li[3]/ul/li[8]';
     public static $customerReviewDown = '//*[@class="nav-bar"]/ul/li[3]/ul/li[8]/ul/li[1]/a/span';
+    public static $manageRatings = '//*[@class="nav-bar"]/ul/li[3]/ul/li[8]/ul/li[2]/a/span';
     public static $pendingReview = '//*[@class="nav-bar"]/ul/li[3]/ul/li[8]/ul/li[1]/ul/li[1]/a/span';
     public static $allReviews = '//*[@class="nav-bar"]/ul/li[3]/ul/li[8]/ul/li[1]/ul/li[2]/a/span';
 
@@ -56,7 +57,16 @@ class MagentoReviewsAndRatings
         $I->see('All Reviews',self::$assertDataPage);
     }
 
-
+    public function goToManageRatings() {
+        $I = $this->tester;
+        $I ->moveMouseOver(self::$catalogDown);
+        $I->waitForElement(self::$reviewAndRatingsDown);
+        $I ->moveMouseOver(self::$reviewAndRatingsDown);
+        $I->waitForElement(self::$manageRatings);
+        $I->click(self::$manageRatings);
+        $I->waitForElementVisible(self::$assertDataPage);
+        $I->see('Manage Ratings',self::$assertDataPage);
+    }
 
 
 // Filter Fields Pending Reviews Page
@@ -153,20 +163,6 @@ class MagentoReviewsAndRatings
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // All Reviews Page
     public static $addNewReviewButton = '//*[@class="middle"]/div/div[2]//button';
 
@@ -175,6 +171,66 @@ class MagentoReviewsAndRatings
         $I->click(self::$addNewReviewButton);
         $I->waitForElementVisible(self::$assertDataPage);
     }
+
+
+/////Manage Ratings Page
+
+    //New Rating Page
+    public static $defaultValueField = '//*[@id="rating_code"]';
+    public static $ratingVisibleInAgriFab = '//*[@id="stores"]/optgroup[2]/option';
+    public static $newSaveRatingButton = '//*[@id="content"]/div/div[2]//button[3]';
+    public static $editSaveRatingButton = '//*[@id="content"]/div/div[2]//button[4]';
+    public static $sortOrderField = '//*[@id="position"]';
+
+    public function addNewRating($value){
+        $I = $this->tester;
+        $I->click(self::$addNewReviewButton);
+        $I->waitForElementVisible(self::$assertDataPage);
+        $I->see('New Rating',self::$assertDataPage);
+        $I->fillField(self::$defaultValueField,$value);
+        $I->click(self::$ratingVisibleInAgriFab);
+        $I->click(self::$newSaveRatingButton);
+        $I->waitForElementVisible(self::$assertSuccessMsg);
+        $I->see('saved.',self::$assertSuccessMsg);
+    }
+
+    public static $filterRatingNameField = '//*[@class="filter"]//th[2]//input';
+    public static $resultRatingName = './/*[@class="data"]//tr//td[2]';
+
+    public function searchRatingName($ratingName){
+        $I = $this->tester;
+        $I->fillField(self::$filterRatingNameField,$ratingName);
+        $I->click(self::$filterSearchButton);
+        $I->waitForElementVisible(self::$resultRatingName);
+        $I->see($ratingName,self::$resultRatingName);
+    }
+
+    public function editRating($sortOrder){
+        $I = $this->tester;
+        $I->click(self::$resultRatingName);
+        $I->waitForElementVisible(self::$assertDataPage);
+        $I->see('Edit Rating',self::$assertDataPage);
+        $I->fillField(self::$sortOrderField,$sortOrder);
+        $I->click(self::$editSaveRatingButton);
+        $I->waitForElementVisible(self::$assertSuccessMsg);
+        $I->see('saved.',self::$assertSuccessMsg);
+    }
+
+    public function deleteRating(){
+        $I = $this->tester;
+        $I->click(self::$resultRatingName);
+        $I->waitForElementVisible(self::$assertDataPage);
+        $I->see('Edit Rating',self::$assertDataPage);
+        $I->click(self::$newSaveRatingButton);
+        $I->acceptPopup();
+        $I->waitForElementVisible(self::$assertSuccessMsg);
+        $I->see('deleted.',self::$assertSuccessMsg);
+    }
+
+
+
+
+
 
 
 }

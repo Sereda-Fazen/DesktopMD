@@ -113,11 +113,14 @@ class MagentoManageContent
         return $this;
     }
 
+    public static $loadPageBlock = './/*[@id="loading_mask_loader"]';
+
     public function searchPage ($urlKey)
     {
         $I = $this->tester;
         $I->fillField(self::$urlSearchField, $urlKey);
         $I->click(self::$searchButton);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->waitForElement(self::$urlColumnResult);
     }
 

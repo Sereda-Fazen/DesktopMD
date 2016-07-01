@@ -130,10 +130,13 @@ class MagentoProNav
         $I->see('were successfully deleted',self::$assertSuccessMsg);
     }
 
+    public static $loadPageBlock = './/*[@id="loading_mask_loader"]';
+
     public function changeItemStatusOnActionMenu($nameProNav) {
         $I = $this->tester;
         $I->click(self::$filterID);
         $I->wait(2);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
       //  $I->fillField(self::$filterNameField,$nameProNav);
       //  $I->click(self::$filterSearchButton);
         $I->waitForElement(self::$filterSearchResult);
@@ -161,7 +164,7 @@ class MagentoProNav
         $I->click(self::$changeStatusActionDropDown);
         $I->click(self::$disableStatusActionDropDown);
         $I->click(self::$filterResetButton);
-        $I->wait(1);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->click(self::$filterName);
         $I->click(self::$filterUrl);
 

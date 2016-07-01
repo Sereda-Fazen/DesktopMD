@@ -61,21 +61,22 @@ class MagentoCustomerSegments
         $I->see('Manage Segments',self::$assertDataPage);
     }
 
+    public static $loadPageBlock = './/*[@id="loading_mask_loader"]';
     public function variousFilter($id) {
         $I = $this->tester;
         $I->click(self::$filterStatusActive);
         $I->click(self::$filterSearchButton);
-        $I->wait(2);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->waitForElementVisible(self::$filterStatusActiveResult);
         $I->see('Active',self::$filterStatusActiveResult);
         $I->fillField(self::$filterIDField,$id);
         $I->click(self::$filterSearchButton);
-        $I->wait(2);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->waitForElementVisible(self::$filterIDResult);
         $I->see('1', self::$filterIDResult);
         $I->click(self::$filterWebsiteDropDown);
         $I->click(self::$filterSearchButton);
-        $I->wait(2);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->waitForElementVisible(self::$filterWebsiteResult);
         $I->see('Main Website',self::$filterWebsiteResult);
     }
@@ -100,8 +101,8 @@ class MagentoCustomerSegments
         $I = $this->tester;
         $I->fillField(self::$filterSegmentField, $segmentName);
         $I->click(self::$filterSearchButton);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->waitForElementVisible(self::$filterSegmentNameResult);
-        $I->wait(2);
         $I->see($segmentName,self::$filterSegmentNameResult);
         $I->click(self::$filterSegmentNameResult);
         $I->waitForElementVisible(self::$assertSegmentPage);

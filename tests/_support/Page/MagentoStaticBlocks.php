@@ -102,6 +102,8 @@ class MagentoStaticBlocks
     public static $filterIdentifierField = '//*[@class="filter"]/th[2]//input';
     public static $filterStoreViewOpt5 = '//*[@class="filter"]/th[3]//optgroup[4]/option';
 
+    public static $loadPageBlock = './/*[@id="loading_mask_loader"]';
+
     public function variosFilter($identifier,$dataCreatedFrom,$dataCreatedTo,$lastModFrom,$lastModTo) {
         $I = $this->tester;
         $I->fillField(self::$filterIdentifierField,$identifier);
@@ -118,7 +120,7 @@ class MagentoStaticBlocks
         $I->click(self::$filterResetButton);
         $I->click(self::$filterStoreViewOpt5);
         $I->click(self::$filterSearchButton);
-        $I->wait(2);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
     }
 
 }

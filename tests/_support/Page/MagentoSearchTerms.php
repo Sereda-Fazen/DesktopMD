@@ -75,6 +75,8 @@ class MagentoSearchTerms
     public static $numberUsesField = '//*[@id="popularity"]';
     public static $editSaveSearchButton = '//*[@class="middle"]/div/div[2]//button[4]';
 
+    public static $loadPageBlock = './/*[@id="loading_mask_loader"]';
+
     public function editTerms($numberResult,$numberUses){
         $I = $this->tester;
         $I->click(self::$resultSearchQuery);
@@ -98,7 +100,8 @@ class MagentoSearchTerms
         $I->click(self::$filterStoreAgrDown);
         $I->waitForElementVisible(self::$resultSearchQuery);
         $I->click(self::$filterResetFilterButton);
-        $I->wait(2);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
+
 
     }
 

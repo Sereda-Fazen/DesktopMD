@@ -71,6 +71,9 @@ class MagentoManageAttributes
     public static $filterVisibleResult = '//*[@class="data"]//td[5]';
     public static $filterScopeResult = '//*[@class="data"]//td[6]';
 
+
+    public static $loadPageBlock = './/*[@id="loading_mask_loader"]';
+
     public function variousFilter() {
         $I = $this->tester;
         $I->click(self::$filterRequiredNoDown);
@@ -86,7 +89,7 @@ class MagentoManageAttributes
         $I->waitForElementVisible(self::$filterVisibleResult);
         $I->see('No',self::$filterVisibleResult);
         $I->click(self::$resetFilterButton);
-        $I->wait(2);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->click(self::$filterScoreGlobalDown);
         $I->waitForElementVisible(self::$filterScopeResult);
         $I->see('Global',self::$filterScopeResult);
@@ -118,6 +121,7 @@ class MagentoManageAttributes
         $I = $this->tester;
         $I->fillField(self::$filterAttributesCodeField, $attributeCode);
         $I->click(self::$searchButton);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->waitForElementVisible(self::$filterAttributeCodeResult);
         $I->see($attributeCode, self::$filterAttributeCodeResult);
     }
@@ -183,7 +187,7 @@ class MagentoManageAttributes
         $I->waitForElementVisible(self::$setNameResult);
         $I->see($attributeSet,self::$setNameResult);
         $I->click(self::$resetFilterSetButton);
-        $I->wait(2);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
     }
 
     // Edit Attribute Page
@@ -222,7 +226,7 @@ class MagentoManageAttributes
         $I->waitForElementVisible(self::$groupTable);
         $I->click('Google Shopping');
         $I->click(self::$deleteNewGroupButton);
-        $I->wait(2);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->waitForElementNotVisible('Google Shopping');
         }
 
