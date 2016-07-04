@@ -68,9 +68,9 @@ class MagentoBanners
         $I = $this->tester;
         $I->fillField(self::$filterBannerNameField,$bannerName);
         $I->click(self::$filterSearchButton);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->waitForElementVisible(self::$filterBannersResult);
         $I->see($bannerName,self::$filterBannersResult);
-        $I->wait(1);
         $I->click(self::$filterBannersResult);
         $I->waitForElement(self::$assertBannersPage);
         $I->see('Test Banner',self::$assertBannersPage);
@@ -84,9 +84,9 @@ class MagentoBanners
         $I = $this->tester;
         $I->fillField(self::$filterBannerNameField,$bannerName);
         $I->click(self::$filterSearchButton);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->waitForElementVisible(self::$filterBannersResult);
         $I->see($bannerName,self::$filterBannersResult);
-        $I->wait(1);
         $I->click(self::$filterBannersResult);
         $I->waitForElement(self::$assertBannersPage);
         $I->see('Test Banner',self::$assertBannersPage);
@@ -106,28 +106,30 @@ class MagentoBanners
         $I = $this->tester;
         $I->fillField(self::$filterBannerNameField,$bannerName);
         $I->click(self::$filterSearchButton);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->waitForElementVisible(self::$filterBannersResult);
-        $I->wait(2);
         $I->see($bannerName,self::$filterBannersResult);
         $I->fillField(self::$filterIdFrom,$IdFrom);
         $I->fillField(self::$filterIdTo,$IdTo);
         $I->click(self::$filterSearchButton);
-        $I->wait(2);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->click(self::$filterSortBannerName);
-        $I->wait(2);
         $I->click(self::$filterStoreViewOpt4);
         $I->click(self::$filterSearchButton);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
     }
 
     public static $filterResultCheckbox = './/*[@class="grid"]//tbody/tr[1]/td[1]/input';
     public static $filterActionDeleteDropDown = '//*[@class="massaction"]//option[2]';
     public static $filterActionSubmitButton = './/*[@class="massaction"]//button';
+    public static $loadPageBlock = './/*[@id="loading_mask_loader"]';
 
 
     public function deleteFromActionMenu ($bannerName){
         $I = $this->tester;
         $I->fillField(self::$filterBannerNameField,$bannerName);
         $I->click(self::$filterSearchButton);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->waitForElementVisible(self::$filterBannersResult);
         $I->see($bannerName,self::$filterBannersResult);
         $I->wait(2);
@@ -136,7 +138,7 @@ class MagentoBanners
         $I->click(self::$filterActionSubmitButton);
         $I->acceptPopup();
         $I->waitForElement(self::$assertSuccessMsg);
-        $I->wait(4);
+        $I->wait(2);
 
 
     }

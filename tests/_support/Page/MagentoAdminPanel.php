@@ -41,6 +41,7 @@ class MagentoAdminPanel
         $this->tester = $I; // подкл. конструктора
     }
 
+    public static $loadPageBlock = './/*[@id="loading_mask_loader"]';
 
     public function deleteCustomer($email)
     {
@@ -52,7 +53,7 @@ class MagentoAdminPanel
         $I->see('Manage Customers',self::$assertCustomerManagePage);
         $I->fillField(self::$filterEmailField,$email);
         $I->click(self::$searchButton);
-        $I->wait(2);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->click('Edit');
         $I->waitForElementVisible(self::$assertCustomerInformation);
         $I->see('Customer Information',self::$assertCustomerInformation);

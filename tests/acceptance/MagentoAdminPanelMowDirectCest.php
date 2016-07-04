@@ -14,7 +14,8 @@ class MagentoAdminPanelMowDirectCest
             $magentoAdminPanel->deleteCustomer('mowdirect@gmail.com');
         }
 
-    /*
+    */
+    /**/
 
             function T762CreateANewVersionControlledPageAndSaveIt(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageContent $manageContent) {
                 $I->loginAdminPanel('testing','Da1mat1an5');
@@ -120,15 +121,7 @@ class MagentoAdminPanelMowDirectCest
             $magentoManageHierarchy->deleteNodeFromTree('test-title-node-1');
         }
 
-    ///  Delete Test Pages CMS->Manage Content
-    function deleteTestPages(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageContent $manageContent) {
-        $I->loginAdminPanel('testing','Da1mat1an5');
-        $manageContent->goToManagePage();
-        $manageContent->searchPage('test-url-1');
-        $manageContent->deletePage();
-        $manageContent->searchPage('test-non-url-1');
-        $manageContent->deletePage();
-    }
+
 
 //// 3.CMS > Pronav
     function T780CreateAPronavItem(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoProNav $magentoProNav) {
@@ -336,7 +329,6 @@ class MagentoAdminPanelMowDirectCest
         $manageProducts->changeStatus();
     }
 
-
     function T827UpdateAttributes(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageProducts $manageProducts) {
         $I->loginAdminPanel('testing','Da1mat1an5');
         $manageProducts->goToManageProductsPage();
@@ -384,10 +376,6 @@ class MagentoAdminPanelMowDirectCest
     }
 
 
-
-*/
-
-
 //// 2. Catalog > Manage Categories
 
     function T832AddACategory(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageCategories $manageCategories) {
@@ -407,6 +395,305 @@ class MagentoAdminPanelMowDirectCest
         $I->loginAdminPanel('testing','Da1mat1an5');
         $manageCategories->goToManageCategory();
         $manageCategories->deleteCategory('Test category');
+    }
+
+
+////3. Catalog > Attributes
+//3.1. Manage Attributes
+
+    function T840TestTheVariousFilters(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributes();
+        $manageAttributes->variousFilter();
+    }
+
+    function T841AddAnAttribute(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributes();
+        $manageAttributes->addAttribute('test_attribute_code','1');
+    }
+
+    function T842EditAnAttribute(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributes();
+        $manageAttributes->searchAttributeCode('test_attribute_code');
+        $manageAttributes->editAttribute();
+    }
+
+    function T843DeleteAnAttribute(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributes();
+        $manageAttributes->searchAttributeCode('test_attribute_code');
+        $manageAttributes->deleteAttribute();
+    }
+
+//3.2. Manage Attribute Sets
+    function T845AddANewAttributeSet(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributesSet();
+        $manageAttributes->addNewSet('test_attribute_set');
+    }
+
+    function T844TestTheFilter(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributesSet();
+        $manageAttributes->filterTests('test_attribute_set');
+    }
+
+//3.2.1. Edit an Attribute Set
+
+    function T848DeleteAGroup(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributesSet();
+        $manageAttributes->search('test_attribute_set');
+        $manageAttributes->deleteSetGroup();
+    }
+
+    function T847EditAGroup(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributesSet();
+        $manageAttributes->search('test_attribute_set');
+        $manageAttributes->editSetGroup();
+    }
+
+    function deleteAttributeSet(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageAttributes $manageAttributes) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageAttributes->goToManageAttributesSet();
+        $manageAttributes->search('test_attribute_set');
+        $manageAttributes->deleteSetAttribute();
+    }
+//3.3. Manage AW Layered Navigation Configuration
+//3.4. Manage AW Layered Navigation Filters
+
+
+//4. Catalog > Search Terms
+
+    function T853AddASearchTerm(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchTerms $searchTerms) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchTerms->goToSearchTerms();
+        $searchTerms->addNewSearchTerm('test search term');
+        $searchTerms->searchTerms('test search term');
+    }
+
+    function T854EditASearchTerm(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchTerms $searchTerms) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchTerms->goToSearchTerms();
+        $searchTerms->searchTerms('test search term');
+        $searchTerms->editTerms('11','20');
+    }
+
+    function T851TestVariousFilters(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchTerms $searchTerms) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchTerms->goToSearchTerms();
+        $searchTerms->variousFilter('test search term');
+    }
+
+    function T852DeleteASearchTermFromTheActionsMenu(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchTerms $searchTerms) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchTerms->goToSearchTerms();
+        $searchTerms->searchTerms('test search term');
+        $searchTerms->deleteTestTerms();
+    }
+
+
+////5. Catalog > Reviews and Ratings
+//5.1. Customer Reviews
+//5.1.1. Pending Reviews
+//5.1.1.1. Grid View
+
+
+    function T855TestVariousFilters(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoReviewsAndRatings $reviewsAndRatings) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $reviewsAndRatings->goToPendingReviews();
+        $reviewsAndRatings->variousFilterPendingReviewsPage();
+    }
+
+    function T857ChangeAReviewStatusFromTheActionsMenu(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoReviewsAndRatings $reviewsAndRatings) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $reviewsAndRatings->goToPendingReviews();
+        $reviewsAndRatings->updateStatus();
+    }
+
+//5.1.1.2. Edit Review View
+    function T858EditAReview(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoReviewsAndRatings $reviewsAndRatings) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $reviewsAndRatings->goToPendingReviews();
+        $reviewsAndRatings->editReview('test review');
+    }
+
+
+////5.1.2. All Reviews
+//5.1.2.1. Grid View
+    function T859TestVariousFilters(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoReviewsAndRatings $reviewsAndRatings) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $reviewsAndRatings->goToAllReviews();
+        $reviewsAndRatings->variousFilterAllReviewsPage();
+    }
+
+    function T861ChangeAReviewStatusFromTheActionsMenu(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoReviewsAndRatings $reviewsAndRatings) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $reviewsAndRatings->goToAllReviews();
+        $reviewsAndRatings->updateStatus();
+    }
+
+    function T863EditAReview(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoReviewsAndRatings $reviewsAndRatings) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $reviewsAndRatings->goToAllReviews();
+        $reviewsAndRatings->editReview('test review');
+    }
+
+// 5.2. Manage Ratings
+
+    function T864AddANewRating(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoReviewsAndRatings $reviewsAndRatings) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $reviewsAndRatings->goToManageRatings();
+        $reviewsAndRatings->addNewRating('test rating');
+    }
+
+    function T865EditARating(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoReviewsAndRatings $reviewsAndRatings) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $reviewsAndRatings->goToManageRatings();
+        $reviewsAndRatings->searchRatingName('test rating');
+        $reviewsAndRatings->editRating('1');
+    }
+
+    function T866DeleteARating(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoReviewsAndRatings $reviewsAndRatings) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $reviewsAndRatings->goToManageRatings();
+        $reviewsAndRatings->searchRatingName('test rating');
+        $reviewsAndRatings->deleteRating();
+    }
+
+
+//// 6. Search and Replace Catalog
+
+//BUG     function T1285TestLinkCMSSelectPages(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+//BUG         $I->loginAdminPanel('testing','Da1mat1an5');
+//BUG         $searchAndReplaceCatalog->goToCmsSelectPage();
+//BUG     }
+
+//BUG     function T1286TestLinkCMSSearchInPages(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+//BUG         $I->loginAdminPanel('testing','Da1mat1an5');
+//BUG         $searchAndReplaceCatalog->goToCmsSearchInPage();
+//BUG     }
+
+//BUG     function T1317TestLinkCMSReplaceInPages(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+//BUG         $I->loginAdminPanel('testing','Da1mat1an5');
+//BUG         $searchAndReplaceCatalog->goToCmsReplaceInPage();
+//BUG     }
+
+//BUG     function T1318TestLinkCMSSelectInStaticBlocks(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+//BUG         $I->loginAdminPanel('testing','Da1mat1an5');
+//BUG         $searchAndReplaceCatalog->goToCmsSelectInStaticBlock();
+//BUG     }
+
+//BUG     function T1319TestLinkCMSSearchInStaticsBlocks(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+//BUG         $I->loginAdminPanel('testing','Da1mat1an5');
+//BUG         $searchAndReplaceCatalog->goToCmsSearchInStaticBlock();
+//BUG     }
+
+//BUG     function T1320TestLinkCMSReplaceInStaticBlocks(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+//BUG         $I->loginAdminPanel('testing','Da1mat1an5');
+//BUG         $searchAndReplaceCatalog->goToCmsReplaceInStaticBlocks();
+//BUG     }
+
+//BUG     function T1314TestLinkCatalogSelectProducts(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+//BUG         $I->loginAdminPanel('testing','Da1mat1an5');
+//BUG         $searchAndReplaceCatalog->goToCatalogSelectProducts();
+//BUG     }
+
+//BUG     function T1315TestLinkCatalogSearch(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+//BUG         $I->loginAdminPanel('testing','Da1mat1an5');
+//BUG         $searchAndReplaceCatalog->goToCatalogSearch();
+//BUG     }
+
+//BUG     function T1316TestLinkCatalogReplica(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+//BUG         $I->loginAdminPanel('testing','Da1mat1an5');
+//BUG         $searchAndReplaceCatalog->goToCatalogReplace();
+//BUG     }
+
+    function T1321TestLinkSearchAndReplaceSelectInPages(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+         $searchAndReplaceCatalog->goToSearchAndReplaceSelectPage();
+     }
+
+    function T1322TestLinkSearchAndReplaceSearchInPages(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchAndReplaceCatalog->goToSearchAndReplaceSearchInPage();
+    }
+
+    function T1323TestLinkSearchAndReplaceReplaceInPages(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchAndReplaceCatalog->goToSearchAndReplaceReplaceInPages();
+    }
+
+    function T1324TestLinkSearchAndReplaceSelectStaticBlocks(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchAndReplaceCatalog->goToSearchAndReplaceSelectStaticBlock();
+    }
+
+    function T1325TestLinkSearchAndReplaceSearchStaticBlocks(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchAndReplaceCatalog->goToSearchAndReplaceSearchStaticBlocks();
+    }
+
+    function T1326TestLinkSearchAndReplaceReplaceStaticBlocks(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchAndReplaceCatalog->goToSearchAndReplaceReplaceStaticBlocks();
+    }
+
+    function T1327TestLinkSearchAndReplacSelectInProducts(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchAndReplaceCatalog->goToSearchAndReplaceSelectInProduct();
+    }
+
+    function T1328TestLinkSearchAndReplaceSearch(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchAndReplaceCatalog->goToSearchAndReplaceSearch();
+    }
+
+    function T1329TestLinkSearchAndReplaceReplaceReplace(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchAndReplaceCatalog->goToSearchAndReplaceReplace();
+    }
+
+
+// 6.1. Select Products
+
+
+    function T1287TestGridViewFilters(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchAndReplaceCatalog->goToSearchAndReplaceSelectInProduct();
+        $searchAndReplaceCatalog->viewFilters();
+    }
+
+    function T1288TestSearchActionFromTheMassActionMenu(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchAndReplaceCatalog->goToSearchAndReplaceSelectInProduct();
+        $searchAndReplaceCatalog->searchAction('WOLF');
+    }
+
+// 6.2. Search Grid
+
+    function T1290TestReplaceFunctionFromTheMassActionMenu(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoSearchAndReplaceCatalog $searchAndReplaceCatalog) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $searchAndReplaceCatalog->goToSearchAndReplaceSearch();
+        $searchAndReplaceCatalog->replaceFunction();
+
+    }
+
+
+
+
+
+    ///  Delete Test Pages CMS->Manage Content
+    function deleteTestPages(Step\Acceptance\AdminPanelLoginSteps $I, \Page\MagentoManageContent $manageContent) {
+        $I->loginAdminPanel('testing','Da1mat1an5');
+        $manageContent->goToManagePage();
+        $manageContent->searchPage('test-url-1');
+        $manageContent->deletePage();
+        $manageContent->searchPage('test-non-url-1');
+        $manageContent->deletePage();
     }
 
 

@@ -46,6 +46,8 @@ class MagentoDataFeedManager
         $I->see('Data Feed Manager',self::$assertDataFeedManagerPage);
     }
 
+    public static $loadPageBlock = './/*[@id="loading_mask_loader"]';
+
     public function variousFilter($from,$to) {
         $I = $this->tester;
         $I->click(self::$filterFileFormatTxt);
@@ -53,18 +55,18 @@ class MagentoDataFeedManager
         $I->waitForElement(self::$filterFileFormatResult);
         $I->see('txt',self::$filterFileFormatResult);
         $I->click(self::$filterResetButton);
-        $I->wait(1);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->click(self::$filterStatusEnable);
         $I->click(self::$filterSearchButton);
         $I->waitForElement(self::$filterStatusResult);
         $I->see('Enabled', self::$filterStatusResult);
         $I->click(self::$filterResetButton);
-        $I->wait(1);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->fillField(self::$filterLastUpdateFrom,$from);
         $I->fillField(self::$filterLastUpdateTo,$to);
         $I->click(self::$filterSearchButton);
+        $I->waitForElementNotVisible(self::$loadPageBlock);
         $I->waitForElementVisible(self::$filterStatusResult);
-        $I->wait(1);
         }
 
 //New feed Page
