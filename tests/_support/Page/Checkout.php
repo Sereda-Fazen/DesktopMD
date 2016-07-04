@@ -301,6 +301,7 @@ class Checkout
     {
         $I = $this->tester;
         self::checkOrder($name, $password);
+        $I->wait(2);
         $I->waitForElement(self::$sugePurchase);
         $I->click(self::$sugePurchase);
         $I->wait(2);

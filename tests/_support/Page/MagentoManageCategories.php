@@ -22,6 +22,15 @@ class MagentoManageCategories
     public static $nameField = '//*[@id="group_4name"]';
     public static $saveCategory = '//*[@class="category-content"]/div[1]//button[2]';
     public static $categoryTree = '//*[@id="tree-div"]';
+    public static $loading = '//*[@id="loading_mask_loader"]';
+    public static $testCategoryBelow = '//*[@class="tree-holder"]//ul/div/li[6]//a/span[text()="Test category (0)"]';
+    public static $testCategoryAbove = '//*[@class="tree-holder"]//ul/div/li[5]//li//a//span[contains(text(), "Test")]';
+    public static $homePage = '//*[@class="tree-holder"]//ul/div/li[5]//li//a/span[contains(text(), "Homepage")]';
+    public static $best = '//*[@class="tree-holder"]//ul/div/li[5]//li//a/span[contains(text(),"The Best Deals")]';
+    public static $bestAll = '//*[@class="tree-holder"]//ul/div/li[5]//li//a/span[contains(text(),"The Best Deals")]/../../img';
+    public static $showTableBest = '//*[@class="tree-holder"]//ul/div/li[5]//li//a/span[contains(text(),"The Best Deals")]/../../..//ul';
+    public static $zone = '//*[@class="tree-holder"]//ul/div/li[5]//li//a/span[contains(text(),"The Best Deals")]/../../..//ul//a/span[contains(text(),"Zone")]';
+    public static $homePageAll = '//*[@class="tree-holder"]//ul/div/li[5]//li//a/span[contains(text(),"Homepage")]/../../img';
 
 
 
@@ -33,52 +42,108 @@ class MagentoManageCategories
 
     public function goToManageCategory() {
         $I = $this->tester;
-        $I ->moveMouseOver(self::$catalogDown);
+        $I->moveMouseOver(self::$catalogDown);
         $I->waitForElement(self::$categoriesDown);
-        $I ->moveMouseOver(self::$categoriesDown);
+        $I->moveMouseOver(self::$categoriesDown);
         $I->waitForElement(self::$manageCategories);
         $I->click(self::$manageCategories);
         $I->waitForElementVisible(self::$assertDataPage);
         $I->see('New Root Category',self::$assertDataPage);
-        $I->wait(3);
+        $I->waitForElementNotVisible(self::$loading,30);
     }
 
-    public function createCategory($name){
+    public function createCategory($name)
+    {
         $I = $this->tester;
-        $I->fillField(self::$nameField,$name);
+        $I->fillField(self::$nameField, $name);
+        $I->waitForElementNotVisible(self::$loading);
+        $I->waitForElement(self::$saveCategory);
         $I->click(self::$saveCategory);
         $I->waitForElementVisible(self::$assertSuccessMsg);
-        $I->see('The category has been saved.',self::$assertSuccessMsg);
-        $I->see($name,self::$categoryTree);
+        $I->see('The category has been saved.', self::$assertSuccessMsg);
+        $I->see($name, self::$categoryTree);
+        $I->seeElement(self::$testCategoryBelow);
     }
-
-    public static $editName = '//*[@value="Test category"]';
-    public static $activeYes = './/*[@id="group_4is_active"]/option[1]';
-    public static $saveEditButton = '//*[@class="category-content"]/div[1]//button[3]';
-    public static $deleteEditButton = '//*[@class="category-content"]/div[1]//button[2]';
-    public static $logo = '//*[@class="logo"]';
 
     public function editCategory($name){
         $I = $this->tester;
         $I->see($name,self::$categoryTree);
-        $I->click($name);
-        $I->waitForElement(self::$editName);
-        $I->click(self::$activeYes);
+        $I->click(self::$testCategoryBelow);
+        $I->waitForElementNotVisible(self::$loading,30);
+        $I->waitForElement(self::$nameField);
+        $I->fillField(self::$nameField, $name);
+        $I->waitForElement(self::$saveEditButton);
         $I->click(self::$saveEditButton);
-        $I->waitForElementVisible(self::$assertSuccessMsg);
+        $I->waitForElementNotVisible(self::$loading,30);
+        $I->waitForElement(self::$assertSuccessMsg);
+        $I->see('The category has been saved.', self::$assertSuccessMsg);
     }
 
-    public function deleteCategory($name){
+
+
+    public function aboveCategory()
+    {
         $I = $this->tester;
-        $I->see($name,self::$categoryTree);
-        $I->click($name);
-        $I->waitForElement(self::$editName);
-        $I->scrollTo(self::$logo);
-        $I->wait(2);
+        $I->dragAndDrop(self::$testCategoryBelow, self::$homePage);
+        $I->waitForElementNotVisible(self::$loading,30);
+    }
+    public function belowCategory()
+    {
+        $I = $this->tester;
+        $I->reloadPage();
+        $I->scrollTo(self::$bestAll,500);
+        $I->waitForElementNotVisible(self::$loading,30);
+        $I->waitForElement(self::$bestAll);
+        $I->click(self::$bestAll);
+        $I->waitForElementNotVisible(self::$loading,30);
+        $I->waitForElement(self::$showTableBest);
+        $I->scrollDown(500);
+        $I->waitForElement(self::$zone);
+        $I->scrollDown(200);
+        $I->waitForElement(self::$homePageAll);
+        $I->click(self::$homePageAll);
+        $I->waitForElementNotVisible(self::$loading,30);
+        $I->click(self::$homePageAll);
+        $I->waitForElementNotVisible(self::$loading,30);
+        $I->waitForElement(self::$testCategoryAbove);
+        $I->waitForElementNotVisible(self::$loading,30);
+        $I->click(self::$testCategoryAbove);
+        $I->waitForElementNotVisible(self::$loading,30);
+    }
+    public function intoSibling()
+    {
+        $I = $this->tester;
+        $I->dragAndDrop(self::$testCategoryAbove, self::$zone);
+        $I->waitForElementNotVisible(self::$loading, 30);
+        $I->waitForElement(self::$testCategoryAbove);
+        $I->click(self::$testCategoryAbove);
+        $I->waitForElementNotVisible(self::$loading,30);
+        $I->dragAndDrop(self::$testCategoryAbove, self::$best);
+        $I->waitForElementNotVisible(self::$loading, 30);
+        $I->waitForElement(self::$testCategoryAbove);
+    }
+    public function deleteCategory(){
+        $I = $this->tester;
+        $I->click(self::$testCategoryAbove);
+        $I->waitForElementNotVisible(self::$loading,30);
+        $I->waitForElement(self::$deleteEditButton);
         $I->click(self::$deleteEditButton);
         $I->acceptPopup();
-        $I->waitForElementVisible(self::$assertSuccessMsg);
+        $I->waitForElementNotVisible(self::$loading,30);
+        $I->waitForElement(self::$assertSuccessMsg);
+        $I->see('The category has been deleted.',self::$assertSuccessMsg);
+
+
     }
+
+
+    public static $saveEditButton = '//div[@id="category-edit-container"]//p/button//span[text()="Save Category"]';
+    public static $deleteEditButton = '//div[@class="content-header-floating"]//button//span[text()="Delete Category"]';
+    public static $logo = '//*[@class="logo"]';
+
+
+
+
 
 
 

@@ -14,84 +14,68 @@ class FiltersSteps extends \AcceptanceTester
         $I->seeElement('//ol[@class="products-list"]/li');
         try {$I->seeElement('//ol[@class="products-list"]/li[2]');} catch (Exception $e){}
         try {$I->seeElement('//ol[@class="products-list"]/li[3]');} catch (Exception $e){}
-
     }
     public function removeFilter(){
         $I = $this;
-        $I->waitForAjax(10);
+        $I->waitForAjax(20);
         $I->click('//div[@class="currently"]//ol/li/a');
         $I->wait(2);
     }
-
     public function checkFilters()
     {
         $I = $this;
         $I->waitForElement('//dl[@class="narrow-by-list"]');
-
-
         for ($t = 2; $t <= 11; $t++) {
             try {
                 $I->click('//dl[@class="narrow-by-list"]//dd[2]/div/a[2]');
             } catch (Exception $e) {}
             try {$I->click('//dl[@class="narrow-by-list"]//dd[7]/div/a[2]');}
-              catch (Exception $e){}
+            catch (Exception $e){}
             try {$I->click('//dl[@class="narrow-by-list"]//dd[10]/div/a[2]');}
-              catch (Exception $e){}
-
+            catch (Exception $e){}
             $manufact = count($I->grabMultiple('//dl[@class="narrow-by-list"]//dd['.$t.']'));
             $I->wait(2);
             $I->click('//dl[@class="narrow-by-list"]//dd[' . $t . ']//li[' . rand(1, $manufact) . ']');
-            $I->waitForAjax(10);
+            $I->waitForAjax(20);
             $I->exceptions();
             $I->waitForElement('//div[@class="currently"]//ol/li//span');
-
             switch ($t) {
-
                 case 2:
                     $I->see('Manufacturer:', '//div[@class="currently"]//ol/li//span');
                     $I->removeFilter();
                     break;
-
                 case 3:
                     $I->see('Type:', '//div[@class="currently"]//ol/li//span');
                     $I->removeFilter();
                     break;
-
                 case 4:
                     $I->see('Drive System:', '//div[@class="currently"]//ol/li//span');
                     $I->removeFilter();
                     break;
-
                 case 5:
                     $I->see('Cutting Width:', '//div[@class="currently"]//ol/li//span');
                     $I->removeFilter();
                     break;
-
                 case 6:
                     $I->see('Engine Size:', '//div[@class="currently"]//ol/li//span');
                     $I->removeFilter();
                     break;
-
                 case 7:
                     $I->see('Lawn Size:', '//div[@class="currently"]//ol/li//span');
                     $I->removeFilter();
                     break;
-
                 case 8:
                     $I->see('Turning Circle:', '//div[@class="currently"]//ol/li//span');
                     $I->removeFilter();
                     break;
-
                 case 9:
                     $I->see('Grass Catcher:', '//div[@class="currently"]//ol/li//span');
                     $I->removeFilter();
                     break;
-
                 case 10:
                     $I->see('Features:', '//div[@class="currently"]//ol/li//span');
                     $I->removeFilter();
                     break;
-
                 case 11:
                     $I->see('Price:', '//div[@class="currently"]//ol/li//span');
                     $I->removeFilter();

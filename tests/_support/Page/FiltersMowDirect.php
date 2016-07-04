@@ -33,8 +33,8 @@ class FiltersMowDirect
     public function filtersCheckbox() {
 
         $I = $this->tester;
-        $I->amOnPage(self::$URL);
-        //$I->amOnUrl('http://www.mowdirect.co.uk/');
+        //$I->amOnPage(self::$URL);
+        $I->amOnUrl('http://www.mowdirect.co.uk/');
         $I->moveMouseOver(self::$lawnTractorsLocator);
         $I->waitForElement(self::$heavyDutyTractors);
         $I->click(self::$heavyDutyTractors);

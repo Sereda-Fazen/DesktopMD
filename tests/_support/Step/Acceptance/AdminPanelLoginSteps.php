@@ -9,6 +9,8 @@
 namespace Step\Acceptance;
 
 
+use Exception;
+
 class AdminPanelLoginSteps extends \AcceptanceTester
 
 {
@@ -36,7 +38,10 @@ class AdminPanelLoginSteps extends \AcceptanceTester
         $I->fillField(self::$passwordField,$pass);
         $I->click(self::$loginButton);
         $I->waitForElement(self::$popUpClose);
-        $I->click(self::$popUpClose);
+        try {
+            $I->waitForElement(self::$popUpClose);
+            $I->click(self::$popUpClose);
+        }catch (Exception $e){}
         $I->waitForElement(self::$assertDashboard);
         $I->see('Dashboard',self::$assertDashboard);
 
