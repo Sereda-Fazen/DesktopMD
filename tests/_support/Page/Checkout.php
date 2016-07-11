@@ -92,15 +92,14 @@ class Checkout
 
     //pay pal credit
 
-    public static $payPalCheckoutLink = '//div[@id="cart_mobile"]//div[3]//ul/li//img';
-    public static $payPalCredit = '//div[@id="cart_mobile"]//div[3]//ul/li[2]//img';
+
 
     public static $payPalCreditText = 'You will be redirected to the PayPal website.';
     public static $payPalCredit2 = '//*[@id="co-payment-form"]//dl/dt[4]/input';
 
 
-    public static $payPalCheckoutLinkTablet = '//ul[@class="checkout-types bottom"]/li/p//img';
-    public static $payPalCreditTablet = '//ul[@class="checkout-types bottom"]//li[3]//img';
+    public static $payPalCheckoutLinkTablet = '//ul[@class="checkout-types bottom"]//a/img[contains(@title,"Checkout with PayPal")]';
+    public static $payPalCreditTablet = '//ul[@class="checkout-types bottom"]//a/img[contains(@title,"Checkout with PayPal Bill Me Later")]';
 
 
     public static $removeItem2 = '//div[@id="cart_desktop"]//tbody//td[6]//a';
@@ -225,13 +224,8 @@ class Checkout
     public function payPalCheckout()
     {
         $I = $this->tester;
-        try {
-            $I->waitForElementVisible(self::$payPalCheckoutLink);
-            $I->click(self::$payPalCheckoutLink);
-        } catch (Exception $e) {
-            $I->waitForElementVisible(self::$payPalCheckoutLinkTablet);
-            $I->click(self::$payPalCheckoutLinkTablet);
-        }
+        $I->waitForElementVisible(self::$payPalCheckoutLinkTablet);
+        $I->click(self::$payPalCheckoutLinkTablet);
         try {
             $I->waitForElement(self::$errorUnable);
             $I->see('Unable to communicate with the PayPal gateway.', self::$errorUnable);
@@ -248,13 +242,9 @@ class Checkout
     public function payPalCredit()
     {
         $I = $this->tester;
-        try {
-            $I->waitForElementVisible(self::$payPalCredit);
-            $I->click(self::$payPalCredit);
-        } catch (Exception $e) {
-            $I->waitForElementVisible(self::$payPalCreditTablet);
-            $I->click(self::$payPalCreditTablet);
-        }
+        $I->waitForElementVisible(self::$payPalCreditTablet);
+        $I->click(self::$payPalCreditTablet);
+
         try {
             $I->waitForElement(self::$errorUnable);
             $I->see('Unable to communicate with the PayPal gateway.', self::$errorUnable);
