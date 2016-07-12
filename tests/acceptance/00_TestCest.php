@@ -7,8 +7,16 @@ use \Step\Acceptance;
 class TestCest
 {
 
-    function T980StandardProductLayout(\Step\Acceptance\ProductsSteps $I, \Page\Checkout $checkoutPage){
-        $I->productsLayout();
+    function T995T999CheckMyWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
+    {
+        $I->loginSuccess('test_mowdirect@yahoo.co.uk', '123456');
+        $myWishList->wishList();
+        $myWishList->checkItems();
+        $myWishList->removeItemFromWishList();
+        $myWishList->addComment();
+        $myWishList->addShare();
+        $I->loginEmail();
+        $myWishList->removeItem();
     }
 
   
