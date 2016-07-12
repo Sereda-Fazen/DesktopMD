@@ -31,7 +31,7 @@ class Checkout
 
 
     public static $showMethod = '//li[@id="opc-shipping_method"]';
-    public static $continue3 = '//li[@id="opc-shipping_method"]//button';
+    public static $continue3 = '//li[@id="opc-shipping_method"]//span[contains(text(),"Continue")]';
 
     //payment info
 
@@ -102,7 +102,7 @@ class Checkout
     public static $payPalCreditTablet = '//ul[@class="checkout-types bottom"]//a/img[contains(@title,"Checkout with PayPal Bill Me Later")]';
 
 
-    public static $removeItem2 = '//div[@id="cart_desktop"]//tbody//td[6]//a';
+    public static $removeItem2 = '//*[@class="a-center product-cart-remove last"]//a[contains(text(),"Remove")]';
     // suge purchase
 
 
@@ -173,8 +173,7 @@ class Checkout
 
         $I->waitForElement(self::$showMethod);
         $I->waitForText('Delivery Method');
-        $I->wait(2);
-        $I->waitForElement(self::$continue3);
+        $I->waitForElementVisible(self::$continue3,30);
         $I->click(self::$continue3);
 
         $I->waitForElement(self::$showPayment);

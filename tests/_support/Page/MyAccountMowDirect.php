@@ -172,6 +172,8 @@ class MyAccountMowDirect
         $I->see("The address has been saved.", self::$assertSaveOk);
         return $this;
     }
+    
+    
 
     public function newsletterCheck (){
         $I= $this ->tester;

@@ -7,10 +7,11 @@ use \Step\Acceptance;
 class TestCest
 {
 
-    function T1266PayPalCredit(Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage) {
+    function T1026MakeSugePurchase(Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage) {
         $I->addToBasketTractor();
-        $checkoutPage->payPalCredit();
+        $checkoutPage->checkSugePurchase('mowdirect@gmail.com','123456', 'American Express', '378282246310005','1234');
     }
 
+  
 }
 
