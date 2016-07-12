@@ -31,7 +31,7 @@ class Checkout
 
 
     public static $showMethod = '//li[@id="opc-shipping_method"]';
-    public static $continue3 = '//li[@id="opc-shipping_method"]//span[contains(text(),"Continue")]';
+    public static $continue3 = '//*[@id="shipping-method-buttons-container"]//span';
 
     //payment info
 

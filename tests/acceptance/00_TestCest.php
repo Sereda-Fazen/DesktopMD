@@ -7,9 +7,8 @@ use \Step\Acceptance;
 class TestCest
 {
 
-    function T1026MakeSugePurchase(Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage) {
-        $I->addToBasketTractor();
-        $checkoutPage->checkSugePurchase('mowdirect@gmail.com','123456', 'American Express', '378282246310005','1234');
+    function T980StandardProductLayout(\Step\Acceptance\ProductsSteps $I, \Page\Checkout $checkoutPage){
+        $I->productsLayout();
     }
 
   
