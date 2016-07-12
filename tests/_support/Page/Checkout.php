@@ -178,6 +178,7 @@ class Checkout
         $I->waitForElement(self::$showPayment);
         $I->waitForText('Payment Information');
         $I->waitForElementVisible(self::$continue4);
+        $I->waitForElement(self::$continue4);
     }
 
     public function checkPayment($name, $password)
@@ -303,6 +304,8 @@ class Checkout
             $I->fillField(self::$cardNumber, $numCard);
             $I->fillField(self::$verificationNum, $verNum); } catch (Exception $e){}
 
+        $I->waitForElementVisible(self::$continue4);
+        $I->waitForElement(self::$continue4);
         $I->click(self::$continue4);
 
         $I->waitForElement(self::$showOrder);
