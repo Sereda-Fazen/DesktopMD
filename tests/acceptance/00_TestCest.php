@@ -33,7 +33,7 @@ class TestCest
         $I->addToBasketTractor();
         $checkoutPage->checkPayPalCredit('mowdirect@gmail.com','123456');
     }
-
+/*
     function loginSuccess(AcceptanceTester $I, \Page\Login $loginPage) {
         $loginPage->login();
         $loginPage->loginInvalid('test_mowdirect@yahoo.co.uk', '123456');
@@ -41,7 +41,7 @@ class TestCest
         $loginPage->logout();
     }
 
-/*
+
     function T995T999CheckMyWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
     {
         $I->loginSuccess('test_mowdirect@yahoo.co.uk', '123456');

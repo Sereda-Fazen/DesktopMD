@@ -23,13 +23,13 @@ class ProductsCest
      * @param \Page\Search $search
         T_934_View a Product layout with custom options
      */
-
+/*
     function T981ViewCustomOptions(\Step\Acceptance\ProductsSteps $I, \Page\Search $search){
         $search->search();
         $search->searchInvalid('optional accessories');
         $I->productsLayoutCustomOptions();
     }
-
+*////
     /**
      * @param Acceptance\ProductsSteps $I
      * @param \Page\Search $search
