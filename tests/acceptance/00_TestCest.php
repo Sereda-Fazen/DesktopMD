@@ -8,7 +8,7 @@ class TestCest
 {
 
 
-//
+
     function T1017TractorSale(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->addToBasketTractor();
         $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
@@ -19,6 +19,12 @@ class TestCest
         $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
 
+
+
+
+
+
+/*
     function T1027PayPalPurchase(Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage) {
         $I->addToBasketTractor();
         $checkoutPage->payPalCheckout();
@@ -33,7 +39,7 @@ class TestCest
         $I->addToBasketTractor();
         $checkoutPage->checkPayPalCredit('mowdirect@gmail.com','123456');
     }
-/*
+
     function loginSuccess(AcceptanceTester $I, \Page\Login $loginPage) {
         $loginPage->login();
         $loginPage->loginInvalid('test_mowdirect@yahoo.co.uk', '123456');
