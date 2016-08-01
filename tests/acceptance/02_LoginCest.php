@@ -5,7 +5,7 @@ use Step\Acceptance;
  */
 class LoginCest
 {
-/*
+/**/
     function loginSuccess(AcceptanceTester $I, \Page\Login $loginPage) {
         $loginPage->login();
         $loginPage->loginInvalid('test_mowdirect@yahoo.co.uk', '123456');
@@ -47,7 +47,7 @@ class LoginCest
         $I->see('Please enter a valid email address. For example johndoe@domain.com.', '#advice-validate-email-email');
         $I->comment('Expected result: Please enter a valid email address.');
     }
-*/
+
 
 
 

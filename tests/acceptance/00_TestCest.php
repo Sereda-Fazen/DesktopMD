@@ -19,12 +19,6 @@ class TestCest
         $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
 
-
-
-
-
-
-/*
     function T1027PayPalPurchase(Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage) {
         $I->addToBasketTractor();
         $checkoutPage->payPalCheckout();
@@ -47,7 +41,7 @@ class TestCest
         $loginPage->logout();
     }
 
-
+/*
     function T995T999CheckMyWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
     {
         $I->loginSuccess('test_mowdirect@yahoo.co.uk', '123456');
@@ -59,6 +53,6 @@ class TestCest
         $I->loginEmail();
         $myWishList->removeItem();
     }
-  */
+   */
 }
 

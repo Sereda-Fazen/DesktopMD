@@ -71,13 +71,13 @@ class CheckoutCest
      * T923_Purchase Multiple Number of Products
      * @param \Page\Checkout $checkoutPage
      */
-/*
+
     function T1022T1023PurchaseSuppliers(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->multipleNumberProducts();
         $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
 
-*/
+    /**/
 
 
 

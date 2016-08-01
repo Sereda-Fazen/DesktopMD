@@ -6,7 +6,7 @@ use \Step\Acceptance;
  */
 class MyWishListCest
 {
-/*
+
     function T994AddAWishList(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
     {
         $I->loginSuccess('test_mowdirect@yahoo.co.uk', '123456');
@@ -23,7 +23,7 @@ class MyWishListCest
         $I->loginEmail();
         $myWishList->removeItem();
     }
-*/
+    /**/
 
 
 
