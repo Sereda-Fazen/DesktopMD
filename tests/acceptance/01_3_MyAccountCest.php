@@ -7,7 +7,7 @@ class MyAccountCest
 
 
 {
-/**/
+/*
     function T1008MyAccountInformation(Step\Acceptance\AccountSteps $I, \Page\MyAccountMowDirect $accountMowDirect)
     {
         $I->loginSuccess('mowdirect@gmail.com', '123456');
@@ -44,7 +44,7 @@ class MyAccountCest
         $accountMowDirect->myInvitationsCheck('test@'.rand(1, 30).'.com');
     }
 
-
+*/
 
 
 
