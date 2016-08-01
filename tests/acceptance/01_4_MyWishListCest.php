@@ -12,6 +12,8 @@ class MyWishListCest
         $I->loginSuccess('test_mowdirect@yahoo.co.uk', '123456');
         $myWishList->addItemsInWishlist();
     }
+
+    
    /*
     function T995T999CheckMyWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
     {
