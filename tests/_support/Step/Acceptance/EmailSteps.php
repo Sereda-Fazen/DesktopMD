@@ -29,14 +29,9 @@ class EmailSteps extends \AcceptanceTester
         $I->waitForElementVisible('//*[@id="login-passwd"]');
         $I->fillField('//*[@id="login-passwd"]', 'fJ4qEn5Y');
         $I->click('//*[@id="login-signin"]');
-
-            $I->waitForElement('//div[contains(@class,"unread")]//div[2]//span[contains(text(),"wishlist")]');
-            $I->click('//div[contains(@class,"unread")]//div[2]//span[contains(text(),"wishlist")]');
-        try {
-
-            $I->wait(2);
-            $I->click('//div[contains(@class,"unread")]//div[2]//span[contains(text(),"wishlist")]');
-        } catch (Exception $e){}
+        $I->wait(2);
+        $I->waitForElement('//*[@class="list-view-items-page"]/div//span[contains(text(),"wishlist")]');
+        $I->click('//*[@class="list-view-items-page"]/div//span[contains(text(),"wishlist")]');
 
         $I->waitForText('Take a look at my wishlist from MowDirect.');
         $I->waitForText('Test');

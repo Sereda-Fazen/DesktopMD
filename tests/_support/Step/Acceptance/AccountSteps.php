@@ -71,7 +71,7 @@ class AccountSteps extends \AcceptanceTester
 
     }
 
-    public function waitAlertWindow ()
+    public function deleteAddresses ()
     {
         $I = $this;
         $count = count($I->grabMultiple('//*[@class="col-2 addresses-additional"]/ol/li'));

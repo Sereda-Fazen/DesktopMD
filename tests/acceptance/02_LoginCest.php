@@ -5,6 +5,7 @@ use Step\Acceptance;
  */
 class LoginCest
 {
+/**/
     function loginSuccess(AcceptanceTester $I, \Page\Login $loginPage) {
         $loginPage->login();
         $loginPage->loginInvalid('test_mowdirect@yahoo.co.uk', '123456');

@@ -29,7 +29,7 @@ class ProductsCest
         $search->searchInvalid('optional accessories');
         $I->productsLayoutCustomOptions();
     }
-
+    /**////
     /**
      * @param Acceptance\ProductsSteps $I
      * @param \Page\Search $search

@@ -9,3 +9,5 @@ modules:
     enabled:
         # add framework module here
         - \Helper\Functional
+        - PhpBrowser:
+           url: http://testing:Da1mat1an5@testupgrade.ee12test.mowdirect.co.uk/

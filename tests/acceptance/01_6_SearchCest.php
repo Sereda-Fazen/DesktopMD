@@ -6,7 +6,7 @@ use \Step\Acceptance;
  */
 class SearchCest
 {
-
+/**/
     function T985SearchTops10(Page\Search $search, \AcceptanceTester $I) {
         $search->search();
         $search->searchInvalid('Top10');

@@ -31,7 +31,7 @@ class Checkout
 
 
     public static $showMethod = '//li[@id="opc-shipping_method"]';
-    public static $continue3 = '//li[@id="opc-shipping_method"]//button';
+    public static $continue3 = '//*[@id="shipping-method-buttons-container"]//span';
 
     //payment info
 
@@ -92,18 +92,17 @@ class Checkout
 
     //pay pal credit
 
-    public static $payPalCheckoutLink = '//div[@id="cart_mobile"]//div[3]//ul/li//img';
-    public static $payPalCredit = '//div[@id="cart_mobile"]//div[3]//ul/li[2]//img';
+
 
     public static $payPalCreditText = 'You will be redirected to the PayPal website.';
     public static $payPalCredit2 = '//*[@id="co-payment-form"]//dl/dt[4]/input';
 
 
-    public static $payPalCheckoutLinkTablet = '//ul[@class="checkout-types bottom"]/li/p//img';
-    public static $payPalCreditTablet = '//ul[@class="checkout-types bottom"]//li[3]//img';
+    public static $payPalCheckoutLinkTablet = '//ul[@class="checkout-types bottom"]//a/img[contains(@title,"Checkout with PayPal")]';
+    public static $payPalCreditTablet = '//ul[@class="checkout-types bottom"]//a/img[contains(@title,"Checkout with PayPal Bill Me Later")]';
 
 
-    public static $removeItem2 = '//div[@id="cart_desktop"]//tbody//td[6]//a';
+    public static $removeItem2 = '//*[@class="a-center product-cart-remove last"]//a[contains(text(),"Remove")]';
     // suge purchase
 
 
@@ -160,8 +159,6 @@ class Checkout
         $I->seeElement(self::$differentAddress);
         $I->waitForElement(self::$continue);
         $I->click(self::$continue);
-        $I->waitForElementNotVisible('//*[@id="billing-please-wait"]');
-
         $I->waitForElement(self::$showDelivery);
         $I->waitForText('Delivery Information');
         $I->waitForElement(self::$useAddress);
@@ -174,13 +171,14 @@ class Checkout
 
         $I->waitForElement(self::$showMethod);
         $I->waitForText('Delivery Method');
-        $I->wait(2);
+        $I->waitForElementVisible(self::$continue3,30);
         $I->waitForElement(self::$continue3);
         $I->click(self::$continue3);
 
         $I->waitForElement(self::$showPayment);
         $I->waitForText('Payment Information');
         $I->waitForElementVisible(self::$continue4);
+        $I->waitForElement(self::$continue4);
     }
 
     public function checkPayment($name, $password)
@@ -225,13 +223,8 @@ class Checkout
     public function payPalCheckout()
     {
         $I = $this->tester;
-        try {
-            $I->waitForElementVisible(self::$payPalCheckoutLink);
-            $I->click(self::$payPalCheckoutLink);
-        } catch (Exception $e) {
-            $I->waitForElementVisible(self::$payPalCheckoutLinkTablet);
-            $I->click(self::$payPalCheckoutLinkTablet);
-        }
+        $I->waitForElementVisible(self::$payPalCheckoutLinkTablet);
+        $I->click(self::$payPalCheckoutLinkTablet);
         try {
             $I->waitForElement(self::$errorUnable);
             $I->see('Unable to communicate with the PayPal gateway.', self::$errorUnable);
@@ -248,13 +241,9 @@ class Checkout
     public function payPalCredit()
     {
         $I = $this->tester;
-        try {
-            $I->waitForElementVisible(self::$payPalCredit);
-            $I->click(self::$payPalCredit);
-        } catch (Exception $e) {
-            $I->waitForElementVisible(self::$payPalCreditTablet);
-            $I->click(self::$payPalCreditTablet);
-        }
+        $I->waitForElementVisible(self::$payPalCreditTablet);
+        $I->click(self::$payPalCreditTablet);
+
         try {
             $I->waitForElement(self::$errorUnable);
             $I->see('Unable to communicate with the PayPal gateway.', self::$errorUnable);
@@ -315,6 +304,8 @@ class Checkout
             $I->fillField(self::$cardNumber, $numCard);
             $I->fillField(self::$verificationNum, $verNum); } catch (Exception $e){}
 
+        $I->waitForElementVisible(self::$continue4);
+        $I->waitForElement(self::$continue4);
         $I->click(self::$continue4);
 
         $I->waitForElement(self::$showOrder);

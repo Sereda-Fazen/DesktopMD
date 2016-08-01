@@ -119,6 +119,7 @@ class MyAccountMowDirect
         $I->click(self::$regionManitobe);
         $I->fillField(self::$postcodeField,$postcode);
         $I->waitForElement(self::$saveDefaultAddressButton);
+        $I->scrollTo(self::$saveDefaultAddressButton);
         $I->click(self::$saveDefaultAddressButton);
         $I->wait(2);
         $I->waitForElement(self::$assertSaveOk);
@@ -172,6 +173,8 @@ class MyAccountMowDirect
         $I->see("The address has been saved.", self::$assertSaveOk);
         return $this;
     }
+    
+    
 
     public function newsletterCheck (){
         $I= $this ->tester;

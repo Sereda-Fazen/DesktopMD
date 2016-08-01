@@ -6,6 +6,7 @@ use \Step\Acceptance;
  */
 class CategoryNavigationCest
 {
+/**/
 
     function T1024Top10Products(Page\CategoryNavigation $category, \Step\Acceptance\ProductsSteps $I) {
         $category->home();
@@ -18,7 +19,6 @@ class CategoryNavigationCest
         $category->checkTop25();
         $I->amountTopCategories25();
     }
-
 
 
 

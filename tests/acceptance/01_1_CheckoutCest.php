@@ -77,7 +77,7 @@ class CheckoutCest
         $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
 
-
+    /**/
 
 
 
