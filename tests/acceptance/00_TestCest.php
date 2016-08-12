@@ -34,7 +34,7 @@ class TestCest
         $checkoutPage->checkPayPalCredit('mowdirect@gmail.com','123456');
     }
 
-   
+
 
 /*
     function T995T999CheckMyWishlist(Step\Acceptance\EmailSteps $I, \Page\MyWishList $myWishList)
