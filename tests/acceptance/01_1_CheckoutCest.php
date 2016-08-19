@@ -15,7 +15,7 @@ class CheckoutCest
 
     function T1017TractorSale(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
         $I->addToBasketTractor();
-        $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
+        $checkoutPage->checkPayment('test_mowdirect@yahoo.co.uk','123456');
     }
 
     /**
