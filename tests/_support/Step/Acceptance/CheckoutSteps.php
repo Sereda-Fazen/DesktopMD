@@ -5,23 +5,39 @@ use Exception;
 
 class CheckoutSteps extends \AcceptanceTester
 {
+    public function addToBasket(){
+        $I = $this;
+        $I->waitForElement('//div[@class="category-products"]');
+        $I->waitForElement('//*[@class="product-shop"]//button[text()="Add to Basket"]');
+        $I->click('//*[@class="product-shop"]//button[text()="Add to Basket"]');
+        $I->waitForElement('.success-msg');
+        $I->see('was added to your shopping cart.','.success-msg');
 
+    }
+    
     /**
      * Tractor
      */
 
-    public function addToBasketTractor(){
+    public function addToBasketTractor()
+    {
         $I = $this;
         $I->amOnPage('/');
-        $I->waitForElement('//nav[@class="product-navigation"]/ul/li[2]');
-        $I->moveMouseOver('//nav[@class="product-navigation"]/ul/li[2]');
+        $I->waitForElement('//a[@href="/lawn-garden-tractors"]');
+        $I->moveMouseOver('//a[@href="/lawn-garden-tractors"]');
         $I->waitForElementVisible('//div[@class="category"]//ul//a');
         $I->click('//div[@class="category"]//ul//a');
-        $I->waitForElement('//div[@class="category-products"]');
-        $I->waitForElement('//p[@class="action"]/button');
-        $I->click('//p[@class="action"]/button');
-        $I->waitForElement('//li[@class="success-msg"]');
-        $I->see('was added to your shopping cart.','//li[@class="success-msg"]');
+        self::addToBasket();
+    }
+    
+    public function addToBasketMower(){
+        $I = $this;
+        $I->amOnPage('/');
+        $I->waitForElement('//a[@href="/lawn-mowers/"]');
+        $I->moveMouseOver('//a[@href="/lawn-mowers/"]');
+        $I->waitForElementVisible('//*[@class="category wide"]//li[5]/a');
+        $I->click('//*[@class="category wide"]//li[5]/a');
+        self::addToBasket();
 
     }
 
@@ -29,15 +45,15 @@ class CheckoutSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->amOnPage('/');
-        $I->waitForElement('//nav[@class="product-navigation"]/ul/li[2]');
-        $I->moveMouseOver('//nav[@class="product-navigation"]/ul/li[2]');
-        $I->waitForElementVisible('//nav[@class="product-navigation"]/ul/li[2]/nav/div[6]/h3/a');
-        $I->click('//nav[@class="product-navigation"]/ul/li[2]/nav/div[6]/h3/a');
+        $I->waitForElement('//a[@href="/lawn-garden-tractors"]');
+        $I->moveMouseOver('//a[@href="/lawn-garden-tractors"]');
+        $I->waitForElementVisible('//a[@href="/lawn-garden-tractors/zero-turn-ride-on-mowers"]');
+        $I->click('//a[@href="/lawn-garden-tractors/zero-turn-ride-on-mowers"]');
 
-        $I->waitForElement('//*[@class="products-list"]//li[1]//a/img');
-        $I->click('//*[@class="products-list"]//li[1]//a/img');
+        $I->waitForElement('//*[@class="products-list"]//li//a/img');
+        $I->click('//*[@class="products-list"]//li//a/img');
         try {
-        $I->waitForElement('//*[@class="product-options"]//ul');
+        $I->waitForElement('.product-options',5);
 
 
             $optional = count($I->grabMultiple('//*[@class="product-options"]//ul/li'));
@@ -50,21 +66,13 @@ class CheckoutSteps extends \AcceptanceTester
             $I->dontSeeElement('//*[@class="product-options"]//ul');
         }
 
+        $I->waitForElement('.add-to-cart-buttons');
+        $I->click('.add-to-cart-buttons');
+        $I->see('was added to your shopping cart.', '.success-msg');
+        $I->waitForElement('//dl[@class="item-options"]/dt[text()="Optional Accessories:"]');
+        $I->moveMouseOver('//dl[@class="item-options"]/dd');
+        $I->waitForElementVisible('//dl[@class="item-options"]//dl/dd');
 
-        try {
-            $I->waitForElement('//div[@class="add-to-cart-buttons"]/button');
-            $I->click('//div[@class="add-to-cart-buttons"]/button');
-        } catch (Exception $e) {
-            $I->waitForElement('//p[@class="action"]/button');
-            $I->click('//p[@class="action"]/button');
-        }
-
-        $I->see('was added to your shopping cart.', '//li[@class="success-msg"]');
-        try {
-            $I->waitForElement('//dl[@class="item-options"]/dt[text()="Optional Accessories:"]');
-            $I->moveMouseOver('//dl[@class="item-options"]/dd');
-            $I->waitForElementVisible('//dl[@class="item-options"]//dl/dd');
-        } catch (Exception $e) {}
 
     }
 
@@ -72,16 +80,16 @@ class CheckoutSteps extends \AcceptanceTester
     public function purchaseOtherItem()
     {
         $I = $this;
-        $I->waitForElement('//nav[@class="product-navigation"]/ul/li[4]');
-        $I->moveMouseOver('//nav[@class="product-navigation"]/ul/li[4]');
+        $I->waitForElement('//a[@href="/brushcutters-strimmers-line-trimmers"]');
+        $I->moveMouseOver('//a[@href="/brushcutters-strimmers-line-trimmers"]');
         $I->waitForElementVisible('//li[@class="item4 active"]/nav/div[4]//ul//a');
         $I->click('//li[@class="item4 active"]/nav/div[4]//ul//a');
         $I->waitForElement('//div[@class="md-product-essential-main"]');
-        $I->waitForElement('//div[@class="add-to-cart-buttons"]');
-        $I->click('//div[@class="add-to-cart-buttons"]');
-        $I->waitForElement('//li[@class="success-msg"]');
-        $I->see('was added to your shopping cart.','//li[@class="success-msg"]');
-        $I->waitForElement('//tr[@class="last even"]');
+        $I->waitForElement('.add-to-cart-buttons');
+        $I->click('.add-to-cart-buttons');
+        $I->waitForElement('.success-msg');
+        $I->see('was added to your shopping cart.','.success-msg');
+        $I->waitForElement('tr.last.even');
 
     }
 
@@ -90,19 +98,7 @@ class CheckoutSteps extends \AcceptanceTester
      * Mower
      */
 
-    public function addToBasketMower(){
-        $I = $this;
-        $I->waitForElement('//nav[@class="product-navigation"]/ul/li[1]');
-        $I->moveMouseOver('//nav[@class="product-navigation"]/ul/li[1]');
-        $I->waitForElementVisible('//div[@class="category wide"]//li[5]/a');
-        $I->click('//div[@class="category wide"]//li[5]/a');
-        $I->waitForElement('//div[@class="category-products"]');
-        $I->waitForElement('//p[@class="action"]/button');
-        $I->click('//p[@class="action"]/button');
-        $I->waitForElement('//li[@class="success-msg"]');
-        $I->see('was added to your shopping cart.','//li[@class="success-msg"]');
 
-    }
 
     /**
      * Brand

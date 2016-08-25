@@ -15,9 +15,9 @@ class Checkout
     public static $submit = '//div[@class="col-2"]//button/span';
 
 
-    public static $processCheckout = '//ul[@class="checkout-types top"]//button';
-    public static $continue = '//div[@id="billing-buttons-container"]//button';
-    public static $formList = '//ul[@class="form-list"]';
+    public static $processCheckout = '.cart_top_content';
+    public static $continue = '#billing-buttons-container';
+    public static $formList = '.form-list';
     public static $deliver = '//ul[@class="form-list"]/li[3]/label[text()="Deliver to this address"]';
     public static $differentAddress = '//ul[@class="form-list"]/li[4]/label[text()="Deliver to different address"]';
 
@@ -25,35 +25,34 @@ class Checkout
 
     public static $showDelivery = '//*[@class="section allow active"]';
     public static $useAddress = '#co-shipping-form > ul.form-list > li.control > label';
-    public static $continue2 = '//div[@id="shipping-buttons-container"]//button';
+    public static $continue2 = '#submit_order_shipping_button';
 
     // delivery method
 
 
-    public static $showMethod = '//li[@id="opc-shipping_method"]';
-    public static $continue3 = '//*[@id="shipping-method-buttons-container"]//span';
+    public static $showMethod = '#opc-shipping_method';
+    public static $continue3 = '#shipping-method-buttons-container';
 
     //payment info
 
-    public static $showPayment = '//li[@id="opc-payment"]';
-    public static $continue4 = '//li[@id="opc-payment"]//button';
-    public static $bankTransfer = '//*[@id="co-payment-form"]//dl/dt[2]/input';
-
+    public static $showPayment = '#opc-payment';
+    public static $continue4 = '#payment-save';
+    public static $bankTransfer = '#p_method_checkmo';
 
     //order
 
-    public static $showOrder = '//li[@id="opc-review"]';
-    public static $yourOrder = '//*[@id="md-checkout-cart"]';
-    public static $productTable = '//*[@id="checkout-review-table"]';
-    public static $agree = '//p[@class="agree"]/input';
+    public static $showOrder = '#opc-review';
+    public static $yourOrder = '#md-checkout-cart';
+    public static $productTable = '#checkout-review-table';
+    public static $agree = 'p.agree>input';
 
-    public static $continue5 = '//li[@id="opc-review"]//button';
+    public static $continue5 = 'button.button.btn-checkout';
 
     // after order
 
-    public static $seeOrder = '//div[@class="page-title"]/h1';
-    public static $keepContinue = '//div[@class="buttons-set"]/button';
-    public static $mainPage = '//div[@class="page-header-container"]';
+    public static $seeOrder = '.page-title>h1';
+    public static $keepContinue = '.buttons-set';
+    public static $mainPage = '.page-header-container';
 
 
     // purchase optional
@@ -146,26 +145,26 @@ class Checkout
     {
         $I = $this->tester;
         $I->waitForElement(self::$processCheckout);
-        $I->click(self::$processCheckout);
+        $I->click('Proceed to Checkout',self::$processCheckout);
         try {
             self::loginInvalid($name, $password);
         } catch (Exception $e) {
         }
 
         $I->waitForText('Checkout');
-        $I->getVisibleText('Billing Information');
+        $I->waitForText('Billing Information');
         $I->seeElement(self::$formList);
         $I->seeElement(self::$deliver);
         $I->seeElement(self::$differentAddress);
         $I->waitForElement(self::$continue);
-        $I->click(self::$continue);
+        $I->click('Continue' ,self::$continue);
         $I->waitForElement(self::$showDelivery);
         $I->waitForText('Delivery Information');
         $I->waitForElement(self::$useAddress);
 
         try {
             $I->waitForElement(self::$continue2);
-            $I->click(self::$continue2);
+            $I->click('Continue',self::$continue2);
         } catch (Exception $e) {
         }
 
@@ -173,7 +172,7 @@ class Checkout
         $I->waitForText('Delivery Method');
         $I->waitForElementVisible(self::$continue3,30);
         $I->waitForElement(self::$continue3);
-        $I->click(self::$continue3);
+        $I->click('Continue',self::$continue3);
 
         $I->waitForElement(self::$showPayment);
         $I->waitForText('Payment Information');
@@ -202,13 +201,13 @@ class Checkout
         $I->getVisibleText('Cheque or Bank Transfer');
         $I->waitForElement(self::$productTable);
         try {
-            $I->waitForElement('//dl[@class="item-options"]/dt[text()="Optional Accessories:"]');
+            $I->waitForElement('//dl[@class="item-options"]/dt[text()="Optional Accessories:"]',3);
         } catch (Exception $e) {
         }
         $I->waitForElement(self::$agree);
         $I->click(self::$agree);
 
-        $I->waitForElementVisible(self::$continue5);
+        $I->waitForElement(self::$continue5);
 
         $I->click(self::$continue5);
         $I->waitForText('Your order has been received.', 30);

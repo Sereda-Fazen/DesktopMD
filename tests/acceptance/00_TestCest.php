@@ -7,12 +7,9 @@ use \Step\Acceptance;
 class TestCest
 {
 
-    function T985SearchTops10(Page\Search $search, \AcceptanceTester $I)
-    {
-        $search->search();
-        $search->searchInvalid('Top10');
-        $I->seeElement('//a[@class="gs-title"]/b[text()="Top 10"]');
-
+    function T1020TractorCustomOption(\Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage){
+        $I->optional();
+        $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
 }
 
