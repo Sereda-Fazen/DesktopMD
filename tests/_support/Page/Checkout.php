@@ -165,8 +165,7 @@ class Checkout
         try {
             $I->waitForElement(self::$continue2);
             $I->click('Continue',self::$continue2);
-        } catch (Exception $e) {
-        }
+        } catch (Exception $e) {}
 
         $I->waitForElement(self::$showMethod);
         $I->waitForText('Delivery Method');

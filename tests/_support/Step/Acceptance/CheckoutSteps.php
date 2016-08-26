@@ -29,7 +29,12 @@ class CheckoutSteps extends \AcceptanceTester
         $I->click('//div[@class="category"]//ul//a');
         self::addToBasket();
     }
-    
+
+    /**
+     * Mower
+     */
+
+
     public function addToBasketMower(){
         $I = $this;
         $I->amOnPage('/');
@@ -94,9 +99,6 @@ class CheckoutSteps extends \AcceptanceTester
     }
 
 
-    /**
-     * Mower
-     */
 
 
 
@@ -108,9 +110,9 @@ class CheckoutSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->amOnPage('/');
-        $I->waitForElement('//nav[@class="product-navigation"]/ul/li[11]');
-        $I->moveMouseOver('//nav[@class="product-navigation"]/ul/li[11]');
-        $I->waitForElement('//nav[@class="brand-lists"]//div//div');
+        $I->waitForElement('//nav[@class="product-navigation"]/ul/li//a[contains(text(),"Brands")]');
+        $I->moveMouseOver('//nav[@class="product-navigation"]/ul/li//a[contains(text(),"Brands")]');
+        $I->waitForElement('.brand-lists >div');
         $I->waitForElementVisible('//a[@href="/flymo"]');
         $I->click('//a[@href="/flymo"]');
         $I->waitForText('Flymo');
@@ -119,26 +121,19 @@ class CheckoutSteps extends \AcceptanceTester
     public function selectTwoBrands()
     {
         $I = $this;
-        $I->selectBrand();
+        self::selectBrand();
         $I->waitForElement('//div[@class="subcat_container"]/h3[text()="Flymo Grass Trimmers"]');
-        $I->click('//*[@class="category-collateral"]/div[5]/div');
-        $I->waitForElement('//p[@class="action"]/button');
-        $I->click('//p[@class="action"]/button');
-        $I->waitForElement('//li[@class="success-msg"]');
-        $I->see('was added to your shopping cart.','//li[@class="success-msg"]');
+        $I->click('//div[@class="subcat_container"]/h3[text()="Flymo Grass Trimmers"]/..//div');
+        self::addToBasket();
 
-
-        $this->selectBrand();
+        self::selectBrand();
         $I->waitForElement('//div[@class="subcat_container"]/h3[text()="Flymo Vacs & Blowers"]');
         $I->click('//*[@class="category-collateral"]/div[6]/div');
-        $I->waitForElement('//p[@class="action"]/button');
-        $I->click('//p[@class="action"]/button');
-        $I->waitForElement('//li[@class="success-msg"]');
-        $I->see('was added to your shopping cart.','//li[@class="success-msg"]');
-        $I->waitForElement('//tr[@class="last even"]');
-        $I->fillField('//tr[@class="last even"]/td[4]/input','2');
-        $I->click('//tr[@class="last even"]/td[4]/button');
-        $I->getVisibleText('2', '//tr[@class="last even"]/td[4]/input');
+        self::addToBasket();
+        $I->waitForElement('tr.last.even');
+        $I->fillField('//tr[@class="last even"]//*[@class="input-text qty"]','2');
+        $I->click('tr.last.even button');
+        $I->waitForElement('//tr[@class="last even"]/td[@class="product-cart-actions"]/input', '2');
 
     }
 
