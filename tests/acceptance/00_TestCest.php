@@ -7,8 +7,8 @@ use \Step\Acceptance;
 class TestCest
 {
 
-    function T1021ProductsSameSupplie(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
-        $I->selectTwoBrands();
+    function T1022T1023PurchaseSuppliers(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
+        $I->multipleNumberProducts();
         $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
     }
 }
