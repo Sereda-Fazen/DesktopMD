@@ -51,3 +51,15 @@ env:
             url: 'http://testing:Da1mat1an5@jenkinstest3-ghso7uvtdy47g.eu.platform.sh'
             browser: chrome
             window_size: 1980x1780
+
+  LABS:
+      modules:
+        config:
+          WebDriver:
+            url: 'http://testing:Da1mat1an5@testupgrade.ee12test.mowdirect.co.uk'
+            host: 'obana:a0752bc8-c4db-443e-bacf-aa998fcb767c@ondemand.saucelabs.com'
+            port: 80
+            browser: chrome
+            capabilities:
+              platform: 'Windows 10'
+              window_size: 1980x1780

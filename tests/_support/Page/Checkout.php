@@ -105,7 +105,7 @@ class Checkout
     // suge purchase
 
 
-    public static $sugePurchase = '//*[@id="co-payment-form"]//dl/dt[1]/input';
+    public static $sugePurchase = '#p_method_sagepaydirectpro';
 
     //suge switch on admin panel
 
@@ -320,7 +320,7 @@ class Checkout
         $I->click(self::$agree);
 
         $I->waitForElementVisible(self::$continue5);
-
+        
         $I->click(self::$continue5);
 
         try {

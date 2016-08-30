@@ -7,9 +7,9 @@ use \Step\Acceptance;
 class TestCest
 {
 
-    function T1022T1023PurchaseSuppliers(\Step\Acceptance\CheckoutSteps $I,\Page\Checkout $checkoutPage){
-        $I->multipleNumberProducts();
-        $checkoutPage->checkPayment('mowdirect@gmail.com','123456');
+    function T1267PayPalCreditCheckout(Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage) {
+        $I->addToBasketTractor();
+        $checkoutPage->checkPayPalCredit('mowdirect@gmail.com','123456');
     }
 }
 
