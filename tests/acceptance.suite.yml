@@ -11,7 +11,7 @@ modules:
 
             restart: false
             browser: chrome
-            window_size: 1980x2700
+            window_size: 1980x2900
             #clear_cookies: false
 
 
