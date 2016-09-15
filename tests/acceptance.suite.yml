@@ -7,10 +7,10 @@ modules:
 
     config:
         WebDriver:
-            url: 'http://testing:Da1mat1an5@testupgrade.ee12test.mowdirect.co.uk/'
+            url: 'http://mowdirect.co.uk/'
 
             restart: false
-            browser: chrome
+            browser: phantomjs
             window_size: 1980x3800
             #clear_cookies: false
 
@@ -28,7 +28,7 @@ modules:
              browserstack.key: 'RG12s8tJvQ9p3pZuxWzf'
              browserstack.debug: 'true'
              unexpectedAlertBehaviour: 'accept'
-             pageLoadStrategy: 'eager'
+             #pageLoadStrategy: 'eager'
              resolution: 1920x1080
              os: 'WINDOWS'
              os_version: 7
@@ -57,7 +57,7 @@ env:
         config:
           WebDriver:
             url: 'http://testing:Da1mat1an5@testupgrade.ee12test.mowdirect.co.uk'
-            host: 'obana:a0752bc8-c4db-443e-bacf-aa998fcb767c@ondemand.saucelabs.com'
+            host: 'seredaAlex:49c2e3d9-45b6-4926-9f52-fdd3c7303b39@ondemand.saucelabs.com'
             port: 80
             browser: chrome
             capabilities:
