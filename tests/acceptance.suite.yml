@@ -24,8 +24,8 @@ modules:
 # -- login in browserstack
 
             capabilities:
-             browserstack.user: 'cadencewatch1'
-             browserstack.key: 'RG12s8tJvQ9p3pZuxWzf'
+             browserstack.user: 'alex4556'
+             browserstack.key: 'w1447cpT1SQuyFthNZr3'
              browserstack.debug: 'true'
              unexpectedAlertBehaviour: 'accept'
              #pageLoadStrategy: 'eager'
