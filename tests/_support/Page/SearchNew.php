@@ -343,7 +343,7 @@ class SearchNew
 //Main Page
     public static $lawnTractorDropDown = '//*[@class="item2"]/a[contains(text(),"Lawn Tractors")]';
 
-// Lawn Tractors Page
+// Lawn Tractors Page.
     public static $lawnTractorsBlock = '//*[@alt="Lawn Tractors"]';
     public static $MountFieldLawnTractorLogo = './/*[@alt="Mountfield Lawn Tractors"]';
 

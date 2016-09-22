@@ -46,7 +46,7 @@ class TestCest
         $searchNew->goToLawnMowersPage();
         $searchNew->bestSellingProductFive();   // Best Selling Product Five: Mountfield SP180 Self-Propelled Petrol Lawn Mower (Exclusive Special Offer)
         $searchNew->goToLawnTractorsPage();
-        $searchNew->bestSellingProductSix(); // Best Selling Product Six: Mountfield 1530M Lawn Tractor
+        $searchNew->bestSellingProductSix(); // Best Selling Product Six: Mountfield 1530M Lawn Tractor.
         }
 
 
