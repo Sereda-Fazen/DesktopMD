@@ -6,34 +6,46 @@ use \Step\Acceptance;
  */
 class TestCest
 {
-
-        function T1353TestSearchWithFollowingSearchQueriesCompareResultsToExpected(Page\SearchNew $searchNew) {
+/*
+    function T1267PayPalCreditCheckout(Step\Acceptance\CheckoutSteps $I, \Page\Checkout $checkoutPage) {
+        $I->addToBasketTractor();
+        $checkoutPage->checkPayPalCredit('mowdirect@gmail.com','123456');
+    }
+*/
+    /*
+    function T1353TestSearchWithFollowingSearchQueriesCompareResultsToExpected(Page\SearchNew $searchNew)
+    {
         $searchNew->search();
         $searchNew->searchDifferentTerms('Lawnmower','electric start petrol mowers','lawn garden tractors','scarifier','mountfield 1530','log splitters','lawnflite mini rider 60rde ride-on mower','mountfield','honda','einhell');
-        }
+    }
 
-        function T1354TestSearchWithTermYouExpectToProduceNoResults(Page\SearchNew $searchNew, \AcceptanceTester $I ) {
+    function T1354TestSearchWithTermYouExpectToProduceNoResults(Page\SearchNew $searchNew, \AcceptanceTester $I )
+    {
         $searchNew->search();
         $searchNew->searchInvalid('invalid');
         $I->see('No Results', '//div[@class="gs-snippet"]');
-        }
-
-        function T1355TestSearchWithPlural(Page\SearchNew $searchNew) {
+    }
+*/
+    function T1355TestSearchWithPlural(Page\SearchNew $searchNew)
+    {
         $searchNew->search();
         $searchNew->searchWithAPlural('Lawnmower','Lawnmowers');
-        }
-
-        function T1356TestSearchWithMisspelling(Page\SearchNew $searchNew) {
+    }
+/*
+    function T1356TestSearchWithMisspelling(Page\SearchNew $searchNew)
+    {
         $searchNew->search();
         $searchNew->searchMisspelling('chinsaws','chainsaws');
-        }
+    }
 
-        function T1357TestSearchWithLegalTermButOneThatYouExpectToReturnFewResults(Page\SearchNew $searchNew) {
+    function T1357TestSearchWithLegalTermButOneThatYouExpectToReturnFewResults(Page\SearchNew $searchNew)
+    {
         $searchNew->search();
         $searchNew->searchLegalTermReturnFewResults('cockpit','About 7 results');
-        }
+    }
 
-        function T1358UseCategoryNavigationToFind6TopSellingProducts (Page\SearchNew $searchNew) {
+    function T1358UseCategoryNavigationToFind6TopSellingProducts (Page\SearchNew $searchNew)
+    {
         $searchNew->search();
         $searchNew->goToPetrolFourWheelLawnMowersPage();
         $searchNew->bestSellingProductOne();    // Best Selling Product One: Mountfield HP454 Petrol Rotary Hand-Propelled Lawnmower (Special Offer)
@@ -47,7 +59,7 @@ class TestCest
         $searchNew->bestSellingProductFive();   // Best Selling Product Five: Mountfield SP180 Self-Propelled Petrol Lawn Mower (Exclusive Special Offer)
         $searchNew->goToLawnTractorsPage();
         $searchNew->bestSellingProductSix(); // Best Selling Product Six: Mountfield 1530M Lawn Tractor
-        }
-
+    }
+*/
 }
 
