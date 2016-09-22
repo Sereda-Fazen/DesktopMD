@@ -47,7 +47,6 @@ class CategorySteps extends \AcceptanceTester
     {
         $I = $this;
         self::fullRange();
-        //$I->amOnUrl('http://www.mowdirect.co.uk/lawn-garden-tractors/ride-on-mowers-rear-engine/all-deals-4049/sort-by/price/sort-direction/asc');
         $I->selectOption('//div[@class="sort-by"]//select', 'Name');
         $I->waitForAjax(10);
         $I->see('Name', 'div.sort-by');
