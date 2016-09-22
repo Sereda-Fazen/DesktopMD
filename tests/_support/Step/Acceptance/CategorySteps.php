@@ -22,7 +22,7 @@ class CategorySteps extends \AcceptanceTester
         $I = $this;
         $topShow = '//div[@class="toolbar"]/div[@class="pager"]//select';
         $bottomShow = '//div[@class="toolbar-bottom"]//div[@class="pager"]//select';
-
+        self::fullRange();
         $I->waitForElement('#top-limiter');
         $I->selectOption('#top-limiter', '25');
         $I->waitForAjax(10);
@@ -46,13 +46,13 @@ class CategorySteps extends \AcceptanceTester
     public function sortBy()
     {
         $I = $this;
-        //self::fullRange();
-        $I->amOnUrl('http://www.mowdirect.co.uk/lawn-garden-tractors/ride-on-mowers-rear-engine/all-deals-4049/sort-by/price/sort-direction/asc');
+        self::fullRange();
+        //$I->amOnUrl('http://www.mowdirect.co.uk/lawn-garden-tractors/ride-on-mowers-rear-engine/all-deals-4049/sort-by/price/sort-direction/asc');
         $I->selectOption('//div[@class="sort-by"]//select', 'Name');
         $I->waitForAjax(10);
         $I->see('Name', 'div.sort-by');
-        $name = $I->grabTextFrom('//*[@class="products-list"]/li[1]/div[2]/div//h2/a');
-        $name2 = $I->grabTextFrom('//*[@class="products-list"]/li[2]/div[2]/div//h2/a');
+        $name = $I->grabTextFrom('//*[@class="products-list"]/li[1]//h2/a');
+        $name2 = $I->grabTextFrom('//*[@class="products-list"]/li[2]//h2/a');
         $n = substr($name, 0, 1);
         $n2 = substr($name2,0, 1);
         $this->assertGreaterOrEquals($n,$n2);
@@ -60,8 +60,8 @@ class CategorySteps extends \AcceptanceTester
        $I->selectOption('//div[@class="sort-by"]//select', 'Price');
        $I->waitForAjax(10);
        $I->see('Price', 'div.sort-by');
-       $price = $I->grabTextFrom('//*[@class="products-list"]/li[1]/div[2]/div/div[2]/div//span[@class="price"]');
-       $price2 = $I->grabTextFrom('//*[@class="products-list"]/li[2]/div[2]/div/div[2]/div//span[@class="price"]');
+       $price = $I->grabTextFrom('//*[@class="products-list"]/li[1]//span[@class="price"]');
+       $price2 = $I->grabTextFrom('//*[@class="products-list"]/li[2]//span[@class="price"]');
        $pr = floatval(preg_replace("/[^0-9.]*/", '', $price));
        $pr2 = floatval(preg_replace("/[^0-9.]*/", '', $price2));
        $this->assertGreaterOrEquals($pr, $pr2);
