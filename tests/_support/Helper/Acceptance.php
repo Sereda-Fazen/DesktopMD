@@ -89,6 +89,12 @@ class Acceptance extends \Codeception\Module
         $this->assertGreaterThanOrEqual($minSizeXY, $realSizeY);
     }
 
+    public function waitAndClick($locator){
+        $wait = $this->getModule('WebDriver');
+        $wait->waitForElement($locator);
+        $wait->click($locator);
+    }
+
     
 
 
