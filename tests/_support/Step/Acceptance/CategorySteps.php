@@ -43,50 +43,40 @@ class CategorySteps extends \AcceptanceTester
         $I->see('10',$bottomShow);
     }
 
-    public function sortBy(){
+    public function sortBy()
+    {
         $I = $this;
-        self::fullRange();
-        $I->selectOption('//div[@class="sort-by"]//select', 'Name' );
+        //self::fullRange();
+        $I->amOnUrl('http://www.mowdirect.co.uk/lawn-garden-tractors/ride-on-mowers-rear-engine/all-deals-4049/sort-by/price/sort-direction/asc');
+        $I->selectOption('//div[@class="sort-by"]//select', 'Name');
         $I->waitForAjax(10);
         $I->see('Name', 'div.sort-by');
+        $name = $I->grabTextFrom('//*[@class="products-list"]/li[1]/div[2]/div//h2/a');
+        $name2 = $I->grabTextFrom('//*[@class="products-list"]/li[2]/div[2]/div//h2/a');
+        $n = substr($name, 0, 1);
+        $n2 = substr($name2,0, 1);
+        $this->assertGreaterOrEquals($n,$n2);
 
+       $I->selectOption('//div[@class="sort-by"]//select', 'Price');
+       $I->waitForAjax(10);
+       $I->see('Price', 'div.sort-by');
+       $price = $I->grabTextFrom('//*[@class="products-list"]/li[1]/div[2]/div/div[2]/div//span[@class="price"]');
+       $price2 = $I->grabTextFrom('//*[@class="products-list"]/li[2]/div[2]/div/div[2]/div//span[@class="price"]');
+       $pr = floatval(preg_replace("/[^0-9.]*/", '', $price));
+       $pr2 = floatval(preg_replace("/[^0-9.]*/", '', $price2));
+       $this->assertGreaterOrEquals($pr, $pr2);
 
-
-        $I->selectOption('//div[@class="sort-by"]//select', 'Price' );
-        $I->waitForAjax(10);
-        $I->see('Price', 'div.sort-by');
-        $price = $I->grabTextFrom('//*[@class="products-list"]/li[1]/div[2]/div/div[2]/div//span');
-        $price2 = $I->grabTextFrom('//*[@class="products-list"]/li[2]/div[2]/div/div[2]/div//span[@class="price"]');
-        $pr = floatval(preg_replace("/[^0-9.]*/", '', $price));
-        $pr2 = floatval(preg_replace("/[^0-9.]*/", '', $price2));
-
-        $this->assertGreaterOrEquals($pr,$pr2);
-
-        
-
-        
-
-
-        
-
-
-        $I->waitForElement('.sort-by');
-
-
-
-        //$I->selectOption('//div[@class="sort-by"]//select', 'Name' );
-        //$I->waitForAjax(10);
-        //$I->see('Name', 'div.sort-by');
-
-
-/*
-        $I->selectOption('//div[@class="sort-by"]//select', 'Price' );
-        $I->waitForAjax(10);
-        $I->see('Price', 'div.sort-by');
-*/
     }
 
+        
 
+        
+
+
+        
+
+
+ 
 
 
 

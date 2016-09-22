@@ -3,6 +3,7 @@ modules:
     enabled:
         - WebDriver
         - Helper\Acceptance
+        - Asserts
 
 
     config:
@@ -14,8 +15,8 @@ modules:
             window_size: 1980x3800
             #clear_cookies: false
 # --run in browserstack--
-            host: 'hub.browserstack.com'
-            port: 80
+            #host: 'hub.browserstack.com'
+            #port: 80
 # -- login in browserstack
             capabilities:
              browserstack.user: 'alex4556'
@@ -35,7 +36,6 @@ env:
       modules:
         config:
           WebDriver:
-            url: 'http://www.mowdirect.co.uk'
             browser: firefox
             browser_version: 40.0
             window_size: maximize
@@ -44,16 +44,15 @@ env:
       modules:
         config:
           WebDriver:
-            url: 'http://www.mowdirect.co.uk'
             browser: internet explorer
-            browser_version: 9.0
+            browser_version: 11.0
             window_size: 1980x1780
+            os_version: 10
 
   safari:
       modules:
         config:
           WebDriver:
-            url: 'http://www.mowdirect.co.uk'
             browser: safari
             window_size: maximize
 
