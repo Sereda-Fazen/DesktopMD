@@ -26,7 +26,7 @@ modules:
              #pageLoadStrategy: 'eager'
              resolution: 1920x1080
              os: 'WINDOWS'
-
+             os_version: 7
 
 env:
 
