@@ -26,7 +26,6 @@ class CategoryNavigationCest
         $I->sortBy();
         
     }
-
     function T1402TestThePagingTopAndBottom(Page\CategoryNavigation $categoryNavigation, \Step\Acceptance\CategorySteps $I)
     {
         $categoryNavigation->home();
