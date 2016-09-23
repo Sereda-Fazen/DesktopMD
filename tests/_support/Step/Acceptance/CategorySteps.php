@@ -47,6 +47,7 @@ class CategorySteps extends \AcceptanceTester
     {
         $I = $this;
         self::fullRange();
+        $I->waitForElement('//div[@class="sort-by"]');
         $I->selectOption('//div[@class="sort-by"]//select', 'Name');
         $I->waitForAjax(10);
         $I->see('Name', 'div.sort-by');
@@ -66,6 +67,52 @@ class CategorySteps extends \AcceptanceTester
        $this->assertGreaterOrEquals($pr, $pr2);
 
     }
+    
+    public function paging(){
+        $I = $this;
+        //self::fullRange();
+        $I->amOnPage('/lawn-garden-tractors/lawn-tractors/all-deals-4048');
+        $I->waitForElement('//div[@class="pages"]');
+        $pagingTop = count($I->grabMultiple('(//div[@class="pages"])[1]//li'));
+        $I->waitForElementNotVisible('.previous.i-previous');
+        $I->canSeeElement('.next.i-next');
+
+        for($p = 2; $p< $pagingTop; $p++) {
+            $I->click('(//div[@class="pages"])[1]//li['.$p.']');
+            $I->waitForAjax(10);
+            $I->waitForElementVisible('.previous.i-previous');
+            $I->seeElement('.next.i-next');
+        }
+        $I->click('//*[@class="pages"]//li['.$p.']');
+        $I->waitForElementVisible('.previous.i-previous');
+        $I->dontSeeElement('.next.i-next');
+        $I->click('.previous.i-previous');
+        $I->waitForAjax(10);
+
+        $I->reloadPage();
+        $pagingBottom = count($I->grabMultiple('(//div[@class="pages"])[2]//li'));
+
+        $I->canSeeElement('.next.i-next');
+        for($p = 2; $p< $pagingBottom; $p++) {
+            $I->scrollTo('(//div[@class="pages"])[2]//li', 200);
+            $I->wait(3);
+            $I->click('(//div[@class="pages"])[2]//li['.$p.']');
+            $I->waitForAjax(10);
+            $I->canSeeElement('.previous.i-previous');
+            $I->canSeeElement('.next.i-next');
+        }
+        $I->click('(//div[@class="pages"])[2]//li['.$p.']');
+        $I->waitForElementVisible('.previous.i-previous');
+        $I->dontSeeElement('.next.i-next');
+        $I->click('.previous.i-previous');
+        $I->waitForAjax(10);
+
+
+
+
+    }
+
+    
 
         
 
