@@ -12,7 +12,7 @@ class CategorySteps extends \AcceptanceTester
 
     public function fullRange(){
         $I = $this;
-        $I->click('//div[@class="category-collateral lawn-garden-tractors"]/div[' . rand(1, 2) . ']/div');
+        $I->click('//div[@class="category-collateral lawn-garden-tractors"]/div[' . rand(1, 2) . ']/div/a');
         $I->waitForElement('//*[@title="See our Full Range"]');
         $I->click('.curved.shadow.shop-now');
     }

@@ -12,8 +12,7 @@ class CategoryNavigationCest
         $categoryNavigation->home();
         $categoryNavigation->saleDepartment();
     }
-
-
+    
     function T1400TestShowNumber(Page\CategoryNavigation $categoryNavigation, \Step\Acceptance\CategorySteps $I) {
         $categoryNavigation->home();
         $categoryNavigation->lawnTractor();
