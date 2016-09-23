@@ -6,7 +6,7 @@ use \Step\Acceptance;
  */
 class TestCest
 {
-
+/*
         function T1353TestSearchWithFollowingSearchQueriesCompareResultsToExpected(Page\SearchNew $searchNew) {
         $searchNew->search();
         $searchNew->searchDifferentTerms('Lawnmower','electric start petrol mowers','lawn garden tractors','scarifier','mountfield 1530','log splitters','lawnflite mini rider 60rde ride-on mower','mountfield','honda','einhell');
@@ -32,7 +32,7 @@ class TestCest
         $searchNew->search();
         $searchNew->searchLegalTermReturnFewResults('cockpit','About 7 results');
         }
-
+*/
         function T1358UseCategoryNavigationToFind6TopSellingProducts (Page\SearchNew $searchNew) {
         $searchNew->search();
         $searchNew->goToPetrolFourWheelLawnMowersPage();

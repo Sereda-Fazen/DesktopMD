@@ -7,6 +7,7 @@
  */
 
 namespace Page;
+use Exception;
 
 
 class SearchNew
@@ -173,13 +174,19 @@ class SearchNew
 
     public function goToPetrolFourWheelLawnMowersPage (){
         $I = $this->tester;
-        $I->waitForElementVisible(self::$lawnMowersDropDown);
-        $I->moveMouseOver(self::$lawnMowersDropDown);
-        $I->waitForElementVisible(self::$petrolFourWheelLawnMowers);
-        $I->click(self::$petrolFourWheelLawnMowers);
-        $I->waitForElement(self::$h1);
-        $I->see('Petrol Four Wheel Rotary Lawn Mowers',self::$h1);
+        try {
+            $I->waitForElementVisible(self::$lawnMowersDropDown);
+            $I->moveMouseOver(self::$lawnMowersDropDown);
+            $I->waitForElementVisible(self::$petrolFourWheelLawnMowers);
+            $I->click(self::$petrolFourWheelLawnMowers);
+        }
+        catch(Exception $e){
+            $I->amOnPage('/lawn-mowers/petrol-lawnmowers/petrol-four-wheel-rotary-lawn-mowers');
+            $I->waitForElement(self::$h1);
+            $I->see('Petrol Four Wheel Rotary Lawn Mowers', self::$h1);
+        }
     }
+
 // Petrol Four Wheel Rotary Lawn Mowers
     public static $push4PetrolLawnMowersBlock = './/*[@ alt="Push 4-Wheel Petrol Lawn Mowers"]';
     public static $mountFieldPush4WheelPetrolLawnMowers = './/*[@alt="Self-Propelled 4-Wheel Petrol Lawn Mowers"]';
@@ -208,13 +215,17 @@ class SearchNew
 
     public function goToPetrolScarifiersPage (){
         $I = $this->tester;
-    //    $I->amOnPage(self::$URL);
-    //    $I->scrollTo(self::$lawnCareDropDown);
+    try {
         $I->moveMouseOver(self::$lawnCareDropDown);
         $I->waitForElementVisible(self::$petrolScarifiersPage);
         $I->click(self::$petrolScarifiersPage);
         $I->waitForElement(self::$h1);
         $I->see('Aerator and Scarifier Deals',self::$h1);
+    } catch (Exception $e){
+        $I->amOnPage('/lawn-care/aerators-and-scarifiers/all-deals-3336/as-filter-power-source/petrol');
+        $I->waitForElement(self::$h1);
+        $I->see('Aerator and Scarifier Deals',self::$h1);
+        }
     }
 
     public static $sellingProductSecondMoreLink = '//a[@title="Einhell GC-SC 2240P Petrol Lawn Scarifier (Special Offer)"]/../../../div/a[@class="more"]';
@@ -288,6 +299,7 @@ class SearchNew
     {
         $I = $this->tester;
       //  $I->amOnPage(self::$URL);
+        $I->waitForElement(self::$lawnMowersDropDown);
         $I->click(self::$lawnMowersDropDown);
         $I->see('Lawn Mowers', self::$h1);
     }
@@ -300,7 +312,7 @@ class SearchNew
         $I->click(self::$petrolFourWhellRotaryLawnMowersBlock);
         $I->see('Petrol Four Wheel Rotary Lawn Mowers',self::$h1);
         $I->click(self::$SelfPropelled4WheelPetrolLawnMowersBlock);
-        $I->see('Self-Propelled 4-Wheel Petrol Lawn Mowers',self::$h1);
+        $I->waitForElement(self::$tabbedPanel);
         $I->scrollTo(self::$tabbedPanel);
         $I->click(self::$cuttingTab);
         $I->waitForElementVisible(self::$cuttingWidthInfoTab);
@@ -331,7 +343,7 @@ class SearchNew
         $I->click(self::$petrolFourWhellRotaryLawnMowersBlock);
         $I->see('Petrol Four Wheel Rotary Lawn Mowers', self::$h1);
         $I->click(self::$SelfPropelled4WheelPetrolLawnMowersBlock);
-        $I->see('Self-Propelled 4-Wheel Petrol Lawn Mowers', self::$h1);
+        $I->waitForElement(self::$tabbedPanel);
         $I->scrollTo(self::$tabbedPanel);
         $I->click(self::$cuttingTab);
         $I->waitForElementVisible(self::$cutting4546cm);
