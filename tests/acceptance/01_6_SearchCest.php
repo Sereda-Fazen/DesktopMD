@@ -34,7 +34,7 @@ class SearchCest
     }
 /*
     function T1358UseCategoryNavigationToFind6TopSellingProducts (Page\SearchNew $searchNew) {
-        $searchNew->search();
+        $searchNew->search();k
         $searchNew->goToPetrolFourWheelLawnMowersPage();
         $searchNew->bestSellingProductOne();    // Best Selling Product One: Mountfield HP454 Petrol Rotary Hand-Propelled Lawnmower (Special Offer)
         $searchNew->goToPetrolScarifiersPage();

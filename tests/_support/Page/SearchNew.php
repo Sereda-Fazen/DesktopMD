@@ -188,7 +188,7 @@ class SearchNew
         }
     }
 
-// Petrol Four Wheel Rotary Lawn Mowers
+// Petrol Four Wheel Rotary Lawn Mowersk
     public static $push4PetrolLawnMowersBlock = './/*[@ alt="Push 4-Wheel Petrol Lawn Mowers"]';
     public static $mountFieldPush4WheelPetrolLawnMowers = './/*[@alt="Self-Propelled 4-Wheel Petrol Lawn Mowers"]';
     public static $mountFieldLogo = './/*[@alt="Mountfield Push 4-Wheel Petrol Lawn Mowers"]';
