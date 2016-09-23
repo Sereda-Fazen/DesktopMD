@@ -49,19 +49,23 @@ class SearchNew
     public static $searchField2 = '//*[@id="gsc-i-id1"]';
     public static $searchButton = '//*[@id="search_mini_form"]/div[1]/button';
     public static $searchButton2 = '//*[@id="___gcse_0"]/div/div/form/table[1]/tbody/tr/td[2]/input';
-    public static $searchResultLink = '//*[@class="gs-spelling"]//a';
-    public static $searchResultMisspellingLink = './/*[@class="gs-spelling gs-spelling-original"]//a';
+    public static $searchResultLink = '//i[contains(text(),"chainsaws")]';
+    public static $searchResultMisspellingLink = '//i[contains(text(),"chinsaws")]';
     public static $noResult = '//*[@class="gsc-wrapper"]/div[2]/div/div/div[1]/div/div';
 
 
     public static $searchMisspellingResult = '//*[@class="gsc-results gsc-webResult"]/div[2]//a[contains(@href,"/chainsaws")]';
     public static $searchInvalidMisspellingResult = '//*[@class="gsc-results gsc-webResult"]/div[1]//a[contains(@href,"/chainsaws/")]';
+    public static $misspellingBlock = '//*[@class="gs-result"]';
 
     public function searchMisspelling($searchMisspelling,$searchData)
     {
         $I= $this ->tester;
         $I->fillField(self::$searchField,$searchMisspelling);
         $I->click(self::$searchButton);
+        $I->waitForElementVisible(self::$misspellingBlock);
+     //   $I->see($searchData,self::$mispellingBlock);
+     //   $I->see($searchMisspelling,self::$mispellingBlock);
         $I->see($searchData,self::$searchResultLink);
         $I->see($searchMisspelling,self::$searchResultMisspellingLink);
         $I->waitForElement(self::$searchMisspellingResult);
@@ -156,10 +160,12 @@ class SearchNew
 
 /////////
 // Best Selling Product One: Mountfield HP454 Petrol Rotary Hand-Propelled Lawnmower (Special Offer)
-//Main Page
-    public static $lawnMowersDropDown = '//*[@class="item1"]/a[contains(text(),"Lawn mowers")]';
-    public static $petrolFourWheelLawnMowers = '//a[contains(text(),"Petrol Four Wheel Lawn Mowers ")]';
-    public static $petrolLawnMowers = '//a[contains(text(),"Petrol Lawn Mowers")]';
+//Main Page                                 //*[@class="item1"]/a[contains(text(),"Lawn mowers")]
+ //   public static $lawnMowersDropDown = '//*[@class="product-navigation"]//a[contains(text(),"Lawn mowers")]';
+    public static $lawnMowersDropDown = '//a[@href="/lawn-mowers/"]';
+
+    public static $petrolFourWheelLawnMowers = '//*[@class="product-navigation"]//a[contains(text(),"Petrol Four Wheel Lawn Mowers ")]';
+    public static $petrolLawnMowers = '//*[@class="product-navigation"]//a[contains(text(),"Petrol Lawn Mowers")]';
     public static $h1 = '//h1';
 
 
@@ -167,7 +173,7 @@ class SearchNew
 
     public function goToPetrolFourWheelLawnMowersPage (){
         $I = $this->tester;
-       // $I->amOnPage(self::$URL);
+        $I->waitForElementVisible(self::$lawnMowersDropDown);
         $I->moveMouseOver(self::$lawnMowersDropDown);
         $I->waitForElementVisible(self::$petrolFourWheelLawnMowers);
         $I->click(self::$petrolFourWheelLawnMowers);
@@ -196,8 +202,8 @@ class SearchNew
     }
 
 // Best Selling Product Two: Einhell GC-SC 2240P Petrol Lawn Scarifier (Special Offer)
-//Main Page
-    public static $lawnCareDropDown = '//*[@class="item3"]/a[contains(text(),"Lawn care")]';
+//Main Page                             //*[@class="item3"]/a[contains(text(),"Lawn care")]
+    public static $lawnCareDropDown = '//a[contains(text(),"Lawn care")]';
     public static $petrolScarifiersPage = '//a[contains(text(),"Petrol Scarifiers")]';
 
     public function goToPetrolScarifiersPage (){
@@ -309,7 +315,7 @@ class SearchNew
 // Best Selling Product Five: Mountfield SP180 Self-Propelled Petrol Lawn Mower (Exclusive Special Offer)
 
 // cutting Width
-    public static $cutting4546cm = './/*[@title=\'45-46cm (18")\']';
+    public static $cutting4546cm = '//*[@title=\'45-46cm (18")\']';
 
 // Cutting 45-46 Filter Page
     public static $MountFieldSP180SelfPropelledPetrolLawnMoreLink  = '//a[@title="Mountfield SP180 Self-Propelled Petrol Lawn Mower (Exclusive Special Offer)"]/../../../div/a[@class="more"]';
@@ -340,12 +346,12 @@ class SearchNew
 
 
 // Best Selling Product Six: Mountfield 1530M Lawn Tractor
-//Main Page
-    public static $lawnTractorDropDown = '//*[@class="item2"]/a[contains(text(),"Lawn Tractors")]';
+//Main Page //*[@class="item2"]/a[contains(text(),"Lawn Tractors")]
+    public static $lawnTractorDropDown = '//*[@class="product-navigation"]/ul/li[2]/a[contains(text(),"Lawn Tractors")]';
 
 // Lawn Tractors Page.
     public static $lawnTractorsBlock = '//*[@alt="Lawn Tractors"]';
-    public static $MountFieldLawnTractorLogo = './/*[@alt="Mountfield Lawn Tractors"]';
+    public static $MountFieldLawnTractorLogo = '//*[@alt="Mountfield Lawn Tractors"]';
 
     public function goToLawnTractorsPage ()
     {
