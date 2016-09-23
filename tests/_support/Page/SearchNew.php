@@ -205,6 +205,7 @@ class SearchNew
             $I->click(self::$sellingProductOneMoreLink);
             $I->waitForElement(self::$sellingProductOneLessLink);
             $I->click(self::$sellingProductOneLink);
+            $I->waitForElement(self::$productTabsBlock);
             $I->see('Mountfield HP454 Petrol Rotary Hand-Propelled Lawnmower (Special Offer)',self::$h1);
     }
 
@@ -240,6 +241,7 @@ class SearchNew
         $I->click(self::$sellingProductSecondMoreLink);
         $I->waitForElement(self::$sellingProductSecondLessLink);
         $I->click(self::$sellingProductSecondLink);
+        $I->waitForElement(self::$productTabsBlock);
         $I->see('Einhell GC-SC 2240P Petrol Lawn Scarifier (Special Offer)',self::$h1);
 
     }
@@ -267,6 +269,7 @@ class SearchNew
         $I->click(self::$sellingProductThreeMoreLink);
         $I->waitForElement(self::$sellingProductThreeLessLink);
         $I->click(self::$sellingProductThreeLink);
+        $I->waitForElement(self::$productTabsBlock);
         $I->see('Mountfield SP533 Self-propelled Petrol Lawn Mower (Special Offer)',self::$h1);
 
     }
@@ -298,7 +301,6 @@ class SearchNew
     public function goToLawnMowersPage ()
     {
         $I = $this->tester;
-      //  $I->amOnPage(self::$URL);
         $I->waitForElement(self::$lawnMowersDropDown);
         $I->click(self::$lawnMowersDropDown);
         $I->see('Lawn Mowers', self::$h1);
@@ -308,8 +310,10 @@ class SearchNew
         $I = $this->tester;
         $I->waitForElementVisible(self::$petrolLawnMowersBlock);
         $I->click(self::$petrolLawnMowersBlock);
+        $I->waitForElementVisible(self::$petrolFourWhellRotaryLawnMowersBlock);
         $I->see('Petrol Lawn Mowers',self::$h1);
         $I->click(self::$petrolFourWhellRotaryLawnMowersBlock);
+        $I->waitForElementVisible(self::$SelfPropelled4WheelPetrolLawnMowersBlock);
         $I->see('Petrol Four Wheel Rotary Lawn Mowers',self::$h1);
         $I->click(self::$SelfPropelled4WheelPetrolLawnMowersBlock);
         $I->waitForElement(self::$tabbedPanel);
@@ -339,8 +343,10 @@ class SearchNew
         $I = $this->tester;
         $I->waitForElementVisible(self::$petrolLawnMowersBlock);
         $I->click(self::$petrolLawnMowersBlock);
+        $I->waitForElementVisible(self::$petrolFourWhellRotaryLawnMowersBlock);
         $I->see('Petrol Lawn Mowers', self::$h1);
         $I->click(self::$petrolFourWhellRotaryLawnMowersBlock);
+        $I->waitForElementVisible(self::$SelfPropelled4WheelPetrolLawnMowersBlock);
         $I->see('Petrol Four Wheel Rotary Lawn Mowers', self::$h1);
         $I->click(self::$SelfPropelled4WheelPetrolLawnMowersBlock);
         $I->waitForElement(self::$tabbedPanel);
@@ -352,6 +358,7 @@ class SearchNew
         $I->click(self::$MountFieldSP180SelfPropelledPetrolLawnMoreLink);
         $I->waitForElementVisible(self::$MountFieldSP180SelfPropelledPetrolLawnLessLink);
         $I->click(self::$MountFieldSP180SelfPropelledPetrolLawnLink);
+        $I->waitForElement(self::$productTabsBlock);
         $I->see('Mountfield SP180 Self-Propelled Petrol Lawn Mower (Exclusive Special Offer)', self::$h1);
 
     }
@@ -384,11 +391,13 @@ class SearchNew
         $I->click(self::$lawnTractorsBlock);
         $I->waitForElement(self::$MountFieldLawnTractorLogo);
         $I->click(self::$MountFieldLawnTractorLogo);
+        $I->waitForElementVisible(self::$MountField1530MLawnTractorMoreLink);
         $I->see('Mountfield Lawn Tractors',self::$h1);
         $I->scrollTo(self::$MountField1530MLawnTractorMoreLink);
         $I->click(self::$MountField1530MLawnTractorMoreLink);
         $I->waitForElementVisible(self::$MountField1530MLawnTractorLessLink);
         $I->click(self::$MountField1530MLawnTractorLink);
+        $I->waitForElement(self::$productTabsBlock);
         $I->see('Mountfield 1530M Lawn Tractor',self::$h1);
     }
 
