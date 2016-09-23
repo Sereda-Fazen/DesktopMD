@@ -200,6 +200,7 @@ class SearchNew
             $I->click(self::$push4PetrolLawnMowersBlock);
             $I->waitForElementVisible(self::$mountFieldLogo);
             $I->click(self::$mountFieldLogo);
+            $I->waitForElementVisible(self::$sellingProductOneMoreLink);
             $I->see('Mountfield Push 4-Wheel Petrol Lawn Mowers',self::$h1);
             $I->scrollTo(self::$sellingProductOneMoreLink);
             $I->click(self::$sellingProductOneMoreLink);
@@ -262,8 +263,10 @@ class SearchNew
     public function bestSellingProductThree(){
         $I = $this->tester;
         $I->click(self::$mountFieldPush4WheelPetrolLawnMowers);
+        $I->waitForElementVisible(self::$selfMountFieldLogo);
         $I->see('Self-Propelled 4-Wheel Petrol Lawn Mowers',self::$h1);
         $I->click(self::$selfMountFieldLogo);
+        $I->waitForElementVisible(self::$sellingProductThreeMoreLink);
         $I->see('Mountfield Self Propelled Lawn Mowers',self::$h1);
         $I->scrollTo(self::$sellingProductThreeMoreLink);
         $I->click(self::$sellingProductThreeMoreLink);
