@@ -32,7 +32,7 @@ class TestCest
         $searchNew->search();
         $searchNew->searchLegalTermReturnFewResults('cockpit','About 7 results');
         }
-*/
+
         function T1358UseCategoryNavigationToFind6TopSellingProducts (Page\SearchNew $searchNew) {
         $searchNew->search();
         $searchNew->goToPetrolFourWheelLawnMowersPage();
@@ -48,46 +48,48 @@ class TestCest
         $searchNew->goToLawnTractorsPage();
         $searchNew->bestSellingProductSix(); // Best Selling Product Six: Mountfield 1530M Lawn Tractor.
         }
-
+*/
         function T1358UseCategoryNavigationToFindFirstSellingProducts (Page\SearchNew $searchNew)
         {
                 $searchNew->search();
                 $searchNew->goToPetrolFourWheelLawnMowersPage();
                 $searchNew->bestSellingProductOne();  // Best Selling Product One: Mountfield HP454 Petrol Rotary Hand-Propelled Lawnmower (Special Offer)
         }
+
         function T1358UseCategoryNavigationToFindSecondSellingProducts (Page\SearchNew $searchNew)
         {
-                $searchNew->search();
-                $searchNew->goToPetrolFourWheelLawnMowersPage();
+ //               $searchNew->search();
+                $searchNew->goToPetrolScarifiersPage();
                 $searchNew->bestSellingProductSecond();    // Best Selling Product Two: Einhell GC-SC 2240P Petrol Lawn Scarifier (Special Offer)
 
         }
+
         function T1358UseCategoryNavigationToFindThirdSellingProducts (Page\SearchNew $searchNew)
         {
-                $searchNew->search();
+  //              $searchNew->search();
                 $searchNew->goToPetrolFourWheelLawnMowersPage();
                 $searchNew->bestSellingProductThree();  //Best Selling Product Three: Mountfield SP533 Self-propelled Petrol Lawn Mower (Special Offer)
         }
 
         function T1358UseCategoryNavigationToFindFourthSellingProducts (Page\SearchNew $searchNew)
         {
-                $searchNew->search();
+ //               $searchNew->search();
                 $searchNew->goToLawnMowersPage();
                 $searchNew->bestSellingProductFour();  // Best Selling Product Four: Oleo-Mac G53-TK AllRoad Plus-4 Self-Propelled Lawn Mower (Special Offer)
         }
         function T1358UseCategoryNavigationToFindFifthSellingProducts (Page\SearchNew $searchNew)
         {
-                $searchNew->search();
+ //               $searchNew->search();
                 $searchNew->goToLawnMowersPage();
                 $searchNew->bestSellingProductFive();   // Best Selling Product Five: Mountfield SP180 Self-Propelled Petrol Lawn Mower (Exclusive Special Offer)
         }
         function T1358UseCategoryNavigationToFinSixthSellingProducts (Page\SearchNew $searchNew)
         {
-                $searchNew->search();
+  //              $searchNew->search();
                 $searchNew->goToLawnTractorsPage();
                 $searchNew->bestSellingProductSix(); // Best Selling Product Six: Mountfield 1530M Lawn Tractor.
         }
-
+        /**/
 
 
 }

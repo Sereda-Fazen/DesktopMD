@@ -154,6 +154,7 @@ class SearchNew
         $I= $this ->tester;
         $I->fillField(self::$searchField,$searchData1);
         $I->click(self::$searchButton);
+        $I->waitForElement(self::$resultInfo);
         $I->see($results, self::$resultInfo);
 
 
@@ -237,7 +238,7 @@ class SearchNew
 
     public function bestSellingProductSecond(){
         $I = $this->tester;
-        $I->waitForElementVisible(self::$sellingProductSecondMoreLink);
+        $I->waitForElementVisible(self::$sellingProductSecondLink);
         $I->scrollTo(self::$sellingProductSecondMoreLink);
         $I->click(self::$sellingProductSecondMoreLink);
         $I->waitForElement(self::$sellingProductSecondLessLink);
