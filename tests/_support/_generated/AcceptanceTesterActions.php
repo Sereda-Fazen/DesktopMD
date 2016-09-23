@@ -1,4 +1,3 @@
-
 <?php  //[STAMP] 9542a98a3fe741c26f93e290842e9e04
 
 namespace _generated;
