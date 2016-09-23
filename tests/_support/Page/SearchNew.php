@@ -266,7 +266,7 @@ class SearchNew
         $I->waitForElementVisible(self::$selfMountFieldLogo);
         $I->see('Self-Propelled 4-Wheel Petrol Lawn Mowers',self::$h1);
         $I->click(self::$selfMountFieldLogo);
-        $I->waitForElementVisible(self::$sellingProductThreeMoreLink);
+        $I->waitForElementVisible(self::$sellingProductThreeLink);
         $I->see('Mountfield Self Propelled Lawn Mowers',self::$h1);
         $I->scrollTo(self::$sellingProductThreeMoreLink);
         $I->click(self::$sellingProductThreeMoreLink);
