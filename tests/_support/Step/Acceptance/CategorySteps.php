@@ -41,6 +41,29 @@ class CategorySteps extends \AcceptanceTester
         $I->see('10', $topShow);
         $I->seeNumberOfElements('#products-list', [0,10]);
         $I->see('10',$bottomShow);
+
+        /**
+         * Bottom
+         */
+        $I->waitForElement('#bottom-limiter');
+        $I->selectOption('#bottom-limiter', '25');
+        $I->waitForAjax(10);
+        $I->see('25', $topShow);
+        $I->seeNumberOfElements('#products-list>li', [10,25]);
+        $I->see('25',$bottomShow);
+
+        $I->selectOption('#bottom-limiter', '50');
+        $I->waitForAjax(10);
+        $I->see('50', $topShow);
+        $I->seeNumberOfElements('#products-list>li', [10,50]);
+        $I->see('50',$bottomShow);
+
+        $I->selectOption('#bottom-limiter', '10');
+        $I->waitForAjax(10);
+        $I->see('10', $topShow);
+        $I->seeNumberOfElements('#products-list', [0,10]);
+        $I->see('10',$bottomShow);
+
     }
 
     public function sortBy()
@@ -57,6 +80,7 @@ class CategorySteps extends \AcceptanceTester
         $n2 = substr($name2,0, 1);
         $this->assertGreaterOrEquals($n,$n2);
 
+
        $I->selectOption('//div[@class="sort-by"]//select', 'Price');
        $I->waitForAjax(10);
        $I->see('Price', 'div.sort-by');
@@ -65,6 +89,31 @@ class CategorySteps extends \AcceptanceTester
        $pr = floatval(preg_replace("/[^0-9.]*/", '', $price));
        $pr2 = floatval(preg_replace("/[^0-9.]*/", '', $price2));
        $this->assertGreaterOrEquals($pr, $pr2);
+        $I->expect('Top sort by');
+
+        /**
+         * Bottom
+         */
+
+        $I->waitForElement('(//div[@class="sort-by"])[2]');
+        $I->selectOption('(//div[@class="sort-by"])[2]/select', 'Name');
+        $I->waitForAjax(10);
+        $I->see('Name', '(//div[@class="sort-by"])[2]');
+        $name = $I->grabTextFrom('//*[@class="products-list"]/li[1]//h2/a');
+        $name2 = $I->grabTextFrom('//*[@class="products-list"]/li[2]//h2/a');
+        $n = substr($name, 0, 1);
+        $n2 = substr($name2,0, 1);
+        $this->assertGreaterOrEquals($n,$n2);
+
+        $I->selectOption('(//div[@class="sort-by"])[2]/select', 'Price');
+        $I->waitForAjax(10);
+        $I->see('Price', '(//div[@class="sort-by"])[2]/select');
+        $price = $I->grabTextFrom('//*[@class="products-list"]/li[1]//span[@class="price"]');
+        $price2 = $I->grabTextFrom('//*[@class="products-list"]/li[2]//span[@class="price"]');
+        $pr = floatval(preg_replace("/[^0-9.]*/", '', $price));
+        $pr2 = floatval(preg_replace("/[^0-9.]*/", '', $price2));
+        $this->assertGreaterOrEquals($pr, $pr2);
+        $I->expect('Bottom sort by');
 
     }
     
@@ -104,7 +153,9 @@ class CategorySteps extends \AcceptanceTester
             $I->waitForAjax(10);
         }
 
-        
+        /**
+         * Bottom paging
+         */
         $pagingBottom = count($I->grabMultiple('(//div[@class="pages"])[2]//li'));
 
         $I->waitForElementNotVisible('(//div[@class="pages"])[2]//li/a[@title="Previous"]');

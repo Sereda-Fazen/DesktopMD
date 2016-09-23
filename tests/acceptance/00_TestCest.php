@@ -7,11 +7,12 @@ use \Step\Acceptance;
 class TestCest
 {
 
-        function T1402TestThePagingTopAndBottom(Page\CategoryNavigation $categoryNavigation, \Step\Acceptance\CategorySteps $I)
+        function T1401TestTheSortByDropdownTopAndBottom(Page\CategoryNavigation $categoryNavigation, \Step\Acceptance\CategorySteps $I)
         {
                 $categoryNavigation->home();
                 $categoryNavigation->lawnTractor();
-                $I->paging();
+                $I->sortBy();
+
         }
 
 
