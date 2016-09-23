@@ -89,7 +89,6 @@ class CategorySteps extends \AcceptanceTester
         $I->click('.previous.i-previous');
         $I->waitForAjax(10);
 
-        $I->reloadPage();
         $pagingBottom = count($I->grabMultiple('(//div[@class="pages"])[2]//li'));
 
         $I->canSeeElement('.next.i-next');
