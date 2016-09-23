@@ -68,48 +68,76 @@ class CategorySteps extends \AcceptanceTester
 
     }
     
-    public function paging(){
+    public function paging()
+    {
         $I = $this;
-        //self::fullRange();
-        $I->amOnPage('/lawn-garden-tractors/lawn-tractors/all-deals-4048');
+        self::fullRange();
+        //$I->amOnPage('/lawn-garden-tractors/lawn-tractors/all-deals-4048');
         $I->waitForElement('//div[@class="pages"]');
         $pagingTop = count($I->grabMultiple('(//div[@class="pages"])[1]//li'));
         $I->waitForElementNotVisible('.previous.i-previous');
         $I->canSeeElement('.next.i-next');
+        
+        if ($pagingTop > 3) {
 
-        for($p = 2; $p< $pagingTop; $p++) {
-            $I->click('(//div[@class="pages"])[1]//li['.$p.']');
+            for ($p = 2; $p < $pagingTop; $p++) {
+
+                $I->click('(//div[@class="pages"])[1]//li[' . $p . ']');
+                $I->waitForAjax(10);
+                $I->waitForElementVisible('.previous.i-previous');
+            }
+
+            $I->click('//*[@class="pages"]//li[' . $p . ']');
+            $I->waitForElementVisible('.previous.i-previous');
+            $I->dontSeeElement('.next.i-next');
+            $I->click('.previous.i-previous');
+            $I->waitForAjax(10);
+            $I->click('(//div[@class="pages"])[1]//a[contains(text(),"1")]');
+            $I->waitForAjax(10);
+            
+        } else {
+
+            $I->click('(//div[@class="pages"])[1]//a[contains(text(),"2")]');
             $I->waitForAjax(10);
             $I->waitForElementVisible('.previous.i-previous');
-            $I->seeElement('.next.i-next');
+            $I->click('.previous.i-previous');
+            $I->waitForAjax(10);
         }
-        $I->click('//*[@class="pages"]//li['.$p.']');
-        $I->waitForElementVisible('.previous.i-previous');
-        $I->dontSeeElement('.next.i-next');
-        $I->click('.previous.i-previous');
-        $I->waitForAjax(10);
 
+        
         $pagingBottom = count($I->grabMultiple('(//div[@class="pages"])[2]//li'));
 
-        $I->canSeeElement('.next.i-next');
-        for($p = 2; $p< $pagingBottom; $p++) {
-            $I->scrollTo('(//div[@class="pages"])[2]//li', 200);
-            $I->wait(3);
-            $I->click('(//div[@class="pages"])[2]//li['.$p.']');
+        $I->waitForElementNotVisible('(//div[@class="pages"])[2]//li/a[@title="Previous"]');
+        $I->canSeeElement('(//div[@class="pages"])[2]//li/a[@title="Next"]');
+        if ($pagingBottom > 3) {
+
+            for ($p = 2; $p < $pagingBottom; $p++) {
+                $I->click('(//div[@class="pages"])[2]//li[' . $p . ']');
+                $I->waitForAjax(10);
+                $I->waitForElementVisible('(//div[@class="pages"])[2]//li/a[@title="Previous"]');
+                $I->seeElement('(//div[@class="pages"])[2]//li/a[@title="Next"]');
+            }
+            $I->click('(//div[@class="pages"])[2]//li[' . $p . ']');
+            $I->waitForElementVisible('(//div[@class="pages"])[2]//li/a[@title="Previous"]');
+            $I->dontSeeElement('(//div[@class="pages"])[2]//li/a[@title="Next"]');
+            $I->click('(//div[@class="pages"])[2]//li/a[@title="Previous"]');
             $I->waitForAjax(10);
-            $I->canSeeElement('.previous.i-previous');
-            $I->canSeeElement('.next.i-next');
+            $I->click('(//div[@class="pages"])[2]//a[contains(text(),"1")]');
+            $I->waitForAjax(10);
+        } else {
+
+            $I->click('(//div[@class="pages"])[2]//a[contains(text(),"2")]');
+            $I->waitForAjax(10);
+            $I->waitForElementVisible('(//div[@class="pages"])[2]//li/a[@title="Previous"]');
+            $I->click('(//div[@class="pages"])[2]//li/a[@title="Previous"]');
+            $I->waitForAjax(10);
         }
-        $I->click('(//div[@class="pages"])[2]//li['.$p.']');
-        $I->waitForElementVisible('.previous.i-previous');
-        $I->dontSeeElement('.next.i-next');
-        $I->click('.previous.i-previous');
-        $I->waitForAjax(10);
-
-
-
-
     }
+
+
+
+
+
 
     
 
