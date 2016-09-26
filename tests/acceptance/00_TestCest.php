@@ -50,75 +50,73 @@ class TestCest
         }
 
 
+
+
+        function T1535UseTheCategoryNavigationToNavigateToLawnMowersPages (Page\CategoryNavigation $categoryNavigation)        {
+                $categoryNavigation->home();
+                $categoryNavigation->goToLawnMowersPage();
+                $categoryNavigation->goToPetrolLawnMowersFromLawnMowerPage();
+                $categoryNavigation->goToPetrolFourWheelRotaryLawnMowersFromPetrolLawnMowersPage();
+                $categoryNavigation->goToSelfPropelled4WheelPetrolLawnMowersPage();
+                $categoryNavigation->returnToPetrolFourWheelRotaryLawnPage();
+                $categoryNavigation->goToPush4WheelPetrolLawnMowersPage();
+                $categoryNavigation->goToLawnMowersPage();
+                $categoryNavigation->goToMainsElectricLawnMowersPage();
+                $categoryNavigation->goToElectricRearRollerRotaryLawnMowersPage();
+                $categoryNavigation->returnMainsElectricLawnMowersPage();
+                $categoryNavigation->goToElectricFourWheelRotaryLawnMowersPage();        }
+
+        function T1535UseTheCategoryNavigationToNavigateToLawnTractorsPages (Page\CategoryNavigation $categoryNavigation)        {
+                $categoryNavigation->goToLawnTractorsPage();
+                $categoryNavigation->goToRideOnMowersPage();
+                $categoryNavigation->goToLawnTractorsPage();
+                $categoryNavigation->goToLawnMowersPanelPage();
+                $categoryNavigation->goToLawnTractorsPage();
+                $categoryNavigation->goToLawnTractorsPage();        }
+
+        function T1535UseTheCategoryNavigationToNavigateToBrushcuttersPages (Page\CategoryNavigation $categoryNavigation)        {
+                $categoryNavigation->goToBrushcuttersPage();
+                $categoryNavigation->goToPetrolBrushcuttersAndLineTrimmersPage();        }
+
+        function T1535UseTheCategoryNavigationToNavigateToHedgetrimmersPages (Page\CategoryNavigation $categoryNavigation)        {
+                $categoryNavigation->goToHedgetrimmersPage();
+                $categoryNavigation->goToPetrolHedgecuttersPage();
+                $categoryNavigation->returnHedgetrimmersHedgecuttersPage();
+                $categoryNavigation->goToElectricHedgetrimmersPage();        }
+
+        function T1535UseTheCategoryNavigationToNavigateToChainsawsPages (Page\CategoryNavigation $categoryNavigation)        {
+                $categoryNavigation->goToChainsawsPage();
+                $categoryNavigation->goToPetrolChainsawsPage();
+                $categoryNavigation->returnChainsawsPage();
+                $categoryNavigation->goToElectricChainsawsPage();        }
+
+        function T1535UseTheCategoryNavigationToNavigateToVacsBlowersPages (Page\CategoryNavigation $categoryNavigation)        {
+                $categoryNavigation->goToVacsBlowersPage();
+                $categoryNavigation->goToHandHeldGardenBlowerVacsPage();
+                $categoryNavigation->returnGardenVacuumsLeafBlowersSweepersPage();
+                $categoryNavigation->goToBackpackPowerLeafBlowersPage();
+                $categoryNavigation->returnGardenVacuumsLeafBlowersSweepersPage();
+                $categoryNavigation->goToWheeledLawnLitterVacuumsAndLeafSweepersPage();
+        }
+
+        function T1535UseTheCategoryNavigationToTillersPages (Page\CategoryNavigation $categoryNavigation)        {
+                $categoryNavigation->goToTillersPage();
+        }
+
+        function T1535UseTheCategoryNavigationToMorePages (Page\CategoryNavigation $categoryNavigation)        {
+                $categoryNavigation->goToMorePage();
+                $categoryNavigation->goToGardenChippersShreddersPage();
+                $categoryNavigation->goToElectricGardenShredderPage();
+                $categoryNavigation->returnGardenChippersShreddersPage();
+                $categoryNavigation->goToPetrolChipperShreddersPage();
+                $categoryNavigation->goToMorePage();
+                $categoryNavigation->goToFirewoodToolsPage();
+                $categoryNavigation->goToLogSplittersPage();
+                $categoryNavigation->goToMorePage();
+                $categoryNavigation->goToSnowClearancePage();
+                $categoryNavigation->goToSnowThrowersSnowBlowersPage();      }
+
 */
-
-        function T1535UseTheCategoryNavigationToNavigateToLawnMowersPages (Page\SearchNew $searchNew)        {
-                $searchNew->search();
-                $searchNew->goToLawnMowersPage();
-                $searchNew->goToPetrolLawnMowersFromLawnMowerPage();
-                $searchNew->goToPetrolFourWheelRotaryLawnMowersFromPetrolLawnMowersPage();
-                $searchNew->goToSelfPropelled4WheelPetrolLawnMowersPage();
-                $searchNew->returnToPetrolFourWheelRotaryLawnPage();
-                $searchNew->goToPush4WheelPetrolLawnMowersPage();
-                $searchNew->goToLawnMowersPage();
-                $searchNew->goToMainsElectricLawnMowersPage();
-                $searchNew->goToElectricRearRollerRotaryLawnMowersPage();
-                $searchNew->returnMainsElectricLawnMowersPage();
-                $searchNew->goToElectricFourWheelRotaryLawnMowersPage();        }
-
-        function T1535UseTheCategoryNavigationToNavigateToLawnTractorsPages (Page\SearchNew $searchNew)        {
-              //  $searchNew->search();
-                $searchNew->goToLawnTractorsPage();
-                $searchNew->goToRideOnMowersPage();
-                $searchNew->goToLawnTractorsPage();
-                $searchNew->goToLawnMowersPanelPage();
-                $searchNew->goToLawnTractorsPage();
-                $searchNew->goToLawnTractorsPage();        }
-
-        function T1535UseTheCategoryNavigationToNavigateToBrushcuttersPages (Page\SearchNew $searchNew)        {
-                $searchNew->goToBrushcuttersPage();
-                $searchNew->goToPetrolBrushcuttersAndLineTrimmersPage();        }
-
-        function T1535UseTheCategoryNavigationToNavigateToHedgetrimmersPages (Page\SearchNew $searchNew)        {
-                $searchNew->goToHedgetrimmersPage();
-                $searchNew->goToPetrolHedgecuttersPage();
-                $searchNew->returnHedgetrimmersHedgecuttersPage();
-                $searchNew->goToElectricHedgetrimmersPage();        }
-
-        function T1535UseTheCategoryNavigationToNavigateToChainsawsPages (Page\SearchNew $searchNew)        {
-                $searchNew->goToChainsawsPage();
-                $searchNew->goToPetrolChainsawsPage();
-                $searchNew->returnChainsawsPage();
-                $searchNew->goToElectricChainsawsPage();        }
-
-        function T1535UseTheCategoryNavigationToNavigateToVacsBlowersPages (Page\SearchNew $searchNew)        {
-                $searchNew->goToVacsBlowersPage();
-                $searchNew->goToHandHeldGardenBlowerVacsPage();
-                $searchNew->returnGardenVacuumsLeafBlowersSweepersPage();
-                $searchNew->goToBackpackPowerLeafBlowersPage();
-                $searchNew->returnGardenVacuumsLeafBlowersSweepersPage();
-                $searchNew->goToWheeledLawnLitterVacuumsAndLeafSweepersPage();
-        }
-
-        function T1535UseTheCategoryNavigationToTillersPages (Page\SearchNew $searchNew)        {
-                $searchNew->goToTillersPage();
-        }
-
-        function T1535UseTheCategoryNavigationToMorePages (Page\SearchNew $searchNew)        {
-                $searchNew->goToMorePage();
-                $searchNew->goToGardenChippersShreddersPage();
-                $searchNew->goToElectricGardenShredderPage();
-                $searchNew->returnGardenChippersShreddersPage();
-                $searchNew->goToPetrolChipperShreddersPage();
-                $searchNew->goToMorePage();
-                $searchNew->goToFirewoodToolsPage();
-                $searchNew->goToLogSplittersPage();
-                $searchNew->goToMorePage();
-                $searchNew->goToSnowClearancePage();
-                $searchNew->goToSnowThrowersSnowBlowersPage();      }
-
-
-
 
 
         /**/

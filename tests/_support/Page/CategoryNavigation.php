@@ -77,8 +77,8 @@ class CategoryNavigation
 
     public function goToLawnMowersPage (){
         $I = $this->tester;
-        $I->waitForElement(self::$lawnMowersDropDown);
-        $I->click(self::$lawnMowersDropDown);
+        $I->waitAndclick(self::$lawnMowersDropDown);
+        $I->waitForElement(self::$h1);
         $I->see('Lawn Mowers', self::$h1);    }
 
     public function goToBrushcuttersPage (){
@@ -126,9 +126,8 @@ class CategoryNavigation
 
     public function goToPetrolLawnMowersFromLawnMowerPage ()    {
         $I = $this->tester;
-        $I->waitForElementVisible(self::$petrolLawnMowersBlock);
         $I->waitAndClick(self::$petrolLawnMowersBlock);
-        $I->waitForElementVisible(self::$petrolFourWhellRotaryLawnMowersBlock);
+        $I->waitForElement(self::$h1);
         $I->see('Petrol Lawn Mowers', self::$h1);    }
 
     public function goToMainsElectricLawnMowersPage (){
