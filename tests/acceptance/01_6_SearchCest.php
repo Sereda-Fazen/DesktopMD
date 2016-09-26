@@ -82,6 +82,71 @@ class SearchCest
         $searchNew->bestSellingProductSix(); // Best Selling Product Six: Mountfield 1530M Lawn Tractor.
     }
 
+    function T1535UseTheCategoryNavigationToNavigateToLawnMowersPages (Page\SearchNew $searchNew)        {
+        $searchNew->search();
+        $searchNew->goToLawnMowersPage();
+        $searchNew->goToPetrolLawnMowersFromLawnMowerPage();
+        $searchNew->goToPetrolFourWheelRotaryLawnMowersFromPetrolLawnMowersPage();
+        $searchNew->goToSelfPropelled4WheelPetrolLawnMowersPage();
+        $searchNew->returnToPetrolFourWheelRotaryLawnPage();
+        $searchNew->goToPush4WheelPetrolLawnMowersPage();
+        $searchNew->goToLawnMowersPage();
+        $searchNew->goToMainsElectricLawnMowersPage();
+        $searchNew->goToElectricRearRollerRotaryLawnMowersPage();
+        $searchNew->returnMainsElectricLawnMowersPage();
+        $searchNew->goToElectricFourWheelRotaryLawnMowersPage();        }
+
+    function T1535UseTheCategoryNavigationToNavigateToLawnTractorsPages (Page\SearchNew $searchNew)        {
+        //  $searchNew->search();
+        $searchNew->goToLawnTractorsPage();
+        $searchNew->goToRideOnMowersPage();
+        $searchNew->goToLawnTractorsPage();
+        $searchNew->goToLawnMowersPanelPage();
+        $searchNew->goToLawnTractorsPage();
+        $searchNew->goToLawnTractorsPage();        }
+
+    function T1535UseTheCategoryNavigationToNavigateToBrushcuttersPages (Page\SearchNew $searchNew)        {
+        $searchNew->goToBrushcuttersPage();
+        $searchNew->goToPetrolBrushcuttersAndLineTrimmersPage();        }
+
+    function T1535UseTheCategoryNavigationToNavigateToHedgetrimmersPages (Page\SearchNew $searchNew)        {
+        $searchNew->goToHedgetrimmersPage();
+        $searchNew->goToPetrolHedgecuttersPage();
+        $searchNew->returnHedgetrimmersHedgecuttersPage();
+        $searchNew->goToElectricHedgetrimmersPage();        }
+
+    function T1535UseTheCategoryNavigationToNavigateToChainsawsPages (Page\SearchNew $searchNew)        {
+        $searchNew->goToChainsawsPage();
+        $searchNew->goToPetrolChainsawsPage();
+        $searchNew->returnChainsawsPage();
+        $searchNew->goToElectricChainsawsPage();        }
+
+    function T1535UseTheCategoryNavigationToNavigateToVacsBlowersPages (Page\SearchNew $searchNew)        {
+        $searchNew->goToVacsBlowersPage();
+        $searchNew->goToHandHeldGardenBlowerVacsPage();
+        $searchNew->returnGardenVacuumsLeafBlowersSweepersPage();
+        $searchNew->goToBackpackPowerLeafBlowersPage();
+        $searchNew->returnGardenVacuumsLeafBlowersSweepersPage();
+        $searchNew->goToWheeledLawnLitterVacuumsAndLeafSweepersPage();
+    }
+
+    function T1535UseTheCategoryNavigationToTillersPages (Page\SearchNew $searchNew)        {
+        $searchNew->goToTillersPage();
+    }
+
+    function T1535UseTheCategoryNavigationToMorePages (Page\SearchNew $searchNew)        {
+        $searchNew->goToMorePage();
+        $searchNew->goToGardenChippersShreddersPage();
+        $searchNew->goToElectricGardenShredderPage();
+        $searchNew->returnGardenChippersShreddersPage();
+        $searchNew->goToPetrolChipperShreddersPage();
+        $searchNew->goToMorePage();
+        $searchNew->goToFirewoodToolsPage();
+        $searchNew->goToLogSplittersPage();
+        $searchNew->goToMorePage();
+        $searchNew->goToSnowClearancePage();
+        $searchNew->goToSnowThrowersSnowBlowersPage();      }
+
 
 
 
