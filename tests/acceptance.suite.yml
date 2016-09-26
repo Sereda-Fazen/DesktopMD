@@ -86,24 +86,24 @@ env:
              browserstack.key: 'w1447cpT1SQuyFthNZr3'
              browserstack.debug: 'true'
              unexpectedAlertBehaviour: 'accept'
-             browserstack.selenium_version: 3.0.0-beta2
              os: OS X
              os_version: El Capitan
-             window_size: maximize
-
-
-  # for tablet testing
+             resolution: 1920x1080
 
   google_nexus_7:
-      modules:
-        config:
-           WebDriver:
-              browser: android
+        modules:
+          config:
+            WebDriver:
+              browser: Android
+              host: 'hub.browserstack.com'
+              port: 80
               capabilities:
-               platform: 'ANDROID'
-               device: 'Google Nexus 7'
+               browserstack.user: 'alex4556'
+               browserstack.key: 'w1447cpT1SQuyFthNZr3'
                browserstack.debug: 'true'
                unexpectedAlertBehaviour: 'accept'
-               pageLoadStrategy: 'eager'
+               platform: ANDROID
+               device: Google Nexus 7
+
 
 
