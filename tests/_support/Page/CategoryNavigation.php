@@ -160,7 +160,7 @@ class CategoryNavigation
     public function returnToPetrolFourWheelRotaryLawnPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$returnToPetrolFourWheelRotaryLawnLink);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Petrol Four Wheel Rotary Lawn Mowers', self::$h1);    }
 
 // 4-Wheel Petrol Lawn Mowers
@@ -354,7 +354,7 @@ class CategoryNavigation
     public function returnGardenChippersShreddersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$returnGardenChippersShredders);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Garden Chippers & Shredders', self::$h1);    }
 
 // Firewood Tools Page

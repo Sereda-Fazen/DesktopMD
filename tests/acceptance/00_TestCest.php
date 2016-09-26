@@ -64,7 +64,8 @@ class TestCest
                 $categoryNavigation->goToMainsElectricLawnMowersPage();
                 $categoryNavigation->goToElectricRearRollerRotaryLawnMowersPage();
                 $categoryNavigation->returnMainsElectricLawnMowersPage();
-                $categoryNavigation->goToElectricFourWheelRotaryLawnMowersPage();        }
+                $categoryNavigation->goToElectricFourWheelRotaryLawnMowersPage();
+        }
 
         function T1535UseTheCategoryNavigationToNavigateToLawnTractorsPages (Page\CategoryNavigation $categoryNavigation)        {
                 $categoryNavigation->goToLawnTractorsPage();
@@ -104,6 +105,7 @@ class TestCest
         }
 
         function T1535UseTheCategoryNavigationToMorePages (Page\CategoryNavigation $categoryNavigation)        {
+                $categoryNavigation->home();
                 $categoryNavigation->goToMorePage();
                 $categoryNavigation->goToGardenChippersShreddersPage();
                 $categoryNavigation->goToElectricGardenShredderPage();
@@ -116,18 +118,7 @@ class TestCest
                 $categoryNavigation->goToSnowClearancePage();
                 $categoryNavigation->goToSnowThrowersSnowBlowersPage();      }
 
-*/
-
-
         /**/
-
-
-
-
-
-
-
-
 
 
 
