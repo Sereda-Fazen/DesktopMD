@@ -79,6 +79,7 @@ class CategorySteps extends \AcceptanceTester
         $n = substr($name, 0, 1);
         $n2 = substr($name2,0, 1);
         $this->assertGreaterOrEquals($n,$n2);
+        $I->expect('Top sort by Name');
 
 
        $I->selectOption('//div[@class="sort-by"]//select', 'Price');
@@ -89,7 +90,7 @@ class CategorySteps extends \AcceptanceTester
        $pr = floatval(preg_replace("/[^0-9.]*/", '', $price));
        $pr2 = floatval(preg_replace("/[^0-9.]*/", '', $price2));
        $this->assertGreaterOrEquals($pr, $pr2);
-        $I->expect('Top sort by');
+       $I->expect('Top sort by Price');
 
         /**
          * Bottom
@@ -104,6 +105,7 @@ class CategorySteps extends \AcceptanceTester
         $n = substr($name, 0, 1);
         $n2 = substr($name2,0, 1);
         $this->assertGreaterOrEquals($n,$n2);
+        $I->expect('Bottom sort by Name');
 
         $I->selectOption('(//div[@class="sort-by"])[2]/select', 'Price');
         $I->waitForAjax(10);
@@ -113,7 +115,7 @@ class CategorySteps extends \AcceptanceTester
         $pr = floatval(preg_replace("/[^0-9.]*/", '', $price));
         $pr2 = floatval(preg_replace("/[^0-9.]*/", '', $price2));
         $this->assertGreaterOrEquals($pr, $pr2);
-        $I->expect('Bottom sort by');
+        $I->expect('Bottom sort by Price');
 
     }
     
@@ -121,7 +123,6 @@ class CategorySteps extends \AcceptanceTester
     {
         $I = $this;
         self::fullRange();
-        $I->amOnPage('/lawn-garden-tractors/ride-on-mowers-rear-engine/all-deals-4049');
         $I->waitForElement('//div[@class="pages"]');
         $pagingTop = count($I->grabMultiple('(//div[@class="pages"])[1]//li'));
         $I->waitForElementNotVisible('.previous.i-previous');
@@ -144,6 +145,7 @@ class CategorySteps extends \AcceptanceTester
             $I->click('.previous.i-previous');
             $I->waitForAjax(10);
             $I->waitForElementVisible('.next.i-next');
+        }
 
             $pagingBottom = count($I->grabMultiple('(//div[@class="pages"])[2]//li'));
             if ($pagingBottom > 1) {
@@ -168,7 +170,7 @@ class CategorySteps extends \AcceptanceTester
                 $I->waitForElementVisible('(//div[@class="pages"])[2]//li/a[@title="Next"]');
             }
         }
-    }
+
 
 
 
