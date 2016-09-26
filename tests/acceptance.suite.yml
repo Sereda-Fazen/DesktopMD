@@ -15,8 +15,8 @@ modules:
             window_size: 1980x3800
             #clear_cookies: false
 # --run in browserstack--
-            #host: 'hub.browserstack.com'
-            #port: 80
+           # host: 'hub.browserstack.com'
+           # port: 80
 # -- login in browserstack
             capabilities:
              browserstack.user: 'alex4556'
