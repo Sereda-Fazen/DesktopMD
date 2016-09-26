@@ -79,7 +79,7 @@ class CategorySteps extends \AcceptanceTester
         $n = substr($name, 0, 1);
         $n2 = substr($name2,0, 1);
         $this->assertGreaterOrEquals($n,$n2);
-        $I->expect('Top sort by Name');
+        $I->expect('Bottom sort by Name - '.$n.'less'.$n2.'');
 
 
        $I->selectOption('//div[@class="sort-by"]//select', 'Price');
@@ -90,7 +90,7 @@ class CategorySteps extends \AcceptanceTester
        $pr = floatval(preg_replace("/[^0-9.]*/", '', $price));
        $pr2 = floatval(preg_replace("/[^0-9.]*/", '', $price2));
        $this->assertGreaterOrEquals($pr, $pr2);
-       $I->expect('Top sort by Price');
+       $I->expect('Bottom sort by Price - '.$pr.' less '.$pr2.'');
 
         /**
          * Bottom
@@ -105,7 +105,7 @@ class CategorySteps extends \AcceptanceTester
         $n = substr($name, 0, 1);
         $n2 = substr($name2,0, 1);
         $this->assertGreaterOrEquals($n,$n2);
-        $I->expect('Bottom sort by Name');
+        $I->expect('Bottom sort by Name - '.$n.'less'.$n2.'');
 
         $I->selectOption('(//div[@class="sort-by"])[2]/select', 'Price');
         $I->waitForAjax(10);
@@ -115,7 +115,7 @@ class CategorySteps extends \AcceptanceTester
         $pr = floatval(preg_replace("/[^0-9.]*/", '', $price));
         $pr2 = floatval(preg_replace("/[^0-9.]*/", '', $price2));
         $this->assertGreaterOrEquals($pr, $pr2);
-        $I->expect('Bottom sort by Price');
+        $I->expect('Bottom sort by Price - '.$pr.' less '.$pr2.'');
 
     }
     
