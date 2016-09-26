@@ -72,49 +72,49 @@ class CategoryNavigation
     public function goToLawnTractorsPage ()    {
         $I = $this->tester;
         $I->waitAndClick(self::$lawnTractorDropDown);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Lawn & Garden Tractors', self::$h1);    }
 
     public function goToLawnMowersPage (){
         $I = $this->tester;
         $I->waitAndclick(self::$lawnMowersDropDown);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Lawn Mowers', self::$h1);    }
 
     public function goToBrushcuttersPage (){
         $I = $this->tester;
         $I->waitAndclick(self::$brushcuttersDropDown);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Brushcutters, Strimmers, Line Trimmers',self::$h1);    }
 
     public function goToHedgetrimmersPage(){
         $I = $this->tester;
         $I->waitAndclick(self::$hedgetrimmersDropDown);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Hedgetrimmers & Hedgecutters',self::$h1);    }
 
     public function goToChainsawsPage(){
         $I = $this->tester;
         $I->waitAndclick(self::$chainsawsDropDown);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Chainsaws',self::$h1);    }
 
     public function goToVacsBlowersPage(){
         $I = $this->tester;
         $I->waitAndclick(self::$vacsBlowersDropDown);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Garden Vacuums, Leaf Blowers & Sweepers',self::$h1);    }
 
     public function goToTillersPage(){
         $I = $this->tester;
         $I->waitAndclick(self::$tillersDropDown);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Cultivators, Tillers & Rotavators',self::$h1);    }
 
     public function goToMorePage(){
         $I = $this->tester;
         $I->waitAndclick(self::$moreDropDown);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Other Garden Machinery',self::$h1);    }
 
 
@@ -127,13 +127,13 @@ class CategoryNavigation
     public function goToPetrolLawnMowersFromLawnMowerPage ()    {
         $I = $this->tester;
         $I->waitAndClick(self::$petrolLawnMowersBlock);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Petrol Lawn Mowers', self::$h1);    }
 
     public function goToMainsElectricLawnMowersPage (){
         $I = $this->tester;
         $I->waitAndClick(self::$panelMainsElectricLawnMowers);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Mains-Electric Lawn Mowers', self::$h1);    }
 
 // Petrol Lawn Mowers Page
@@ -142,7 +142,7 @@ class CategoryNavigation
     public function goToPetrolFourWheelRotaryLawnMowersFromPetrolLawnMowersPage ()    {
         $I = $this->tester;
         $I->waitAndClick(self::$petrolFourWheelRotaryLawnMowers);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Petrol Four Wheel Rotary Lawn Mowers', self::$h1);    }
 
 // Petrol Four Wheel Rotary Lawn Mowers Page
@@ -152,7 +152,7 @@ class CategoryNavigation
     public function goToSelfPropelled4WheelPetrolLawnMowersPage ()    {
         $I = $this->tester;
         $I->waitAndClick(self::$panelSelfPropelled4WheelPetrolLawnMowers);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Self-Propelled 4-Wheel Petrol Lawn Mowers', self::$h1);    }
 
     public static $returnToPetrolFourWheelRotaryLawnLink = '//a[contains(text(),"Petrol Four Wheel Rotary Lawn Mowers")]';
@@ -167,7 +167,7 @@ class CategoryNavigation
     public function goToPush4WheelPetrolLawnMowersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelPush4WheelPetrolLawnMowers);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Push 4-Wheel Petrol Lawn Mowers', self::$h1);    }
 
 // Mains-Electric Lawn Mowers Page
@@ -176,7 +176,7 @@ class CategoryNavigation
     public function goToElectricRearRollerRotaryLawnMowersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelElectricRearRollerRotaryLawnMowers);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Electric Rear-Roller Rotary Lawn Mowers', self::$h1);    }
 
     public static $panelElectricFourWheelRotaryLawnMowers  = '//*[@alt="Electric Four-Wheel Rotary Lawn Mowers"]';
@@ -184,7 +184,7 @@ class CategoryNavigation
     public function goToElectricFourWheelRotaryLawnMowersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelElectricFourWheelRotaryLawnMowers);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Electric Four-Wheel Rotary Lawn Mowers', self::$h1);    }
 
 // Electric Rear-Roller Rotary Lawn Mowers page
@@ -193,7 +193,7 @@ class CategoryNavigation
     public function returnMainsElectricLawnMowersPage (){
         $I = $this->tester;
         $I->waitAndClick(self::$returnMainsElectricLawnMowersPage);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Mains-Electric Lawn Mowers', self::$h1);    }
 
 /// Lawn Tractors
@@ -204,19 +204,19 @@ class CategoryNavigation
     public function goToRideOnMowersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelRideOnMowers);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Ride-On Mowers (Rear-Engine)', self::$h1);    }
 
     public function goToLawnMowersPanelPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelLawnMower);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Lawn Tractors', self::$h1);    }
 
     public function goToGardenTractorsPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$gardenTractors);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Garden Tractors', self::$h1);    }
 
 // Brushcutters, Strimmers, Line Trimmers Page
@@ -225,7 +225,7 @@ class CategoryNavigation
     public function goToPetrolBrushcuttersAndLineTrimmersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelPetrolBrushcuttersAndLineTrimmers);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Petrol Brushcutters & Line Trimmers', self::$h1);    }
 
 // Hedgetrimmers Page
@@ -235,7 +235,7 @@ class CategoryNavigation
     public function goToPetrolHedgecuttersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelPetrolHedgecutters);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Petrol Hedgecutters', self::$h1);    }
 
     public static $returnHedgetrimmersHedgecuttersPage = '//a[contains(text(),"Hedgetrimmers & Hedgecutters")]';
@@ -243,13 +243,13 @@ class CategoryNavigation
     public function returnHedgetrimmersHedgecuttersPage (){
         $I = $this->tester;
         $I->waitAndClick(self::$returnHedgetrimmersHedgecuttersPage);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Hedgetrimmers & Hedgecutters', self::$h1);    }
 
     public function goToElectricHedgetrimmersPage (){
         $I = $this->tester;
         $I->waitAndClick(self::$panelElectricHedgetrimmers);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Electric Hedgetrimmers', self::$h1);    }
 
 // ChainSaws Page
@@ -259,7 +259,7 @@ class CategoryNavigation
     public function goToPetrolChainsawsPage (){
         $I = $this->tester;
         $I->waitAndClick(self::$panelPetrolChainsaws);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Petrol Chainsaws', self::$h1);    }
 
     public static $returnChainsawsPage = '//*[@id="top"]//a[contains(text(),"Chainsaws")]';
@@ -267,13 +267,13 @@ class CategoryNavigation
     public function returnChainsawsPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$returnChainsawsPage);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Chainsaws', self::$h1);    }
 
     public function goToElectricChainsawsPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelElectricChainsaws);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Electric Chainsaws', self::$h1);    }
 
 
@@ -285,7 +285,7 @@ class CategoryNavigation
     public function goToHandHeldGardenBlowerVacsPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelHandHeldGardenBlowerVacs);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Hand Held Garden Blower-Vacs', self::$h1);    }
 
     public static $returnGardenVacuumsLeafBlowersSweepers = '//*[@id="top"]//a[contains(text(),"Garden Vacuums, Leaf Blowers & Sweepers")]';
@@ -293,19 +293,19 @@ class CategoryNavigation
     public function returnGardenVacuumsLeafBlowersSweepersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$returnGardenVacuumsLeafBlowersSweepers);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Garden Vacuums, Leaf Blowers & Sweepers', self::$h1);    }
 
     public function goToBackpackPowerLeafBlowersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelBackpackPowerLeafBlowers);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Backpack Power Leaf Blowers', self::$h1);    }
 
     public function goToWheeledLawnLitterVacuumsAndLeafSweepersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelWheeledLawnLitterVacuumsAndLeafSweepers);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Wheeled Lawn & Litter Vacuums and Leaf Sweepers', self::$h1);    }
 
 //// More Pages
@@ -315,13 +315,13 @@ class CategoryNavigation
     public function goToGardenChippersShreddersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelGardenChippersShredders);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Garden Chippers & Shredders', self::$h1);    }
 
     public function goToFirewoodToolsPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelFirewoodTools);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Firewood Tools', self::$h1);    }
 
 // Garden Chippers Shredders Page
@@ -332,19 +332,19 @@ class CategoryNavigation
     public function goToElectricGardenShredderPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelElectricGardenShredder);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Electric Garden Shredders', self::$h1);    }
 
     public function goToPetrolChipperShreddersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelPetrolChipperShredders);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Petrol Chipper-Shredders', self::$h1);    }
 
     public function goToSnowClearancePage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelSnowCleaners);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Snow Clearance', self::$h1);    }
 
 
@@ -363,7 +363,7 @@ class CategoryNavigation
     public function goToLogSplittersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelLogSplitters);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Log Splitters', self::$h1);
     }
 
@@ -373,7 +373,7 @@ class CategoryNavigation
     public function goToSnowThrowersSnowBlowersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$panelSnowThrowersSnowBlowers);
-        $I->waitForElement(self::$h1);
+        $I->waitForElementVisible(self::$h1);
         $I->see('Snow Throwers / Snow Blowers', self::$h1);    }
 
 }
