@@ -6,6 +6,13 @@ use \Step\Acceptance;
  */
 class TestCest
 {
+    function T1402TestThePagingTopAndBottom(Page\CategoryNavigation $categoryNavigation, \Step\Acceptance\CategorySteps $I)
+    {
+        $categoryNavigation->home();
+        $categoryNavigation->lawnTractor();
+        $I->paging();
+
+    }
 /*
         function T1353TestSearchWithFollowingSearchQueriesCompareResultsToExpected(Page\SearchNew $searchNew) {
         $searchNew->search();

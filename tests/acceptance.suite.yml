@@ -9,28 +9,32 @@ modules:
     config:
         WebDriver:
             url: 'http://www.mowdirect.co.uk/'
-
-            restart: false
             browser: chrome
-            window_size: 1980x3800
-            #clear_cookies: false
-# --run in browserstack--
+            window_size: 1920x1080
+
+
+env:
+
+  chrome:
+      modules:
+        config:
+          WebDriver:
+            url: 'http://www.mowdirect.co.uk/'
+            browser: chrome
+            window_size: 1920x1080
             host: 'hub.browserstack.com'
             port: 80
-# -- login in browserstack
             capabilities:
              browserstack.user: 'alex4556'
              browserstack.key: 'w1447cpT1SQuyFthNZr3'
              browserstack.debug: 'true'
              unexpectedAlertBehaviour: 'accept'
-             #pageLoadStrategy: 'eager'
+             browser: chrome
+             browser_version: 53
              resolution: 1920x1080
-             os: 'WINDOWS'
+             browserstack.selenium_version: 3.0.0-beta2
+             os: WINDOWS
              os_version: 7
-
-env:
-
-  chrome:
 
   firefox:
       modules:
@@ -39,7 +43,16 @@ env:
             browser: firefox
             browser_version: 49.0
             window_size: maximize
-            browserstack.selenium_version: 3.0.0-beta2
+            host: 'hub.browserstack.com'
+            port: 80
+            capabilities:
+             browserstack.user: 'alex4556'
+             browserstack.key: 'w1447cpT1SQuyFthNZr3'
+             browserstack.debug: 'true'
+             unexpectedAlertBehaviour: 'accept'
+             browserstack.selenium_version: 3.0.0-beta2
+             os: WINDOWS
+             os_version: 7
 
   ie:
       modules:
@@ -47,8 +60,17 @@ env:
           WebDriver:
             browser: internet explorer
             browser_version: 10.0
-            window_size: 1980x1780
-            os_version: 8
+            resolution: 1920x1080
+            host: 'hub.browserstack.com'
+            port: 80
+            capabilities:
+             browserstack.user: 'alex4556'
+             browserstack.key: 'w1447cpT1SQuyFthNZr3'
+             browserstack.debug: 'true'
+             unexpectedAlertBehaviour: 'accept'
+             browserstack.selenium_version: 3.0.0-beta2
+             os: WINDOWS
+             os_version: 7
 
 
   safari:
@@ -56,6 +78,32 @@ env:
         config:
           WebDriver:
             browser: safari
-            window_size: maximize
+            browser_version: 9.1
+            host: 'hub.browserstack.com'
+            port: 80
+            capabilities:
+             browserstack.user: 'alex4556'
+             browserstack.key: 'w1447cpT1SQuyFthNZr3'
+             browserstack.debug: 'true'
+             unexpectedAlertBehaviour: 'accept'
+             browserstack.selenium_version: 3.0.0-beta2
+             os: OS X
+             os_version: El Capitan
+             window_size: maximize
+
+
+  # for tablet testing
+
+  google_nexus_7:
+      modules:
+        config:
+           WebDriver:
+              browser: android
+              capabilities:
+               platform: 'ANDROID'
+               device: 'Google Nexus 7'
+               browserstack.debug: 'true'
+               unexpectedAlertBehaviour: 'accept'
+               pageLoadStrategy: 'eager'
 
 
