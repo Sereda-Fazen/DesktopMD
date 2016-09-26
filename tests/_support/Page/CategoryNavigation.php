@@ -160,7 +160,7 @@ class CategoryNavigation
     public function returnToPetrolFourWheelRotaryLawnPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$returnToPetrolFourWheelRotaryLawnLink);
-        $I->waitForElementVisible(self::$h1);
+        $I->waitForElement(self::$panelSelfPropelled4WheelPetrolLawnMowers);
         $I->see('Petrol Four Wheel Rotary Lawn Mowers', self::$h1);    }
 
 // 4-Wheel Petrol Lawn Mowers
@@ -193,7 +193,7 @@ class CategoryNavigation
     public function returnMainsElectricLawnMowersPage (){
         $I = $this->tester;
         $I->waitAndClick(self::$returnMainsElectricLawnMowersPage);
-        $I->waitForElementVisible(self::$h1);
+        $I->waitForElement(self::$panelElectricRearRollerRotaryLawnMowers);
         $I->see('Mains-Electric Lawn Mowers', self::$h1);    }
 
 /// Lawn Tractors
@@ -243,7 +243,7 @@ class CategoryNavigation
     public function returnHedgetrimmersHedgecuttersPage (){
         $I = $this->tester;
         $I->waitAndClick(self::$returnHedgetrimmersHedgecuttersPage);
-        $I->waitForElementVisible(self::$h1);
+        $I->waitForElement(self::$hedgetrimmersDropDown);
         $I->see('Hedgetrimmers & Hedgecutters', self::$h1);    }
 
     public function goToElectricHedgetrimmersPage (){
@@ -267,7 +267,7 @@ class CategoryNavigation
     public function returnChainsawsPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$returnChainsawsPage);
-        $I->waitForElementVisible(self::$h1);
+        $I->waitForElementVisible(self::$panelPetrolChainsaws);
         $I->see('Chainsaws', self::$h1);    }
 
     public function goToElectricChainsawsPage(){
@@ -293,7 +293,7 @@ class CategoryNavigation
     public function returnGardenVacuumsLeafBlowersSweepersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$returnGardenVacuumsLeafBlowersSweepers);
-        $I->waitForElementVisible(self::$h1);
+        $I->waitForElement(self::$panelHandHeldGardenBlowerVacs);
         $I->see('Garden Vacuums, Leaf Blowers & Sweepers', self::$h1);    }
 
     public function goToBackpackPowerLeafBlowersPage(){
@@ -354,7 +354,7 @@ class CategoryNavigation
     public function returnGardenChippersShreddersPage(){
         $I = $this->tester;
         $I->waitAndClick(self::$returnGardenChippersShredders);
-        $I->waitForElementVisible(self::$h1);
+        $I->waitForElement(self::$panelElectricGardenShredder);
         $I->see('Garden Chippers & Shredders', self::$h1);    }
 
 // Firewood Tools Page
