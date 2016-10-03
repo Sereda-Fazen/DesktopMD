@@ -12,14 +12,24 @@ settings:
     strict_xml: true
 
 extensions:
+    enabled:
+        - BookIt\Codeception\TestRail\Extension
+    config:
+        BookIt\Codeception\TestRail\Extension:
+            enabled: true                 # When false, don't communicate with TestRail (optional; default: true)
+            user: 'yf@itsvit.org'       # A TestRail user (required)
+            apikey: 'Iya/aok2CPAHNeDD.z8Z-HsUoXBGmeRNz0KH8IAxi'              # A TestRail API Key (required)
+            url: 'https://yftest.testrail.net'
+            project: 6                  # TestRail Project ID (required)
+
+
+extensions:
    enabled:
         - Codeception\Extension\RunFailed
         - Codeception\Extension\Recorder
    config:
         Codeception\Extension\Recorder:
             delete_successful: false
-
-
 
 modules:
     config:
