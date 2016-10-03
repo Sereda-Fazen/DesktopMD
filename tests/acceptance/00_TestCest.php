@@ -19,18 +19,6 @@ class TestCest
         $loginPage->logout();
     }
 
-    /**
-     * @tr-suite 9
-     * @tr-case 129
-     */
-
-    function T1359UseCategoryNavigationToNavigateToTheVariousSaleDepartments(Page\CategoryNavigation $categoryNavigation, \Step\Acceptance\ProductsSteps $I)
-    {
-
-        $categoryNavigation->home();
-        $categoryNavigation->saleDepartment();
-    }
-
 
 }
 

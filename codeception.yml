@@ -3,33 +3,35 @@ paths:
     tests: tests
     log: tests/_output
     data: tests/_data
+    helpers: tests/helpers
     support: tests/_support
     envs: tests/_envs
+    reports: tests/_output
 settings:
     bootstrap: _bootstrap.php
+    suite_class: \PHPUnit_Framework_TestSuite
     colors: true
     memory_limit: 1024M
     strict_xml: true
 
-extensions:
-    enabled:
-        - BookIt\Codeception\TestRail\Extension
-    config:
-        BookIt\Codeception\TestRail\Extension:
-            enabled: true                 # When false, don't communicate with TestRail (optional; default: true)
-            user: 'yf@itsvit.org'       # A TestRail user (required)
-            apikey: 'Iya/aok2CPAHNeDD.z8Z-HsUoXBGmeRNz0KH8IAxi'              # A TestRail API Key (required)
-            url: 'https://yftest.testrail.net'
-            project: 6                  # TestRail Project ID (required)
-
 
 extensions:
+
    enabled:
-        - Codeception\Extension\RunFailed
-        - Codeception\Extension\Recorder
+        - BookIt\Codeception\TestRail\Extension
    config:
-        Codeception\Extension\Recorder:
-            delete_successful: false
+        BookIt\Codeception\TestRail\Extension:
+          enabled: true                 # When false, don't communicate with TestRail (optional; default: true)
+          user: 'yf@itsvit.org'       # A TestRail user (required)
+          apikey: 'Iya/aok2CPAHNeDD.z8Z-HsUoXBGmeRNz0KH8IAxi'              # A TestRail API Key (required)
+          url: 'https://yftest.testrail.net'
+          project: 6                  # TestRail Project ID (required)
+
+
+
+
+
+
 
 modules:
     config:
