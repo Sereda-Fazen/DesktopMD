@@ -18,12 +18,8 @@ settings:
 extensions:
 
    enabled:
-        - Codeception\Extension\RunFailed
-        - Codeception\Extension\Recorder
         - BookIt\Codeception\TestRail\Extension
    config:
-        Codeception\Extension\Recorder:
-          delete_successful: false
         BookIt\Codeception\TestRail\Extension:
           enabled: true                 # When false, don't communicate with TestRail (optional; default: true)
           user: 'yf@itsvit.org'       # A TestRail user (required)
