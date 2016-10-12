@@ -3,6 +3,10 @@ namespace Helper;
 // here you can define custom actions
 // all public methods declared in helper class will be available in $I
 
+
+use Codeception\Test\Descriptor;
+use Codeception\TestInterface;
+
 class Acceptance extends \Codeception\Module
 {
 
@@ -95,7 +99,19 @@ class Acceptance extends \Codeception\Module
         $wait->click($locator);
     }
 
-    
+    public function _failed(TestInterface $test, $fail) {
+        $wd = $this->getModule('WebDriver');
+        $wd->debugWebDriverLogs();
+        $fileName = preg_replace('~/W~','.', Descriptor::getTestSignature($test));
+        $outputDir= codecept_output_dir();
+        $wd->_saveScreenshot($outputDir . mb_strcut($wd->_getConfig('browser') . '-' . $fileName, 0, 245, 'utf-8') . '.fail.png');
+        $wd->_savePageSource($outputDir . mb_strcut($wd->_getConfig('browser') . '-' . $fileName, 0, 244, 'utf-8') . '.fail.html');
+        $wd->debug("Screenshot and page source were saved into '$outputDir' dir");
+
+
+
+    }
+
 
 
 
