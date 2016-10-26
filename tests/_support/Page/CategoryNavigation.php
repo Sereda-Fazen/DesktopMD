@@ -12,7 +12,7 @@ class CategoryNavigation
 
     // T1359
 
-    public static $deals = '//a[@href="/sal-begins-now"]';
+    public static $deals = '//a[@href="/sale-begins-now"]';
     public static $shopNow = '.curved.shadow.shop-now';
     public static $bestDeals = 'ul > li:nth-of-type(2) > span > a';
     public static $clearZone = '.floating-ticket>a';
