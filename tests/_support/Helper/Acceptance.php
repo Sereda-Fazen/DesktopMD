@@ -108,8 +108,6 @@ class Acceptance extends \Codeception\Module
         $wd->_savePageSource($outputDir . mb_strcut($wd->_getConfig('browser') . '-' . $fileName, 0, 244, 'utf-8') . '.fail.html');
         $wd->debug("Screenshot and page source were saved into '$outputDir' dir");
 
-
-
     }
 
 
