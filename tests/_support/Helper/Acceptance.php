@@ -99,15 +99,18 @@ class Acceptance extends \Codeception\Module
         $wait->click($locator);
     }
 
-    public function _failed(TestInterface $test, $fail) {
+    public function _failed(TestInterface $test, $fail)
+    {
         $wd = $this->getModule('WebDriver');
         $wd->debugWebDriverLogs();
-        $fileName = preg_replace('~/W~','.', Descriptor::getTestSignature($test));
-        $outputDir= codecept_output_dir();
-        $wd->_saveScreenshot($outputDir . mb_strcut($wd->_getConfig('browser') . '-' . $fileName, 0, 245, 'utf-8') . '.fail.png');
-        $wd->_savePageSource($outputDir . mb_strcut($wd->_getConfig('browser') . '-' . $fileName, 0, 244, 'utf-8') . '.fail.html');
-        $wd->debug("Screenshot and page source were saved into '$outputDir' dir");
+        $fileName = preg_replace('~/W~', '.', Descriptor::getTestSignature($test));
+        $outputDir = codecept_output_dir();
+        if (!file_exists($outputDir . $wd->_getConfig('browser'))) {
+            mkdir($outputDir . $wd->_getConfig('browser').date(" - F j, Y, g:i a"), 0777, true);
+            $wd->_saveScreenshot($outputDir . $wd->_getConfig('browser').date(" - F j, Y, g:i a"). '/' . mb_strcut($wd->_getConfig('browser') . '-' . $fileName,
+                            0, 245, 'utf-8') . ' - ' . date(" - F j, Y, g:i a") . '.fail.png');
 
+        }
     }
 
 
