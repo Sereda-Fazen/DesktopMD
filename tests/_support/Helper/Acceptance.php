@@ -102,14 +102,14 @@ class Acceptance extends \Codeception\Module
     public function _failed(TestInterface $test, $fail)
     {
         $wd = $this->getModule('WebDriver');
+        $bv = $wd->_getConfig('browser');
         $wd->debugWebDriverLogs();
         $fileName = preg_replace('~/W~', '.', Descriptor::getTestSignature($test));
         $outputDir = codecept_output_dir();
-        if (!file_exists($outputDir . $wd->_getConfig('browser'))) {
-            mkdir($outputDir . $wd->_getConfig('browser').date(" - F j, Y, g:i a"), 0777, true);
-            $wd->_saveScreenshot($outputDir . $wd->_getConfig('browser').date(" - F j, Y, g:i a"). '/' . mb_strcut($wd->_getConfig('browser') . '-' . $fileName,
+        if (!file_exists($outputDir . $bv)) {
+            mkdir($outputDir . $bv.date(" - F j, Y, g:i a"), 0777, true);
+            $wd->_saveScreenshot($outputDir . $bv.date(" - F j, Y, g:i a"). '/' . mb_strcut($bv . '-' . $fileName,
                             0, 245, 'utf-8') . ' - ' . date(" - F j, Y, g:i a") . '.fail.png');
-
         }
     }
 
