@@ -19,15 +19,15 @@ extensions:
 
    enabled:
         - Codeception\Extension\RunFailed
-       # - Codeception\Extension\Recorder
-       # - BookIt\Codeception\TestRail\Extension
+        - Codeception\Extension\Recorder
+        - BookIt\Codeception\TestRail\Extension
    config:
         Codeception\Extension\Recorder:
           delete_successful: true
         BookIt\Codeception\TestRail\Extension:
           enabled: true                 # When false, don't communicate with TestRail (optional; default: true)
           user: 'vb@colmartech.com'       # A TestRail user (required)
-          apikey: 'Iya/aok2CPAHNeDD.z8Z-HsUoXBGmeRNz0KH8IAxi'              # A TestRail API Key (required)
+          apikey: 'gwIc9omalfEmZ8QsrZI3-tKoyMh1Ph8zugmbint9o'              # A TestRail API Key (required)
           url: 'https://mdgo.testrail.com'
           project: 1                  # TestRail Project ID (required)
 
