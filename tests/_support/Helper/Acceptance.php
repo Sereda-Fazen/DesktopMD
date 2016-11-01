@@ -109,7 +109,7 @@ class Acceptance extends \Codeception\Module
         if (!file_exists($outputDir . $bv)) {
             mkdir($outputDir . $bv.date(" - F j, Y, g:i a"), 0777, true);
             $wd->_saveScreenshot($outputDir . $bv.date(" - F j, Y, g:i a"). '/' . mb_strcut($bv . '-' . $fileName,
-                            0, 245, 'utf-8') . ' - ' . date(" - F j, Y, g:i a") . '.fail.png');
+                            0, 245, 'utf-8') . ' - ' . date("F j, Y, g:i a") . '.fail.png');
         }
     }
 
