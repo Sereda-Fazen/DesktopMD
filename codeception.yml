@@ -18,9 +18,9 @@ settings:
 extensions:
 
    enabled:
-        - Codeception\Extension\RunFailed
-        - Codeception\Extension\Recorder
-        - BookIt\Codeception\TestRail\Extension
+        #- Codeception\Extension\RunFailed
+        #- Codeception\Extension\Recorder
+        #- BookIt\Codeception\TestRail\Extension
    config:
         Codeception\Extension\Recorder:
           delete_successful: true
