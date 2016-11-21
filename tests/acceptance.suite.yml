@@ -53,7 +53,7 @@ env:
         config:
           WebDriver:
             browser: firefox
-            browser_version: 49.0
+            #browser_version: 49.0
             window_size: maximize
             #host: 'hub.browserstack.com'
             #port: 80
