@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ant.test" default="parallel">
+	<property name="acceptance" value="acceptance"/>
+
+	<target name="clear">
+		<delete dir="tests/_output">
+		</delete>
+		<echo>DELETED folder </echo>
+	</target>
+
+	<target name="parallel">
+		<parallel>
+		<echo>RUN acceptance tests chrome</echo>
+		<exec dir="${basedir}" executable="/usr/vendor/bin/codecept" >
+			<arg line="run ${acceptance} -g test"/>
+		</exec>
+		<echo>RUN acceptance tests firefox</echo>
+		<exec dir="${basedir}" executable="/usr/vendor/bin/codecept" >
+			<arg line="run ${acceptance} -g login --env firefox"/>
+		</exec>
+
+		</parallel>
+	</target>
+
+
+</project>
+

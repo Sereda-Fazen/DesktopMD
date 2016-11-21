@@ -99,6 +99,7 @@ class Acceptance extends \Codeception\Module
         $wait->click($locator);
     }
 
+
     public function _failed(TestInterface $test, $fail)
     {
         $wd = $this->getModule('WebDriver');
@@ -106,12 +107,13 @@ class Acceptance extends \Codeception\Module
         $wd->debugWebDriverLogs();
         $fileName = preg_replace('~/W~', '.', Descriptor::getTestSignature($test));
         $outputDir = codecept_output_dir();
-        if (!file_exists($outputDir . $bv)) {
+        if (!$outputDir . $bv) {
             mkdir($outputDir . $bv.date(" - F j, Y, g:i a"), 0777, true);
             $wd->_saveScreenshot($outputDir . $bv.date(" - F j, Y, g:i a"). '/' . mb_strcut($bv . '-' . $fileName,
                             0, 245, 'utf-8') . ' - ' . date("F j, Y, g:i a") . '.fail.png');
         }
     }
+
 
 
 

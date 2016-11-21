@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Mowdirect.iml" filepath="$PROJECT_DIR$/.idea/Mowdirect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/DesktopMD.iml" filepath="$PROJECT_DIR$/.idea/DesktopMD.iml" />
     </modules>
   </component>
 </project>

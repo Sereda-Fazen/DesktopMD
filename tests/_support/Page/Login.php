@@ -25,13 +25,11 @@ class Login
         $this->tester = $I;
     }
 
-
-
     public function login()
     {
         $I = $this->tester;
         $I->amOnPage(self::$URL);
-        $I->click(self::$clickLogIn);
+        $I->waitAndClick(self::$clickLogIn);
 
     }
 

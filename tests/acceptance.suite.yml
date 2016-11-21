@@ -36,6 +36,18 @@ env:
              os: WINDOWS
              os_version: 7
 
+  local:
+      modules:
+        config:
+          WebDriver:
+            url: 'http://www.mowdirect.co.uk/'
+            browser: chrome
+            browser_version: 54.0
+            window_size: maximize
+            #host: "192.168.17.36"
+            #host: "192.168.17.146"
+            host: "10.0.2.15"
+
   firefox:
       modules:
         config:
@@ -43,8 +55,8 @@ env:
             browser: firefox
             browser_version: 49.0
             window_size: maximize
-            host: 'hub.browserstack.com'
-            port: 80
+            #host: 'hub.browserstack.com'
+            #port: 80
             capabilities:
              browserstack.user: 'alex4556'
              resolution: 1920x1080
